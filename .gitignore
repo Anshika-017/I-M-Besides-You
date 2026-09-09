@@ -1,0 +1,14 @@
+# Original datasets — large, provided separately, not part of source control.
+# See data/README.md for how to obtain and place them.
+*.zip
+data/dataset_a/
+data/dataset_b/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+*.egg-info/
+
+# Generated outputs are tracked deliberately (segments.jsonl, reports, figures)
+# unless they get too large — revisit if that becomes a problem.
