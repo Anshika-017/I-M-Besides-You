@@ -156,3 +156,83 @@ Findings:
 
 Committed: `src/procmine/`, `scripts/explore_dataset_a.py`,
 `reports/exploration/dataset_a_summary.json`, this log update.
+
+---
+
+## Day 1 (cont.) — Digging into the ~20-25% "hard" boundaries
+
+Wrote `scripts/explore_same_app_boundaries.py`. Instead of looking at
+execution starts/ends independently, this works at the **transition**
+level: order every session's ground-truth executions by start time, and
+look at each (end of execution i → start of execution i+1) pair. Output:
+`reports/exploration/same_app_boundaries.json` (1,689 transitions across
+61 sessions with ≥2 dated executions).
+
+**First result overturned my own hypothesis.** I expected the hard case to
+be "two back-to-back executions of the *same* process" (per the README:
+"the same process appears many times a day"). Measured it directly:
+**0 of 1,689 transitions have the same process code on both sides.**
+Checked why — the leaked test-harness schedule found on Day 1 explains it:
+the synthetic scheduler explicitly interleaves different process codes
+(`[1/16] proc=P1 ... [2/16] proc=P13 ... [3/16] proc=P12 ...`), so a given
+process type does recur many times in a session, but never twice in a row.
+**Correction:** that specific hard case doesn't exist in this data. Noted
+as a real finding, not silently dropped.
+
+**So what actually causes the ~20-25% gap?** Pulled raw events around
+several "hard" transitions (no app_switch/browser_navigation within 1s)
+and found a consistent pattern: the business portals are **single-page
+apps** using hash-based client routing (e.g. `127.0.0.1:5123/#/payroll-items`,
+`.../#/leave-applications`) inside a small number of already-open Chrome
+windows (matches the leaked setup script: "Launching Edge HR Portal...
+Finance Portal... Ops Portal..." — one window per domain). In every example
+inspected, the ground-truth `start_ts` for the new execution lands 3-6
+seconds *before* any observable click or app_switch — i.e. there's a
+built-in lag between "the test harness's internal decision to start the
+next case" (what `gt_manifest.json` timestamps) and "the first visible UI
+action for it" (what `events.jsonl` records). This lines up with the
+README's own note that recorded wait times are compressed relative to real
+usage, and with `run_config`'s `dwell_scale` field seen earlier.
+
+**Quantified it properly** by testing how much of the 1,689-transition set
+falls within increasing time windows of an app_switch/browser_navigation
+event:
+
+| window | coverage |
+|---|---|
+| 500ms | 59.3% |
+| 1,000ms | 74.1% |
+| 2,000ms | 83.4% |
+| 5,000ms | 86.3% |
+| **8,000ms** | **98.3%** |
+| 15,000ms | 98.7% |
+
+There's a sharp step between 5s and 8s, not a smooth tail — strong evidence
+this is one consistent timing-lag effect, not a mix of unrelated causes.
+Also checked `clipboard_change` and `window_title_change` as alternative
+secondary signals — both fire near less than 1% of boundaries, so they're
+not useful here (ruled out, not just unused).
+
+**Residual:** 29 of 1,689 transitions (1.7%) have no app_switch/navigation
+within even 8s (gaps 10s-134s, scattered across sessions/processes, no
+shared pattern). Treating this as an accepted, documented limitation rather
+than chasing a fix for 1.7% of cases.
+
+**DECISION:** the segmentation heuristic will generate candidate cut
+points from `app_switch` + `browser_navigation` events using a wide match
+window (~8s), plus a self-computed idle-gap fallback for the residual.
+**WHY:** measured, not assumed — this single change recovers boundary
+coverage from 74% to 98%.
+
+**New risk this surfaces, to address when designing the actual algorithm:**
+`gt_manifest.json` shows many single executions span multiple apps (e.g.
+`apps: ["chrome", "excel", "notepad"]`) — meaning plenty of app_switch
+events happen *inside* one execution, not just at its boundaries. Naively
+treating every app_switch as a cut point would over-segment badly. The
+next design step needs a way to tell "this app switch starts a new
+process" apart from "this app switch is just this process's normal
+back-and-forth between apps" — candidate generation (solved above) is not
+the same problem as candidate pruning/merging (not yet solved).
+
+Committed: `scripts/explore_same_app_boundaries.py`,
+`reports/exploration/same_app_boundaries.json`, this log update.
