@@ -1,0 +1,329 @@
+{
+  "corpus_overview": {
+    "n_sessions": 63,
+    "chunks_per_session": {
+      "n": 63,
+      "min": 1,
+      "p25": 2.0,
+      "median": 2.0,
+      "p75": 2.0,
+      "p95": 2.0,
+      "max": 3,
+      "mean": 1.9
+    },
+    "events_per_session": {
+      "n": 63,
+      "min": 945,
+      "p25": 2342.0,
+      "median": 2577.0,
+      "p75": 2865.5,
+      "p95": 3300.7999999999997,
+      "max": 3773,
+      "mean": 2583.6
+    },
+    "event_type_counts": {
+      "app_switch": 50588,
+      "keystroke": 38717,
+      "screenshot_smart": 34580,
+      "shortcut": 13668,
+      "mouse_click": 6177,
+      "browser_click": 5365,
+      "clipboard_change": 5198,
+      "mouse_scroll": 3180,
+      "browser_form_input": 1805,
+      "browser_navigation": 1725,
+      "window_title_change": 451,
+      "window_state_change": 232,
+      "browser_error": 200,
+      "extension_disconnected": 172,
+      "browser_alert": 137,
+      "text_input_complete": 118,
+      "browser_tab_event": 103,
+      "session_start": 63,
+      "session_end": 61,
+      "extension_connected": 54,
+      "upload_started": 53,
+      "upload_completed": 46,
+      "dialog_closed": 28,
+      "dialog_opened": 28,
+      "mouse_double_click": 10,
+      "upload_failed": 5,
+      "mouse_drag_drop": 4
+    },
+    "layer_counts": {
+      "L2": 118399,
+      "L1": 34580,
+      "L3": 9335,
+      "SYSTEM": 454
+    }
+  },
+  "gt_manifest_overview": {
+    "n_distinct_processes": 15,
+    "total_executions": 2009,
+    "executions_per_session": {
+      "n": 63,
+      "min": 24,
+      "p25": 29.0,
+      "median": 32.0,
+      "p75": 34.0,
+      "p95": 37.0,
+      "max": 44,
+      "mean": 31.9
+    },
+    "execution_duration_sec": {
+      "n": 1752,
+      "min": 16.642,
+      "p25": 25.892,
+      "median": 31.700000000000003,
+      "p75": 44.78225,
+      "p95": 87.67574999999987,
+      "max": 1144.824,
+      "mean": 41.6
+    },
+    "executions_with_continuation_flag": 63,
+    "session_span_sec": {
+      "n": 63,
+      "min": 862.488,
+      "p25": 1242.5725,
+      "median": 1316.425,
+      "p75": 1488.297,
+      "p95": 1735.2367,
+      "max": 2796.598,
+      "mean": 1394.4
+    },
+    "fraction_of_session_time_covered_by_some_execution": {
+      "n": 63,
+      "min": 0.5761388480668742,
+      "p25": 0.7824552400859512,
+      "median": 0.8467752065771504,
+      "p75": 0.8781061610754011,
+      "p95": 0.9036441920120984,
+      "max": 0.9525784543121683,
+      "mean": 0.8
+    },
+    "processes": {
+      "A": {
+        "family_name": "住民税通知確認",
+        "domain": "hr",
+        "n_executions": 159,
+        "n_sessions_appearing_in": 40,
+        "variants": {
+          "std": 120,
+          "exc": 39
+        }
+      },
+      "B": {
+        "family_name": "給与備考・控除整備",
+        "domain": "hr",
+        "n_executions": 126,
+        "n_sessions_appearing_in": 35,
+        "variants": {
+          "reg": 104,
+          "adj": 22
+        }
+      },
+      "C": {
+        "family_name": "育児・産休申請確認",
+        "domain": "hr",
+        "n_executions": 161,
+        "n_sessions_appearing_in": 43,
+        "variants": {
+          "null": 161
+        }
+      },
+      "D": {
+        "family_name": "社保・年金補正対応",
+        "domain": "hr",
+        "n_executions": 114,
+        "n_sessions_appearing_in": 38,
+        "variants": {
+          "null": 114
+        }
+      },
+      "E": {
+        "family_name": "入社照合・手当確認",
+        "domain": "hr",
+        "n_executions": 111,
+        "n_sessions_appearing_in": 37,
+        "variants": {
+          "null": 111
+        }
+      },
+      "F": {
+        "family_name": "請求書承認",
+        "domain": "finance",
+        "n_executions": 169,
+        "n_sessions_appearing_in": 41,
+        "variants": {
+          "std": 123,
+          "exc": 46
+        }
+      },
+      "G": {
+        "family_name": "経費精算承認",
+        "domain": "finance",
+        "n_executions": 144,
+        "n_sessions_appearing_in": 39,
+        "variants": {
+          "reg": 117,
+          "adj": 27
+        }
+      },
+      "H": {
+        "family_name": "銀行勘定照合",
+        "domain": "finance",
+        "n_executions": 147,
+        "n_sessions_appearing_in": 39,
+        "variants": {
+          "null": 147
+        }
+      },
+      "I": {
+        "family_name": "予算差異分析",
+        "domain": "finance",
+        "n_executions": 117,
+        "n_sessions_appearing_in": 39,
+        "variants": {
+          "null": 117
+        }
+      },
+      "J": {
+        "family_name": "支払処理",
+        "domain": "finance",
+        "n_executions": 102,
+        "n_sessions_appearing_in": 34,
+        "variants": {
+          "null": 102
+        }
+      },
+      "K": {
+        "family_name": "受注処理",
+        "domain": "ops",
+        "n_executions": 127,
+        "n_sessions_appearing_in": 32,
+        "variants": {
+          "std": 96,
+          "exc": 31
+        }
+      },
+      "L": {
+        "family_name": "在庫調整",
+        "domain": "ops",
+        "n_executions": 137,
+        "n_sessions_appearing_in": 37,
+        "variants": {
+          "reg": 111,
+          "adj": 26
+        }
+      },
+      "M": {
+        "family_name": "仕入先連絡",
+        "domain": "ops",
+        "n_executions": 155,
+        "n_sessions_appearing_in": 42,
+        "variants": {
+          "null": 155
+        }
+      },
+      "N": {
+        "family_name": "出荷追跡",
+        "domain": "ops",
+        "n_executions": 129,
+        "n_sessions_appearing_in": 43,
+        "variants": {
+          "null": 129
+        }
+      },
+      "O": {
+        "family_name": "返品処理",
+        "domain": "ops",
+        "n_executions": 111,
+        "n_sessions_appearing_in": 37,
+        "variants": {
+          "null": 111
+        }
+      }
+    }
+  },
+  "gt_jsonl_quirks": {
+    "event_type_counts": {
+      "clipboard_paste": 3010,
+      "task_started": 2009,
+      "process_started": 1819,
+      "clipboard_copy": 1766,
+      "process_switched_out": 1590,
+      "process_resumed": 190,
+      "process_suspended": 99,
+      "run_config": 63,
+      "session_ended": 63
+    },
+    "process_started_total": 1819,
+    "process_started_immediate_duplicates": 0,
+    "process_switched_out_total": 1590,
+    "process_suspended_total": 99,
+    "process_resumed_total": 190
+  },
+  "boundary_signal_analysis": {
+    "n_boundaries": 3761,
+    "boundary_nearest_event_delta_ms": {
+      "n": 3761,
+      "min": 0,
+      "p25": 173.0,
+      "median": 192.0,
+      "p75": 949.0,
+      "p95": 2931.0,
+      "max": 962603,
+      "mean": 5813.0
+    },
+    "boundary_nearest_appswitch_delta_ms": {
+      "n": 3761,
+      "min": 37,
+      "p25": 173.0,
+      "median": 204.0,
+      "p75": 5276.0,
+      "p95": 6663.0,
+      "max": 965664,
+      "mean": 7349.3
+    },
+    "boundary_ms_since_last_event_at_nearest": {
+      "n": 3706,
+      "min": -205302,
+      "p25": 424.0,
+      "median": 487.0,
+      "p75": 3187.0,
+      "p95": 4358.0,
+      "max": 123732,
+      "mean": 1937.1
+    },
+    "control_nearest_event_delta_ms": {
+      "n": 3761,
+      "min": 0,
+      "p25": 240.0,
+      "median": 857.0,
+      "p75": 4013.0,
+      "p95": 26805.0,
+      "max": 465047,
+      "mean": 7505.5
+    },
+    "control_nearest_appswitch_delta_ms": {
+      "n": 3761,
+      "min": 0,
+      "p25": 1014.0,
+      "median": 3299.0,
+      "p75": 7513.0,
+      "p95": 30427.0,
+      "max": 465047,
+      "mean": 9808.9
+    },
+    "control_ms_since_last_event_at_nearest": {
+      "n": 3698,
+      "min": -713900,
+      "p25": 24.0,
+      "median": 90.0,
+      "p75": 2586.5,
+      "p95": 31252.799999999923,
+      "max": 983925,
+      "mean": 6859.9
+    }
+  }
+}
