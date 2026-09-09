@@ -891,3 +891,99 @@ testing beyond what `analyze.py`'s existing `iso_to_dt`/timestamp tests
 already cover).
 
 **NEXT:** Build the Step 3 prototype per this scope — not started yet.
+
+---
+
+## Day 1 (cont.) — Step 3: building the working prototype
+
+**WHAT WE DID:** Built and ran a genuine, working automation prototype for
+the expense-settlement confirmation sub-flow identified in the feasibility
+investigation — not pseudocode. Files: `automation/decision.py` (business
+rule), `automation/mock_app.py` (Flask reproduction of the observed queue
+UI), `automation/sample_data.py` (deterministic demo data),
+`automation/run_automation.py` (Playwright driver), plus
+`tests/test_step3_decision.py` and `tests/test_step3_integration.py`.
+Full writeup: `reports/step3/step3_prototype.md`.
+
+**WHY:** the feasibility investigation explicitly ruled out "automate
+payroll-items" and scoped Step 3 down to one concrete, well-evidenced
+sub-flow. Building anything broader than that would contradict the
+investigation's own conclusion.
+
+**HOW:** Before writing `decision.py`, went back to the raw dataset_b
+events one more time (not just re-used the feasibility doc's summary) to
+re-verify the exact evidence for every constant the rule would use — see
+"what we found" below for why that mattered. Built the mock app to
+reproduce only the specifically-observed DOM (`#pi-table`, `#pi-note`,
+`#btn-pi-ok`, the 4th-column click, the note template) with a visible
+"MOCK / REPRODUCTION" banner, since the real dataset_b application isn't
+available to us. Installed Playwright + Chromium and Flask (added to
+`requirements.txt`).
+
+**WHAT WE FOUND (a real correction made before shipping the rule, not
+after):** re-searching for the full, non-truncated version of the one
+policy-regulation text found in dataset_b turned up something the
+feasibility doc's brief mention hadn't fully resolved: a complete capture
+of "接待交際費規程" (entertainment expense regulation) Article 2, with
+actual numbers — under ¥50,000 needs department-head approval, ¥50,000+
+needs executive approval, ¥100,000+ needs president approval. Checking
+this against the routine confirmations actually observed in this queue
+surfaced a real inconsistency: **all 7 observed entertainment-expense
+confirmations in this queue (¥60,936–¥129,596) are already above the
+¥50,000 tier**, yet went through the same "confirmed" action as everything
+else. Did not resolve this by assumption. Took the conservative reading:
+the one number with a real written source becomes a hard ceiling for what
+the bot will auto-confirm, even though observed practice in this exact
+queue looks looser than that — anything at/above ¥50,000 is routed to a
+human. This is disclosed explicitly in both the code's docstring and the
+report, not smoothed over.
+
+Also computed, category by category, the full observed amount range for
+all 5 eligible categories from a 43-sample survey (43 distinct routine
+confirmations, zero exceptions) — this is what actually justifies treating
+those 5 categories (and no others) as safe to automate, not any assumed
+knowledge of company policy.
+
+**WHAT DECISION:** Shipped a rule with exactly two gates: (1) category
+must be one of the 5 directly observed with zero exceptions, (2) for
+entertainment specifically, amount must be below the one confirmed written
+threshold. Everything else — unknown category, missing/invalid amount,
+entertainment at/above ¥50,000 — routes to human review, untouched, never
+guessed at. No LLM/AI judgment anywhere in the decision path (a plain,
+auditable Python function), consistent with the feasibility
+recommendation that this decision is bounded/deterministic, not the kind
+of open-ended judgment an LLM's flexibility would actually help with.
+
+**Ran the prototype for real** against 9 deterministic sample items
+covering every branch: **5 auto-confirmed (all independently verified by
+re-reading the live DOM after clicking, not assumed from the click
+succeeding), 4 routed to human review, 0 errors.** Screenshot of the final
+queue state captured (`automation/output/final_queue_state.png`) and
+visually confirmed it shows exactly this split. Re-ran the exact
+documented command from the repo root (not just from inside `automation/`)
+to confirm the run instructions work as written, and confirmed no
+orphaned server process is left behind afterward.
+
+**Self-audit before committing** (all passed): grepped `automation/` and
+`reports/step3/` for the leaked "Theme M2" text — the only matches are
+documentation sentences stating it was *not* used, not actual usage;
+`git diff` confirms `segments.jsonl`, `src/procmine/segment.py`, and
+`src/procmine/label.py` are byte-for-byte unchanged; full test suite
+(35 tests: 24 from Step 1/2 + 9 decision-logic + 2 Playwright integration)
+passes.
+
+**LIMITATIONS, stated in the report, not hidden:** demonstrated against a
+mock reproduction (the real dataset_b application isn't available to us),
+so the DOM/auth/API behavior of the real system is unconfirmed even though
+the mechanical pattern and category/note evidence are real; only 5 of 9
+identified sub-flows are covered, and only the lower tier of the one
+sub-flow with any confirmed threshold at all; the entertainment-expense
+inconsistency above is disclosed but not resolved — a real deployment
+needs the client's own answer for it, not another assumption from us.
+
+Committed: `automation/` (all files), `tests/test_step3_decision.py`,
+`tests/test_step3_integration.py`, `reports/step3/step3_prototype.md`,
+`requirements.txt` update, this log update.
+
+**NEXT:** not yet decided — final report/submission packaging, or further
+prototype hardening, per the next instruction.

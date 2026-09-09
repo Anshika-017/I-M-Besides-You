@@ -1,0 +1,79 @@
+[
+  {
+    "item_id": "1",
+    "category": "交通費精算",
+    "amount": 12500.0,
+    "outcome": "AUTO_CONFIRM",
+    "reason": "known category, valid amount, within observed safe range",
+    "timestamp": "2026-09-09T06:05:48.436253+00:00",
+    "verified": true
+  },
+  {
+    "item_id": "2",
+    "category": "出張旅費",
+    "amount": 45000.0,
+    "outcome": "AUTO_CONFIRM",
+    "reason": "known category, valid amount, within observed safe range",
+    "timestamp": "2026-09-09T06:05:48.644550+00:00",
+    "verified": true
+  },
+  {
+    "item_id": "3",
+    "category": "研修費",
+    "amount": 30000.0,
+    "outcome": "AUTO_CONFIRM",
+    "reason": "known category, valid amount, within observed safe range",
+    "timestamp": "2026-09-09T06:05:48.874182+00:00",
+    "verified": true
+  },
+  {
+    "item_id": "4",
+    "category": "消耗品費",
+    "amount": 8000.0,
+    "outcome": "AUTO_CONFIRM",
+    "reason": "known category, valid amount, within observed safe range",
+    "timestamp": "2026-09-09T06:05:49.090832+00:00",
+    "verified": true
+  },
+  {
+    "item_id": "5",
+    "category": "接待交際費",
+    "amount": 35000.0,
+    "outcome": "AUTO_CONFIRM",
+    "reason": "known category, valid amount, within observed safe range",
+    "timestamp": "2026-09-09T06:05:49.330975+00:00",
+    "verified": true
+  },
+  {
+    "item_id": "6",
+    "category": "接待交際費",
+    "amount": 50000.0,
+    "outcome": "HUMAN_REVIEW",
+    "reason": "entertainment expense of ¥50,000 is at/above the ¥50,000 department-head approval cap from the observed regulation (Article 2) -- requires executive/president authority, outside this bot's scope",
+    "timestamp": "2026-09-09T06:05:49.559734+00:00"
+  },
+  {
+    "item_id": "7",
+    "category": "接待交際費",
+    "amount": 120000.0,
+    "outcome": "HUMAN_REVIEW",
+    "reason": "entertainment expense of ¥120,000 is at/above the ¥50,000 department-head approval cap from the observed regulation (Article 2) -- requires executive/president authority, outside this bot's scope",
+    "timestamp": "2026-09-09T06:05:49.559770+00:00"
+  },
+  {
+    "item_id": "8",
+    "category": "福利厚生費",
+    "amount": 15000.0,
+    "outcome": "HUMAN_REVIEW",
+    "reason": "category '福利厚生費' is not one of the 5 categories observed being processed through this queue with no exceptions -- no basis to assume it's safe to auto-confirm",
+    "timestamp": "2026-09-09T06:05:49.559782+00:00"
+  },
+  {
+    "item_id": "9",
+    "category": "出張旅費",
+    "amount": null,
+    "outcome": "HUMAN_REVIEW",
+    "reason": "missing or non-numeric amount",
+    "timestamp": "2026-09-09T06:05:49.559792+00:00"
+  }
+]
