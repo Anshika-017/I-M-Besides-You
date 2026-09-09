@@ -1,0 +1,102 @@
+{
+  "tp": 387,
+  "fp": 323,
+  "fn": 26,
+  "precision": 0.5451,
+  "recall": 0.937,
+  "f1": 0.6892,
+  "mean_segment_count_ratio": 2.146,
+  "signed_timing_error_ms": {
+    "n": 387,
+    "min": -9825,
+    "median": 983,
+    "p90": 7383,
+    "max": 9069
+  },
+  "per_session": {
+    "ses_20260630-132737-LAPTOP-R36BQBTE": {
+      "tp": 27,
+      "fp": 20,
+      "fn": 3,
+      "n_pred_segments": 46,
+      "n_true_segments": 25
+    },
+    "ses_20260630-164418-MSI": {
+      "tp": 30,
+      "fp": 30,
+      "fn": 6,
+      "n_pred_segments": 59,
+      "n_true_segments": 30
+    },
+    "ses_20260701-032825-CHAITANYA0BCF": {
+      "tp": 30,
+      "fp": 27,
+      "fn": 2,
+      "n_pred_segments": 56,
+      "n_true_segments": 26
+    },
+    "ses_20260701-053005-MSI": {
+      "tp": 32,
+      "fp": 27,
+      "fn": 4,
+      "n_pred_segments": 58,
+      "n_true_segments": 27
+    },
+    "ses_20260701-055918-MSI": {
+      "tp": 35,
+      "fp": 26,
+      "fn": 1,
+      "n_pred_segments": 60,
+      "n_true_segments": 30
+    },
+    "ses_20260701-070320-JAYESH": {
+      "tp": 43,
+      "fp": 33,
+      "fn": 2,
+      "n_pred_segments": 75,
+      "n_true_segments": 38
+    },
+    "ses_20260701-075548-CHAITANYA0BCF": {
+      "tp": 24,
+      "fp": 17,
+      "fn": 2,
+      "n_pred_segments": 40,
+      "n_true_segments": 20
+    },
+    "ses_20260701-090300-Marcos": {
+      "tp": 32,
+      "fp": 34,
+      "fn": 1,
+      "n_pred_segments": 65,
+      "n_true_segments": 22
+    },
+    "ses_20260701-103521-LAPTOP-0IM1OHQH": {
+      "tp": 33,
+      "fp": 22,
+      "fn": 1,
+      "n_pred_segments": 54,
+      "n_true_segments": 24
+    },
+    "ses_20260701-120612-Marcos": {
+      "tp": 31,
+      "fp": 29,
+      "fn": 2,
+      "n_pred_segments": 59,
+      "n_true_segments": 27
+    },
+    "ses_20260701-124636-MSI": {
+      "tp": 35,
+      "fp": 30,
+      "fn": 1,
+      "n_pred_segments": 64,
+      "n_true_segments": 31
+    },
+    "ses_20260701-145907-MSI": {
+      "tp": 35,
+      "fp": 28,
+      "fn": 1,
+      "n_pred_segments": 62,
+      "n_true_segments": 28
+    }
+  }
+}

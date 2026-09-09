@@ -1,0 +1,4 @@
+# Core segmentation/evaluation code (src/procmine/) uses only the Python
+# standard library, deliberately -- see WORKLOG.md. pytest is needed only
+# to run the unit tests in tests/.
+pytest>=7.0

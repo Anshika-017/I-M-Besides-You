@@ -1,0 +1,11 @@
+{
+  "name": "V2_min15s",
+  "config": {
+    "debounce_ms": 2000,
+    "min_duration_ms": 15000,
+    "idle_gap_ms": 8000,
+    "use_idle_fallback": true,
+    "use_freshness_filter": false,
+    "freshness_lookback_ms": 30000
+  }
+}

@@ -301,3 +301,163 @@ ground truth once built, and report the real number rather than assume one.
 
 Committed: `scripts/explore_oversegmentation.py`,
 `reports/exploration/oversegmentation.json`, this log update.
+
+---
+
+## Day 1 (cont.) — Designing and implementing the Step 1 algorithm
+
+**WHAT WE DID:** Turned the last three explorations into actual, evaluated
+code: `src/procmine/segment.py` (the boundary-detection algorithm),
+`src/procmine/evaluate.py` (boundary-matching scorer), and
+`scripts/evaluate_segmentation.py` (the driver that compares configurations
+and picks one using held-out data). Scope for this pass: boundary detection
+only — cutting a session into (start, end) spans. Assigning a consistent
+label to each segment (so the same real process gets the same label) is a
+separate step, deferred deliberately, because it needs different evidence
+(feature similarity across segments) than deciding where to cut does.
+
+**WHY this three-stage design:** directly maps to the three prior
+explorations. (1) Candidate generation = debounced app_switch/
+browser_navigation events + a self-computed idle-gap fallback, because
+that combination was shown to sit within 8s of ~98% of true boundaries.
+(2) Filtering by minimum segment duration, because interior (non-boundary)
+signal events were shown to be common (median 2, up to 142 per execution)
+and the shortest real execution observed is ~16.6s, so short predicted
+segments are much more likely to be noise than real. (3) An optional
+freshness filter (suppress a candidate if its destination was already seen
+recently in the still-open segment), included as a variant to test, not
+assumed to help, because the measurement showed it's a real but weak
+signal (35.7% vs 7.7%, not close to a clean rule).
+
+**HOW we evaluated it, and why a train/holdout split within dataset_a:**
+`scripts/evaluate_segmentation.py` splits dataset_a's 63 sessions into 51
+"dev" sessions (used to compare configurations) and 12 held-out "test"
+sessions (looked at exactly once, after a configuration was already
+chosen). This exists because the assignment's own overfitting warning
+(dataset_a's approach may not transfer to dataset_b) is really a special
+case of a more general risk — a configuration could just as easily overfit
+to dataset_a's own 63 sessions as a whole. Checking generalization one
+level down, where we actually have ground truth to check it against, is
+cheap and catches that risk early. Evaluation metric: boundary
+precision/recall/F1 via nearest-neighbor greedy matching within a 10s
+tolerance (chosen because exploration showed the observable-action lag
+behind a true boundary is usually under ~8s), plus mean predicted/true
+segment-count ratio as an over/under-segmentation summary, plus the signed
+timing error (predicted − true) for matched pairs.
+
+**RESULT: comparing 10 configurations on the dev set** (full table in
+`reports/step1/dev_comparison.json`):
+
+| config | P | R | F1 | pred/true seg ratio |
+|---|---|---|---|---|
+| V1 naive (debounce only, no merging) | 0.263 | 0.968 | 0.414 | 4.51x |
+| min_duration=5s | 0.338 | 0.959 | 0.500 | 3.47x |
+| min_duration=8s | 0.398 | 0.949 | 0.561 | 2.91x |
+| min_duration=12s | 0.487 | 0.929 | 0.639 | 2.32x |
+| **min_duration=15s** | **0.533** | **0.919** | **0.674** | **2.09x** |
+| min_duration=20s | 0.506 | 0.683 | 0.582 | 1.63x |
+| min_duration=8s + freshness filter | 0.458 | 0.878 | 0.602 | 2.34x |
+| min_duration=15s + freshness filter | 0.556 | 0.797 | 0.655 | 1.74x |
+| min_duration=12s, no idle fallback | 0.493 | 0.927 | 0.644 | 2.29x |
+
+**WHAT IT MEANS:**
+- V1 (the "obvious" naive baseline — cut on every debounced app switch)
+  confirms the over-segmentation problem is exactly as bad as measured
+  during exploration: 4.5x too many segments, precision 0.26.
+  Min-duration merging is doing real, substantial work.
+- Precision rises monotonically with min_duration up to 15s, then recall
+  collapses at 20s (0.919 → 0.683) as real short executions start getting
+  merged away — this lines up exactly with the ~16.6s shortest observed
+  execution, and gives an evidence-based reason the sweep didn't need to
+  go higher.
+- The freshness filter *does* help at low min_duration (8s: F1 0.561 →
+  0.602) — it's doing some of the same job min_duration merging does at
+  higher thresholds — but once min_duration is already at 15s, it makes
+  things worse (F1 0.674 → 0.655): it trades away real recall (0.919 →
+  0.797) for a small precision gain, a bad trade given recall was already
+  the stronger side of the ledger. **Decision: don't ship the freshness
+  filter** — confirmed by measurement, not by the a priori "app identity
+  is weak" finding alone.
+- Removing the idle-gap fallback made no real difference (F1 0.639 vs
+  0.644) — expected, since it only targets a ~1.7% edge case. Left it on:
+  free (essentially neutral on dataset_a) and should matter more wherever
+  behavior differs, e.g. dataset_b.
+
+**DECISION:** ship `min_duration_ms=15000, debounce_ms=2000,
+idle_gap_ms=8000, use_idle_fallback=True, use_freshness_filter=False` —
+best dev F1 (0.674), and it's the configuration set as
+`SegmentationConfig`'s defaults in `src/procmine/segment.py`.
+
+**RESULT: held-out test set (12 sessions, never touched during the
+comparison above):** precision 0.545, recall 0.937, **F1 0.689** — matches
+(in fact very slightly exceeds) the dev F1 of 0.674. This is the outcome
+we wanted from the split: if test F1 had been much lower than dev F1,
+that would mean the config was fit to dev's specific sessions rather than
+to the real underlying pattern. It wasn't.
+
+**Failure inspection (dev set, so the held-out test set stays untouched
+for future use):** categorized every false positive as either a "near
+miss" (within 20s of some true boundary — likely just the observable-
+action lag pushing a real detection past the 10s match window) or "far"
+(more than 20s from any true boundary — a genuinely spurious cut).
+Result: **62.1% of false positives are near-misses, 37.9% are far.**
+Pulled a concrete "far" example and found it's at the very start of a
+session, during `WindowsTerminal` activity — this is the test harness's
+own setup script running (the same leaked "Theme M2 - Run Setup" terminal
+capture seen earlier), which is real, correctly-detected activity that
+simply isn't a business process at all, so ground truth has no boundary
+there for it to match. **This is a real limitation but not entirely a
+segmentation bug**: the current algorithm has no notion of "process vs.
+non-process time" (that's deferred to the labeling stage per the module
+docstring), so some of its "false positives" are actually correct cuts in
+time that was never going to be labeled a process to begin with.
+
+**Tolerance sensitivity (same frozen config, not re-tuned — a diagnostic
+on the config already chosen above, run on the test set):**
+
+| tolerance | P | R | F1 |
+|---|---|---|---|
+| 5s | 0.273 | 0.470 | 0.346 |
+| 10s (primary, used for selection) | 0.545 | 0.937 | 0.689 |
+| 15s | 0.561 | 0.964 | 0.709 |
+| 20s | 0.562 | 0.966 | 0.711 |
+
+Recall keeps climbing up to 15-20s tolerance (0.937 → 0.966) then flattens
+— consistent with the earlier finding that ~98% of boundaries have a
+signal event within 8s. Precision, however, plateaus around 0.56 even at
+generous tolerance — meaning roughly 44% of predicted cuts genuinely don't
+correspond to a nearby true boundary, not just a timing-tolerance artifact.
+Some of that is the noise-time detections described above; the rest is
+real residual over-segmentation that minimum-duration merging alone
+doesn't catch.
+
+**LIMITATIONS, stated plainly:**
+- Recall is strong (~94-97% depending on tolerance) — the algorithm rarely
+  misses a real transition.
+- Precision is moderate (~54-56%) — roughly every other predicted segment
+  either isn't a real boundary or falls in genuinely unlabeled (noise)
+  time. This is the main known weakness of this baseline.
+- No process/noise classification yet — deferred to labeling. Once
+  segments get labeled, filtering out segments that don't look like any
+  real process cluster should recover some of that precision loss "for
+  free," but that's not measured yet and shouldn't be assumed to fully
+  fix it.
+- A content/similarity-based merge pass (comparing adjacent segments'
+  features rather than just duration) is the natural next lever if more
+  precision is needed later — not implemented now, to keep this baseline
+  simple and match the assignment's "don't over-build, state what you
+  deferred" guidance.
+
+Added `tests/test_segment.py` and `tests/test_evaluate.py` — small unit
+tests against synthetic event lists (no dataset needed) for the core
+logic: debounce collapsing bursts, min-duration merging dropping/keeping
+boundaries correctly, segments tiling a session with no gaps/overlaps,
+and the boundary matcher being one-to-one (not many-to-many) and
+tolerance-respecting. Installed `pytest` (`requirements.txt` added — the
+only dependency; `src/procmine/` itself uses only the standard library on
+purpose). All 12 tests pass.
+
+Committed: `src/procmine/segment.py`, `src/procmine/evaluate.py`,
+`scripts/evaluate_segmentation.py`, `reports/step1/{dev_comparison,
+test_result,chosen_config}.json`, `tests/`, `requirements.txt`, this log
+update.
