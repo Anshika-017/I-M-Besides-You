@@ -3,6 +3,28 @@
 Running record of what was actually done, in order. Written as work happens,
 not reconstructed afterward.
 
+## GenAI usage (required disclosure per README.md)
+
+This entire project — all exploration, code, tests, analysis, and
+documentation below — was produced through an interactive session with
+Claude Code (Anthropic's AI coding agent), directed turn-by-turn by the
+person submitting this assignment. Concretely: the human set the goal and
+constraints at each stage (e.g. "explore the data," "design and implement
+Step 1," "do not tune on dataset_b," "investigate feasibility before
+building"), reviewed the AI's findings and decisions at each checkpoint
+before allowing the next stage to proceed, and made the explicit calls
+that required human judgment under the assignment's own framing (e.g.
+approving the Step 3 scope). The AI wrote the actual code, ran the actual
+analyses, caught and fixed its own errors (see the several corrected
+mistakes throughout this log), and drafted this documentation. Every
+number and finding in this log and in `reports/` was produced by actually
+running the code against the real data, not generated or estimated by the
+AI without execution — this is verified in `FINAL_REPORT.md`'s audit
+section. This disclosure itself was added during the final
+submission audit, after noticing the original work log omitted an
+explicit statement of this despite recording the work as it happened —
+see the "Final submission audit" entry at the end of this file.
+
 ---
 
 ## Day 1 — Setup and data verification
@@ -987,3 +1009,73 @@ Committed: `automation/` (all files), `tests/test_step3_decision.py`,
 
 **NEXT:** not yet decided — final report/submission packaging, or further
 prototype hardening, per the next instruction.
+
+---
+
+## Day 1 (cont.) — Final submission audit
+
+**WHAT WE DID:** Acted as a strict evaluator against our own work, not a
+developer trying to make it look good. Re-verified every major numeric
+claim by re-running the actual code fresh and diffing against committed
+output (not by re-reading prior documentation), checked git history and
+tracked files for secrets/oversized files/leaked-dataset material, and
+wrote `FINAL_REPORT.md` as the consolidated, audit-checked top-level
+report.
+
+**WHY:** the assignment is scored after submission with no further
+chances to correct mistakes — the discipline used throughout this project
+(measure before trusting, catch and fix rather than assume) needed to
+apply to the project's own final claims too, not just to the algorithms.
+
+**HOW:** re-ran `scripts/evaluate_segmentation.py`,
+`scripts/evaluate_labeling.py`, `scripts/step2_analysis.py`,
+`scripts/run_step1_dataset_b.py`, and `automation/run_automation.py` fresh
+and compared output byte-for-byte against what's committed; independently
+re-parsed `segments.jsonl` directly (not via any prior summary) to check
+schema/timestamps/session coverage; grepped all code (not just docs) for
+leaked-generator-text markers and for invented monetary ROI figures;
+grepped all documentation for "accuracy" used as a stand-in for F1/
+V-measure/ARI; re-traced the specific raw event behind the Step 3
+¥50,000 threshold to confirm its source app one more time; ran the full
+test suite and the Step 3 demo fresh.
+
+**WHAT WE FOUND:**
+- Two genuine, previously-missing deliverable requirements: no GenAI
+  usage disclosure existed anywhere, and no time-allocation reasoning
+  existed anywhere, despite both being explicitly required by
+  `README.md`'s Deliverables section. Neither was a methodology gap —
+  both were pure documentation omissions.
+- One genuine reproducibility bug: `reports/step1/labeling_results.json`
+  had at one point been hand-patched (via an ad hoc script, not
+  `scripts/evaluate_labeling.py` itself) to reflect the shipped
+  `LabelingConfig` default (threshold 0.30) rather than the evaluation
+  script's own raw argmax output (threshold 0.32 — negligibly different
+  in quality, but a different number). Re-running the script during the
+  audit reproduced the *old*, un-patched argmax-based numbers, silently
+  diverging from what every other document in this project cites. This
+  would have been an embarrassing, avoidable inconsistency to leave in a
+  final submission.
+- No other discrepancies: segmentation/labeling/Step 2/Step 3 numbers all
+  re-derived identically from fresh runs; no leaked-text usage in any
+  code path; no invented monetary figures anywhere; no "accuracy"
+  mislabeling of clustering-agreement metrics; no secrets or oversized
+  files in git history; `git status` clean, 10 meaningful commits, no
+  history rewriting.
+
+**WHAT DECISION:** Fixed exactly the three items above and nothing else.
+Specifically for the reproducibility bug: changed
+`scripts/evaluate_labeling.py` to explicitly evaluate the actually-shipped
+`LabelingConfig()` default (with the plateau-robustness reasoning now
+stated inline in the script itself, not left as an external, easy-to-lose
+manual step), instead of changing the shipped threshold or re-tuning
+anything to chase a better number. Verified the fix by re-running the
+script twice independently and diffing the two runs directly against each
+other (not just against git HEAD) — confirmed fully deterministic.
+Did **not** touch any segmentation/labeling/ranking/decision logic,
+threshold, or weight to improve a metric — every change this pass is
+either new documentation or a fix that makes the code match a decision
+that was already made and already documented elsewhere.
+
+Committed: `FINAL_REPORT.md`, `WORKLOG.md` (this entry + the GenAI
+disclosure), `scripts/evaluate_labeling.py` (reproducibility fix),
+`reports/step1/labeling_results.json` (regenerated by the fixed script).

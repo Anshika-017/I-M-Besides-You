@@ -271,15 +271,16 @@
       "completeness": 1.0
     }
   },
-  "oracle_best_config": "cat_plus_text_thr0.32",
+  "oracle_dev_raw_argmax": "cat_plus_text_thr0.32",
+  "oracle_best_config": "cat_plus_text_thr0.3",
   "oracle_test_score": {
+    "n_segments": 328,
+    "n_true_classes": 15,
+    "n_pred_clusters": 25,
     "ari": 0.2055,
     "v_measure": 0.6216,
     "homogeneity": 0.5922,
-    "completeness": 0.6542,
-    "n_true_classes": 15,
-    "n_pred_clusters": 25,
-    "n_segments": 328
+    "completeness": 0.6542
   },
   "predicted_dev_sweep_diagnostic": {
     "cat_only_thr0.2": {
@@ -554,16 +555,15 @@
     }
   },
   "predicted_test_score_using_oracle_config": {
+    "n_segments": 555,
+    "n_true_classes": 15,
+    "n_pred_clusters": 53,
     "ari": 0.1279,
     "v_measure": 0.5085,
     "homogeneity": 0.5296,
-    "completeness": 0.489,
-    "n_true_classes": 15,
-    "n_pred_clusters": 53,
-    "n_segments": 555
+    "completeness": 0.489
   },
-  "predicted_config_used": "cat_plus_text_thr0.30 (shipped default, not the raw dev argmax)",
+  "predicted_config_used": "cat_plus_text_thr0.3",
   "predicted_noise_fraction_dev": 0.18443997317236754,
-  "predicted_noise_fraction_test": 0.20487106017191978,
-  "note": "oracle_test_score / predicted_test_score_using_oracle_config below were recomputed with the actually-shipped LabelingConfig default (distance_threshold=0.30), not the raw argmax (0.32) reported by oracle_best_config -- 0.30 was chosen deliberately as the center of the 0.25-0.32 plateau for robustness (see WORKLOG.md and label.py docstring). The difference between 0.30 and 0.32 is negligible on dev (both ~0.570 V-measure)."
+  "predicted_noise_fraction_test": 0.20487106017191978
 }

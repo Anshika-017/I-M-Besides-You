@@ -179,15 +179,25 @@ def main():
     print_table(oracle_dev_results)
 
     best_oracle_name = max(oracle_dev_results, key=lambda n: oracle_dev_results[n]["v_measure"])
-    print(f"\nBest on DEV by V-measure: {best_oracle_name}")
+    print(f"\nBest on DEV by V-measure (raw argmax): {best_oracle_name}")
 
-    feature_name, thr_str = best_oracle_name.rsplit("_thr", 1)
-    best_cfg_template = FEATURE_VARIANTS[feature_name]
-    best_cfg = LabelingConfig(distance_threshold=float(thr_str), use_text=best_cfg_template.use_text,
-                               categorical_weight=best_cfg_template.categorical_weight,
-                               text_weight=best_cfg_template.text_weight)
+    # IMPORTANT: we do NOT just use the raw argmax. The dev sweep found a
+    # plateau (V-measure ~0.567-0.570 across thresholds 0.25-0.32, then a
+    # real cliff by 0.35) -- see WORKLOG.md. The raw argmax happened to land
+    # at 0.32, right at the plateau's edge closest to the cliff. We ship
+    # 0.30 (the plateau's center) instead, as the actual LabelingConfig()
+    # default, for robustness to dataset_b's different vocabulary. This
+    # script must evaluate that SAME shipped config -- not silently
+    # re-derive a slightly different one from the raw argmax each run --
+    # otherwise this script's own output would drift from what's actually
+    # shipped, which is exactly the kind of reproducibility gap a
+    # from-scratch re-run should catch, not hide.
+    best_cfg = LabelingConfig()
+    shipped_name = f"cat_plus_text_thr{best_cfg.distance_threshold}"
+    print(f"Shipped LabelingConfig() default used for all evaluation below: "
+          f"{shipped_name} (chosen as the plateau center, not the raw argmax -- see WORKLOG.md)")
 
-    print(f"\n=== TEST set (oracle segments), config={best_oracle_name} ===")
+    print(f"\n=== TEST set (oracle segments), config={shipped_name} ===")
     feats_test, labels_test = collect_oracle(test)
     X_test = build_feature_matrix(feats_test, best_cfg)
     clusters_test = cluster_segments(X_test, best_cfg)
@@ -210,12 +220,12 @@ def main():
         "second threshold specifically for predicted segments would be tuning "
         "against information we won't have on dataset_b (no ground truth there "
         "either way, but conceptually this mirrors the same overfitting risk). "
-        f"Applying the ORACLE-selected config ({best_oracle_name}) as-is instead, "
+        f"Applying the shipped, oracle-selected config ({shipped_name}) as-is instead, "
         "to measure how much real segmentation noise costs a config chosen "
         "independently of it."
     )
 
-    print(f"\n=== TEST set (predicted segments), config={best_oracle_name} (carried over from Phase 1) ===")
+    print(f"\n=== TEST set (predicted segments), config={shipped_name} (carried over from Phase 1) ===")
     feats_test_p, labels_test_p = collect_predicted(test, FROZEN_SEGMENTATION_CONFIG)
     n_noise_test = sum(1 for l in labels_test_p if l == "NOISE")
     print(f"test predicted segments: {len(feats_test_p)} ({n_noise_test} = "
@@ -232,11 +242,12 @@ def main():
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     out = {
         "oracle_dev_sweep": oracle_dev_results,
-        "oracle_best_config": best_oracle_name,
+        "oracle_dev_raw_argmax": best_oracle_name,
+        "oracle_best_config": shipped_name,
         "oracle_test_score": test_score,
         "predicted_dev_sweep_diagnostic": pred_dev_results,
         "predicted_test_score_using_oracle_config": test_score_p,
-        "predicted_config_used": best_oracle_name,
+        "predicted_config_used": shipped_name,
         "predicted_noise_fraction_dev": n_noise_dev / len(feats_dev_p),
         "predicted_noise_fraction_test": n_noise_test / len(feats_test_p),
     }
