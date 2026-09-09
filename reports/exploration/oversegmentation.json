@@ -1,0 +1,513 @@
+{
+  "interior_counts_describe": {
+    "n": 1752,
+    "min": 0,
+    "median": 2,
+    "p75": 3,
+    "p90": 15,
+    "max": 142,
+    "mean": 4.07
+  },
+  "zero_interior_fraction": 0.1689497716894977,
+  "interior_events_total": 7125,
+  "n_apps_per_execution_describe": {
+    "n": 1752,
+    "min": 3,
+    "median": 3,
+    "p75": 3,
+    "p90": 3,
+    "max": 4,
+    "mean": 3.05
+  },
+  "executions_with_multi_apps_fraction": 1.0,
+  "round_trip_count": 4378,
+  "fresh_count": 2747,
+  "boundary_repeat": 1171,
+  "boundary_fresh": 98,
+  "total_boundaries_checked": 1269,
+  "interior_burst_counts_describe": {
+    "n": 1752,
+    "min": 0,
+    "median": 1,
+    "p75": 2,
+    "p90": 4,
+    "max": 16,
+    "mean": 1.73
+  },
+  "interior_burst_total": 3036,
+  "interior_fine_roundtrip": 4125,
+  "interior_fine_fresh": 3000,
+  "boundary_fine_repeat": 1068,
+  "boundary_fine_fresh": 592,
+  "boundary_fine_checked": 1660,
+  "example_sequences": [
+    {
+      "session": "ses_20260630-121953-LAPTOP-R36BQBTE",
+      "code": "C",
+      "family_name": "育児・産休申請確認",
+      "duration_s": 44.3,
+      "declared_apps": [
+        "chrome",
+        "notepad",
+        "onenote"
+      ],
+      "interior_sequence": [
+        [
+          9547,
+          "app_switch",
+          "Microsoft Word"
+        ],
+        [
+          11679,
+          "app_switch",
+          "Microsoft Word"
+        ],
+        [
+          32104,
+          "app_switch",
+          "Google Chrome"
+        ],
+        [
+          32407,
+          "app_switch",
+          "Google Chrome"
+        ],
+        [
+          33264,
+          "app_switch",
+          "Notepad"
+        ]
+      ]
+    },
+    {
+      "session": "ses_20260630-121953-LAPTOP-R36BQBTE",
+      "code": "M",
+      "family_name": "仕入先連絡",
+      "duration_s": 34.9,
+      "declared_apps": [
+        "chrome",
+        "notepad",
+        "onenote"
+      ],
+      "interior_sequence": [
+        [
+          8249,
+          "app_switch",
+          "Microsoft Word"
+        ],
+        [
+          9847,
+          "app_switch",
+          "Microsoft Word"
+        ],
+        [
+          9872,
+          "app_switch",
+          "Microsoft Word"
+        ],
+        [
+          10213,
+          "app_switch",
+          "Microsoft Word"
+        ],
+        [
+          22940,
+          "app_switch",
+          "Google Chrome"
+        ],
+        [
+          23246,
+          "app_switch",
+          "Google Chrome"
+        ],
+        [
+          23823,
+          "app_switch",
+          "Notepad"
+        ]
+      ]
+    },
+    {
+      "session": "ses_20260630-121953-LAPTOP-R36BQBTE",
+      "code": "M",
+      "family_name": "仕入先連絡",
+      "duration_s": 42.7,
+      "declared_apps": [
+        "chrome",
+        "notepad",
+        "onenote"
+      ],
+      "interior_sequence": [
+        [
+          23429,
+          "app_switch",
+          "Google Chrome"
+        ],
+        [
+          23735,
+          "app_switch",
+          "Google Chrome"
+        ],
+        [
+          24275,
+          "app_switch",
+          "Notepad"
+        ],
+        [
+          27608,
+          "app_switch",
+          "Google Chrome"
+        ],
+        [
+          28574,
+          "app_switch",
+          "Google Chrome"
+        ],
+        [
+          28622,
+          "app_switch",
+          "Google Chrome"
+        ],
+        [
+          28675,
+          "app_switch",
+          "Google Chrome"
+        ],
+        [
+          28732,
+          "app_switch",
+          "Google Chrome"
+        ],
+        [
+          28790,
+          "app_switch",
+          "Google Chrome"
+        ],
+        [
+          28845,
+          "app_switch",
+          "Google Chrome"
+        ],
+        [
+          28902,
+          "app_switch",
+          "Google Chrome"
+        ],
+        [
+          28951,
+          "app_switch",
+          "Google Chrome"
+        ],
+        [
+          29009,
+          "app_switch",
+          "Google Chrome"
+        ],
+        [
+          29064,
+          "app_switch",
+          "Google Chrome"
+        ],
+        [
+          29119,
+          "app_switch",
+          "Google Chrome"
+        ],
+        [
+          29171,
+          "app_switch",
+          "Google Chrome"
+        ],
+        [
+          30153,
+          "app_switch",
+          "Google Chrome"
+        ]
+      ]
+    },
+    {
+      "session": "ses_20260630-121953-LAPTOP-R36BQBTE",
+      "code": "H",
+      "family_name": "銀行勘定照合",
+      "duration_s": 43.2,
+      "declared_apps": [
+        "chrome",
+        "excel",
+        "notepad"
+      ],
+      "interior_sequence": [
+        [
+          15355,
+          "app_switch",
+          "Notepad"
+        ],
+        [
+          18467,
+          "app_switch",
+          "Google Chrome"
+        ],
+        [
+          19132,
+          "app_switch",
+          "Google Chrome"
+        ],
+        [
+          19187,
+          "app_switch",
+          "Google Chrome"
+        ],
+        [
+          19240,
+          "app_switch",
+          "Google Chrome"
+        ],
+        [
+          19295,
+          "app_switch",
+          "Google Chrome"
+        ],
+        [
+          19348,
+          "app_switch",
+          "Google Chrome"
+        ],
+        [
+          19397,
+          "app_switch",
+          "Google Chrome"
+        ],
+        [
+          19458,
+          "app_switch",
+          "Google Chrome"
+        ],
+        [
+          19508,
+          "app_switch",
+          "Google Chrome"
+        ],
+        [
+          19565,
+          "app_switch",
+          "Google Chrome"
+        ],
+        [
+          19615,
+          "app_switch",
+          "Google Chrome"
+        ],
+        [
+          19673,
+          "app_switch",
+          "Google Chrome"
+        ],
+        [
+          19723,
+          "app_switch",
+          "Google Chrome"
+        ],
+        [
+          19788,
+          "app_switch",
+          "Google Chrome"
+        ],
+        [
+          20923,
+          "app_switch",
+          "Google Chrome"
+        ],
+        [
+          25212,
+          "app_switch",
+          "Google Chrome"
+        ],
+        [
+          26961,
+          "app_switch",
+          "Google Chrome"
+        ],
+        [
+          31030,
+          "app_switch",
+          "Google Chrome"
+        ],
+        [
+          31085,
+          "app_switch",
+          "Google Chrome"
+        ],
+        [
+          31136,
+          "app_switch",
+          "Google Chrome"
+        ],
+        [
+          31196,
+          "app_switch",
+          "Google Chrome"
+        ],
+        [
+          31253,
+          "app_switch",
+          "Google Chrome"
+        ],
+        [
+          31304,
+          "app_switch",
+          "Google Chrome"
+        ],
+        [
+          31365,
+          "app_switch",
+          "Google Chrome"
+        ],
+        [
+          31412,
+          "app_switch",
+          "Google Chrome"
+        ],
+        [
+          31470,
+          "app_switch",
+          "Google Chrome"
+        ],
+        [
+          31527,
+          "app_switch",
+          "Google Chrome"
+        ],
+        [
+          31581,
+          "app_switch",
+          "Google Chrome"
+        ],
+        [
+          31628,
+          "app_switch",
+          "Google Chrome"
+        ],
+        [
+          32585,
+          "app_switch",
+          "Google Chrome"
+        ]
+      ]
+    },
+    {
+      "session": "ses_20260630-121953-LAPTOP-R36BQBTE",
+      "code": "C",
+      "family_name": "育児・産休申請確認",
+      "duration_s": 43.4,
+      "declared_apps": [
+        "chrome",
+        "notepad",
+        "onenote"
+      ],
+      "interior_sequence": [
+        [
+          22078,
+          "app_switch",
+          "Notepad"
+        ],
+        [
+          31721,
+          "app_switch",
+          "Settings"
+        ],
+        [
+          31772,
+          "app_switch",
+          "SystemSettings"
+        ]
+      ]
+    },
+    {
+      "session": "ses_20260630-121953-LAPTOP-R36BQBTE",
+      "code": "A",
+      "family_name": "住民税通知確認",
+      "duration_s": 40.5,
+      "declared_apps": [
+        "chrome",
+        "excel",
+        "notepad"
+      ],
+      "interior_sequence": [
+        [
+          13214,
+          "app_switch",
+          "Notepad"
+        ],
+        [
+          15876,
+          "app_switch",
+          "Google Chrome"
+        ],
+        [
+          16677,
+          "app_switch",
+          "Google Chrome"
+        ],
+        [
+          16726,
+          "app_switch",
+          "Google Chrome"
+        ],
+        [
+          16785,
+          "app_switch",
+          "Google Chrome"
+        ],
+        [
+          16836,
+          "app_switch",
+          "Google Chrome"
+        ],
+        [
+          16892,
+          "app_switch",
+          "Google Chrome"
+        ],
+        [
+          16954,
+          "app_switch",
+          "Google Chrome"
+        ],
+        [
+          17010,
+          "app_switch",
+          "Google Chrome"
+        ],
+        [
+          17060,
+          "app_switch",
+          "Google Chrome"
+        ],
+        [
+          17117,
+          "app_switch",
+          "Google Chrome"
+        ],
+        [
+          17174,
+          "app_switch",
+          "Google Chrome"
+        ],
+        [
+          17226,
+          "app_switch",
+          "Google Chrome"
+        ],
+        [
+          17282,
+          "app_switch",
+          "Google Chrome"
+        ],
+        [
+          18520,
+          "app_switch",
+          "Google Chrome"
+        ]
+      ]
+    }
+  ]
+}

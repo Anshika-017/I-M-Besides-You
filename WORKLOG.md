@@ -236,3 +236,68 @@ the same problem as candidate pruning/merging (not yet solved).
 
 Committed: `scripts/explore_same_app_boundaries.py`,
 `reports/exploration/same_app_boundaries.json`, this log update.
+
+---
+
+## Day 1 (cont.) — Over-segmentation / precision investigation
+
+Wrote `scripts/explore_oversegmentation.py`. Question: now that
+app_switch/browser_navigation events are confirmed to find ~98% of
+boundaries, how many of these events fire *inside* a single execution
+(where treating them as a cut would be wrong)?
+
+**Result: this is a real, large problem, not an edge case.** Per
+execution: median 2 "interior" (non-boundary) signal events, p90 = 15,
+max = 142 — and 7,125 interior events total vs only ~1,689 real
+transitions in the same data. A naive "every app_switch is a cut" rule
+would over-segment by roughly 4-5x.
+
+**Caught and fixed my own bug before trusting a result.** First pass at
+"does a boundary's destination app already appear in the previous
+execution's app set" gave a suspiciously clean 0% — turned out
+`gt_manifest.json`'s `apps` field uses lowercase short tokens
+(`"chrome"`, `"excel"`) while raw `app_switch` events use full display
+names (`"Google Chrome"`, `"Microsoft Excel"`), so the string comparison
+silently never matched anything. Fixed by comparing against apps
+*actually observed* in the previous execution's own raw events instead of
+the declared field (which, separately, turned out to be incomplete — e.g.
+raw events show "Microsoft Word" used during an execution whose declared
+`apps` list doesn't mention Word at all. Treating `gt_manifest`'s `apps`
+field as approximate metadata from here on, not an exhaustive list).
+
+**Corrected result, properly measured:** boundary-triggering switches land
+on an app *also used in the previous execution* **92.3%** of the time —
+the opposite of the buggy first result. This makes sense once you see it:
+the whole environment only has ~5-6 apps total (chrome, excel, notepad,
+onenote, outlook, word), so almost any switch reuses an app someone was
+already in earlier that day. **Decision: app identity alone is not a
+usable precision signal** — ruled out with evidence, not by assumption.
+
+Tested two mitigations:
+1. **Debouncing** (collapsing app_switch/navigation events that occur
+   within 2s of each other into a single candidate): cuts total interior
+   events from 7,125 to 3,036 (-57%), median interior-per-execution from 2
+   to 1. Real reduction, but doesn't fully solve it — median is still 1,
+   p90 still 4, after debouncing.
+2. **Finer-grained destination identity** — `(app_name, window_title)` for
+   app_switch, `(browser, url)` for browser_navigation, instead of
+   app_name alone. This exploits the earlier SPA finding (different
+   process = different hash route, even within the same Chrome window).
+   Improves the boundary "introduces something genuinely new" rate from
+   7.7% (app-name only) to **35.7%** — real, meaningful improvement, but
+   still not a clean single-feature separator: 64.3% of true boundaries
+   still reuse a window_title/url also seen in the previous execution
+   (generic windows like plain "Notepad" or a shared portal landing page
+   don't change their title/URL per case).
+
+**Conclusion for the segmentation design:** no single feature (app
+identity, fine-grained window/URL identity, or debouncing alone) cleanly
+separates true boundaries from interior noise. The plan going into the
+actual algorithm: (1) debounce raw candidates first (cheap, -57% noise),
+(2) use fine-grained destination identity as a *weighted* signal, not a
+hard rule, (3) accept the assignment's own framing that "good enough" is
+a judgment call — measure actual precision/recall against dataset_a's
+ground truth once built, and report the real number rather than assume one.
+
+Committed: `scripts/explore_oversegmentation.py`,
+`reports/exploration/oversegmentation.json`, this log update.
