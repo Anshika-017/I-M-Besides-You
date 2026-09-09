@@ -1,0 +1,2234 @@
+{
+  "group_000": {
+    "member_labels": [
+      "proc_00_microsoft-edge_resident-tax",
+      "proc_10_microsoft-edge_resident-tax",
+      "proc_38_microsoft-edge_resident-tax",
+      "proc_66_microsoft-edge_resident-tax",
+      "proc_85_microsoft-edge_resident-tax",
+      "proc_92_microsoft-edge_resident-tax"
+    ],
+    "n_members": 6,
+    "count": 23,
+    "total_duration_s": 562.0,
+    "duration_stats": {
+      "n": 23,
+      "min": 16.0,
+      "median": 22.0,
+      "mean": 24.4,
+      "p75": 27.0,
+      "p90": 31.0,
+      "max": 46.0,
+      "stdev": 8.3
+    },
+    "n_sessions": 6,
+    "sessions": [
+      "ses_20260701-164424-CHAITANYA0BCF",
+      "ses_20260701-171614-CHAITANYA0BCF",
+      "ses_20260701-173246-SIDDHIGUPTAB00B",
+      "ses_20260701-175747-SIDDHIGUPTAB00B",
+      "ses_20260701-183232-LAPTOP-76QMG9DE",
+      "ses_20260701-184201-LAPTOP-76QMG9DE"
+    ],
+    "n_machines": 3,
+    "machines": [
+      "CHAITANYA0BCF",
+      "LAPTOP-76QMG9DE",
+      "SIDDHIGUPTAB00B"
+    ],
+    "consistency_score": 0.66,
+    "top_apps": [
+      [
+        "Microsoft Edge",
+        829
+      ],
+      [
+        "Microsoft Word",
+        92
+      ],
+      [
+        "Notepad",
+        13
+      ]
+    ],
+    "top_routes": [
+      [
+        "#/resident-tax",
+        589
+      ],
+      [
+        "#/payroll-items",
+        21
+      ],
+      [
+        "#/onboarding",
+        13
+      ]
+    ],
+    "share_of_segments": 0.0504,
+    "share_of_time": 0.0531
+  },
+  "group_001": {
+    "member_labels": [
+      "proc_01_microsoft-edge",
+      "proc_31_microsoft-edge",
+      "proc_37_microsoft-edge_http-127-0-0-1-5132",
+      "proc_48_microsoft-edge"
+    ],
+    "n_members": 4,
+    "count": 17,
+    "total_duration_s": 579.0,
+    "duration_stats": {
+      "n": 17,
+      "min": 17.0,
+      "median": 25.0,
+      "mean": 34.1,
+      "p75": 46.0,
+      "p90": 57.0,
+      "max": 78.0,
+      "stdev": 17.8
+    },
+    "n_sessions": 4,
+    "sessions": [
+      "ses_20260701-164424-CHAITANYA0BCF",
+      "ses_20260701-171614-CHAITANYA0BCF",
+      "ses_20260701-173246-SIDDHIGUPTAB00B",
+      "ses_20260701-192455-NEELA9BAF"
+    ],
+    "n_machines": 3,
+    "machines": [
+      "CHAITANYA0BCF",
+      "NEELA9BAF",
+      "SIDDHIGUPTAB00B"
+    ],
+    "consistency_score": 0.478,
+    "top_apps": [
+      [
+        "Microsoft Edge",
+        703
+      ],
+      [
+        "Notepad",
+        50
+      ],
+      [
+        "Microsoft Word",
+        41
+      ]
+    ],
+    "top_routes": [
+      [
+        "#/http:/127.0.0.1:5132",
+        33
+      ],
+      [
+        "#/http:/127.0.0.1:5133",
+        17
+      ],
+      [
+        "#/http:/127.0.0.1:5134",
+        12
+      ]
+    ],
+    "share_of_segments": 0.0373,
+    "share_of_time": 0.0548
+  },
+  "group_002": {
+    "member_labels": [
+      "proc_02_microsoft-edge_social-insurance",
+      "proc_11_microsoft-edge_social-insurance",
+      "proc_19_microsoft-edge_social-insurance",
+      "proc_32_microsoft-edge_social-insurance",
+      "proc_65_microsoft-edge_social-insurance",
+      "proc_86_microsoft-edge_social-insurance",
+      "proc_91_microsoft-edge_social-insurance"
+    ],
+    "n_members": 7,
+    "count": 34,
+    "total_duration_s": 866.0,
+    "duration_stats": {
+      "n": 34,
+      "min": 15.0,
+      "median": 20.0,
+      "mean": 25.5,
+      "p75": 28.0,
+      "p90": 43.0,
+      "max": 56.0,
+      "stdev": 11.8
+    },
+    "n_sessions": 8,
+    "sessions": [
+      "ses_20260701-164424-CHAITANYA0BCF",
+      "ses_20260701-171614-CHAITANYA0BCF",
+      "ses_20260701-173246-SIDDHIGUPTAB00B",
+      "ses_20260701-173642-NEELA9BAF",
+      "ses_20260701-175747-SIDDHIGUPTAB00B",
+      "ses_20260701-181413-LAPTOP-76QMG9DE",
+      "ses_20260701-182634-NEELA9BAF",
+      "ses_20260701-184201-LAPTOP-76QMG9DE"
+    ],
+    "n_machines": 4,
+    "machines": [
+      "CHAITANYA0BCF",
+      "LAPTOP-76QMG9DE",
+      "NEELA9BAF",
+      "SIDDHIGUPTAB00B"
+    ],
+    "consistency_score": 0.537,
+    "top_apps": [
+      [
+        "Microsoft Edge",
+        1331
+      ],
+      [
+        "Microsoft Word",
+        147
+      ],
+      [
+        "Notepad",
+        91
+      ]
+    ],
+    "top_routes": [
+      [
+        "#/social-insurance",
+        857
+      ],
+      [
+        "#/leave-applications",
+        67
+      ],
+      [
+        "#/payroll-items",
+        62
+      ]
+    ],
+    "share_of_segments": 0.0746,
+    "share_of_time": 0.0819
+  },
+  "group_003": {
+    "member_labels": [
+      "proc_03_microsoft-edge_leave-applications",
+      "proc_06_microsoft-word_leave-applications",
+      "proc_09_microsoft-edge_leave-applications",
+      "proc_18_microsoft-edge_leave-applications",
+      "proc_28_microsoft-edge_leave-applications",
+      "proc_52_microsoft-edge_leave-applications",
+      "proc_72_microsoft-edge_leave-applications"
+    ],
+    "n_members": 7,
+    "count": 65,
+    "total_duration_s": 1560.0,
+    "duration_stats": {
+      "n": 65,
+      "min": 15.0,
+      "median": 20.0,
+      "mean": 24.0,
+      "p75": 25.0,
+      "p90": 36.0,
+      "max": 84.0,
+      "stdev": 13.0
+    },
+    "n_sessions": 12,
+    "sessions": [
+      "ses_20260701-164424-CHAITANYA0BCF",
+      "ses_20260701-173246-SIDDHIGUPTAB00B",
+      "ses_20260701-173642-NEELA9BAF",
+      "ses_20260701-175747-SIDDHIGUPTAB00B",
+      "ses_20260701-180923-NEELA9BAF",
+      "ses_20260701-181413-LAPTOP-76QMG9DE",
+      "ses_20260701-181913-SIDDHIGUPTAB00B",
+      "ses_20260701-182634-NEELA9BAF",
+      "ses_20260701-183232-LAPTOP-76QMG9DE",
+      "ses_20260701-184201-LAPTOP-76QMG9DE",
+      "ses_20260701-190250-NEELA9BAF",
+      "ses_20260701-191537-LAPTOP-76QMG9DE"
+    ],
+    "n_machines": 4,
+    "machines": [
+      "CHAITANYA0BCF",
+      "LAPTOP-76QMG9DE",
+      "NEELA9BAF",
+      "SIDDHIGUPTAB00B"
+    ],
+    "consistency_score": 0.458,
+    "top_apps": [
+      [
+        "Microsoft Edge",
+        1815
+      ],
+      [
+        "Microsoft Word",
+        906
+      ],
+      [
+        "Notepad",
+        29
+      ]
+    ],
+    "top_routes": [
+      [
+        "#/leave-applications",
+        1300
+      ],
+      [
+        "#/payroll-items",
+        38
+      ],
+      [
+        "#/social-insurance",
+        30
+      ]
+    ],
+    "share_of_segments": 0.1425,
+    "share_of_time": 0.1475
+  },
+  "group_004": {
+    "member_labels": [
+      "proc_04_microsoft-edge_onboarding",
+      "proc_22_microsoft-edge_onboarding",
+      "proc_24_microsoft-edge_onboarding",
+      "proc_44_microsoft-word_onboarding"
+    ],
+    "n_members": 4,
+    "count": 69,
+    "total_duration_s": 1449.0,
+    "duration_stats": {
+      "n": 69,
+      "min": 15.0,
+      "median": 20.0,
+      "mean": 21.0,
+      "p75": 21.0,
+      "p90": 25.0,
+      "max": 55.0,
+      "stdev": 6.6
+    },
+    "n_sessions": 10,
+    "sessions": [
+      "ses_20260701-171614-CHAITANYA0BCF",
+      "ses_20260701-173246-SIDDHIGUPTAB00B",
+      "ses_20260701-175258-LAPTOP-76QMG9DE",
+      "ses_20260701-180923-NEELA9BAF",
+      "ses_20260701-181413-LAPTOP-76QMG9DE",
+      "ses_20260701-181913-SIDDHIGUPTAB00B",
+      "ses_20260701-184201-LAPTOP-76QMG9DE",
+      "ses_20260701-190250-NEELA9BAF",
+      "ses_20260701-191537-LAPTOP-76QMG9DE",
+      "ses_20260701-192455-NEELA9BAF"
+    ],
+    "n_machines": 4,
+    "machines": [
+      "CHAITANYA0BCF",
+      "LAPTOP-76QMG9DE",
+      "NEELA9BAF",
+      "SIDDHIGUPTAB00B"
+    ],
+    "consistency_score": 0.686,
+    "top_apps": [
+      [
+        "Microsoft Edge",
+        1607
+      ],
+      [
+        "Microsoft Word",
+        1239
+      ],
+      [
+        "Notepad",
+        14
+      ]
+    ],
+    "top_routes": [
+      [
+        "#/onboarding",
+        1012
+      ],
+      [
+        "#/payroll-items",
+        135
+      ],
+      [
+        "#/resident-tax",
+        52
+      ]
+    ],
+    "share_of_segments": 0.1513,
+    "share_of_time": 0.137
+  },
+  "group_005": {
+    "member_labels": [
+      "proc_05_microsoft-edge_payroll-items"
+    ],
+    "n_members": 1,
+    "count": 6,
+    "total_duration_s": 121.0,
+    "duration_stats": {
+      "n": 6,
+      "min": 8.0,
+      "median": 23.0,
+      "mean": 20.2,
+      "p75": 23.0,
+      "p90": 25.0,
+      "max": 29.0,
+      "stdev": 6.9
+    },
+    "n_sessions": 4,
+    "sessions": [
+      "ses_20260701-173642-NEELA9BAF",
+      "ses_20260701-180923-NEELA9BAF",
+      "ses_20260701-182634-NEELA9BAF",
+      "ses_20260701-190250-NEELA9BAF"
+    ],
+    "n_machines": 1,
+    "machines": [
+      "NEELA9BAF"
+    ],
+    "consistency_score": 0.658,
+    "top_apps": [
+      [
+        "Microsoft Edge",
+        160
+      ],
+      [
+        "Microsoft Excel",
+        33
+      ],
+      [
+        "WindowsTerminal",
+        28
+      ]
+    ],
+    "top_routes": [
+      [
+        "#/payroll-items",
+        58
+      ],
+      [
+        "#/resident-tax",
+        49
+      ],
+      [
+        "#/dashboard",
+        18
+      ]
+    ],
+    "share_of_segments": 0.0132,
+    "share_of_time": 0.0114
+  },
+  "group_006": {
+    "member_labels": [
+      "proc_07_microsoft-edge_onboarding",
+      "proc_75_microsoft-edge_onboarding"
+    ],
+    "n_members": 2,
+    "count": 3,
+    "total_duration_s": 51.0,
+    "duration_stats": {
+      "n": 3,
+      "min": 16.0,
+      "median": 16.0,
+      "mean": 17.0,
+      "p75": 16.0,
+      "p90": 16.0,
+      "max": 19.0,
+      "stdev": 1.4
+    },
+    "n_sessions": 2,
+    "sessions": [
+      "ses_20260701-175258-LAPTOP-76QMG9DE",
+      "ses_20260701-191537-LAPTOP-76QMG9DE"
+    ],
+    "n_machines": 1,
+    "machines": [
+      "LAPTOP-76QMG9DE"
+    ],
+    "consistency_score": 0.918,
+    "top_apps": [
+      [
+        "Microsoft Edge",
+        74
+      ],
+      [
+        "Microsoft Word",
+        16
+      ],
+      [
+        "Windows Explorer",
+        4
+      ]
+    ],
+    "top_routes": [
+      [
+        "#/onboarding",
+        58
+      ]
+    ],
+    "share_of_segments": 0.0066,
+    "share_of_time": 0.0048
+  },
+  "group_007": {
+    "member_labels": [
+      "proc_08_microsoft-word_leave-applications",
+      "proc_27_microsoft-word_leave-applications"
+    ],
+    "n_members": 2,
+    "count": 20,
+    "total_duration_s": 417.0,
+    "duration_stats": {
+      "n": 20,
+      "min": 15.0,
+      "median": 20.0,
+      "mean": 20.9,
+      "p75": 22.0,
+      "p90": 26.0,
+      "max": 34.0,
+      "stdev": 5.0
+    },
+    "n_sessions": 4,
+    "sessions": [
+      "ses_20260701-175258-LAPTOP-76QMG9DE",
+      "ses_20260701-180923-NEELA9BAF",
+      "ses_20260701-184201-LAPTOP-76QMG9DE",
+      "ses_20260701-190250-NEELA9BAF"
+    ],
+    "n_machines": 2,
+    "machines": [
+      "LAPTOP-76QMG9DE",
+      "NEELA9BAF"
+    ],
+    "consistency_score": 0.761,
+    "top_apps": [
+      [
+        "Microsoft Word",
+        472
+      ],
+      [
+        "Microsoft Edge",
+        388
+      ],
+      [
+        "prl_cc",
+        7
+      ]
+    ],
+    "top_routes": [
+      [
+        "#/leave-applications",
+        271
+      ],
+      [
+        "#/resident-tax",
+        28
+      ],
+      [
+        "#/onboarding",
+        4
+      ]
+    ],
+    "share_of_segments": 0.0439,
+    "share_of_time": 0.0394
+  },
+  "group_008": {
+    "member_labels": [
+      "proc_12_openwith_payroll-items",
+      "proc_25_openwith_payroll-items",
+      "proc_62_openwith_social-insurance"
+    ],
+    "n_members": 3,
+    "count": 13,
+    "total_duration_s": 273.0,
+    "duration_stats": {
+      "n": 13,
+      "min": 15.0,
+      "median": 20.0,
+      "mean": 21.0,
+      "p75": 22.0,
+      "p90": 24.0,
+      "max": 34.0,
+      "stdev": 5.8
+    },
+    "n_sessions": 3,
+    "sessions": [
+      "ses_20260701-175258-LAPTOP-76QMG9DE",
+      "ses_20260701-181413-LAPTOP-76QMG9DE",
+      "ses_20260701-191537-LAPTOP-76QMG9DE"
+    ],
+    "n_machines": 1,
+    "machines": [
+      "LAPTOP-76QMG9DE"
+    ],
+    "consistency_score": 0.724,
+    "top_apps": [
+      [
+        "OpenWith",
+        685
+      ],
+      [
+        "Microsoft Edge",
+        239
+      ],
+      [
+        "Microsoft Word",
+        17
+      ]
+    ],
+    "top_routes": [
+      [
+        "#/payroll-items",
+        172
+      ],
+      [
+        "#/social-insurance",
+        6
+      ]
+    ],
+    "share_of_segments": 0.0285,
+    "share_of_time": 0.0258
+  },
+  "group_009": {
+    "member_labels": [
+      "proc_13_microsoft-edge_payroll-items",
+      "proc_20_microsoft-edge_payroll-items",
+      "proc_23_microsoft-edge_payroll-items",
+      "proc_40_microsoft-edge_payroll-items",
+      "proc_41_microsoft-edge_payroll-items",
+      "proc_42_microsoft-edge_payroll-items",
+      "proc_43_microsoft-edge_payroll-items",
+      "proc_57_microsoft-edge_payroll-items",
+      "proc_63_microsoft-edge_payroll-items",
+      "proc_69_microsoft-edge_payroll-items",
+      "proc_77_microsoft-edge_payroll-items",
+      "proc_81_microsoft-edge_payroll-items",
+      "proc_83_microsoft-edge_payroll-items"
+    ],
+    "n_members": 13,
+    "count": 107,
+    "total_duration_s": 2687.0,
+    "duration_stats": {
+      "n": 107,
+      "min": 15.0,
+      "median": 21.0,
+      "mean": 25.1,
+      "p75": 29.0,
+      "p90": 43.0,
+      "max": 72.0,
+      "stdev": 10.6
+    },
+    "n_sessions": 15,
+    "sessions": [
+      "ses_20260701-164424-CHAITANYA0BCF",
+      "ses_20260701-171614-CHAITANYA0BCF",
+      "ses_20260701-173246-SIDDHIGUPTAB00B",
+      "ses_20260701-173642-NEELA9BAF",
+      "ses_20260701-175258-LAPTOP-76QMG9DE",
+      "ses_20260701-175747-SIDDHIGUPTAB00B",
+      "ses_20260701-180923-NEELA9BAF",
+      "ses_20260701-181413-LAPTOP-76QMG9DE",
+      "ses_20260701-181913-SIDDHIGUPTAB00B",
+      "ses_20260701-182634-NEELA9BAF",
+      "ses_20260701-183232-LAPTOP-76QMG9DE",
+      "ses_20260701-184201-LAPTOP-76QMG9DE",
+      "ses_20260701-190250-NEELA9BAF",
+      "ses_20260701-191537-LAPTOP-76QMG9DE",
+      "ses_20260701-192455-NEELA9BAF"
+    ],
+    "n_machines": 4,
+    "machines": [
+      "CHAITANYA0BCF",
+      "LAPTOP-76QMG9DE",
+      "NEELA9BAF",
+      "SIDDHIGUPTAB00B"
+    ],
+    "consistency_score": 0.578,
+    "top_apps": [
+      [
+        "Microsoft Edge",
+        4307
+      ],
+      [
+        "Notepad",
+        250
+      ],
+      [
+        "Microsoft Word",
+        228
+      ]
+    ],
+    "top_routes": [
+      [
+        "#/payroll-items",
+        2875
+      ],
+      [
+        "#/social-insurance",
+        142
+      ],
+      [
+        "#/leave-applications",
+        110
+      ]
+    ],
+    "share_of_segments": 0.2346,
+    "share_of_time": 0.2541
+  },
+  "group_010": {
+    "member_labels": [
+      "proc_14_microsoft-word_payroll-items",
+      "proc_30_microsoft-word_leave-applications",
+      "proc_56_microsoft-word_payroll-items",
+      "proc_96_microsoft-word_leave-applications"
+    ],
+    "n_members": 4,
+    "count": 10,
+    "total_duration_s": 181.0,
+    "duration_stats": {
+      "n": 10,
+      "min": 16.0,
+      "median": 18.0,
+      "mean": 18.1,
+      "p75": 19.0,
+      "p90": 20.0,
+      "max": 20.0,
+      "stdev": 1.3
+    },
+    "n_sessions": 6,
+    "sessions": [
+      "ses_20260701-164424-CHAITANYA0BCF",
+      "ses_20260701-173246-SIDDHIGUPTAB00B",
+      "ses_20260701-175258-LAPTOP-76QMG9DE",
+      "ses_20260701-181913-SIDDHIGUPTAB00B",
+      "ses_20260701-182634-NEELA9BAF",
+      "ses_20260701-192455-NEELA9BAF"
+    ],
+    "n_machines": 4,
+    "machines": [
+      "CHAITANYA0BCF",
+      "LAPTOP-76QMG9DE",
+      "NEELA9BAF",
+      "SIDDHIGUPTAB00B"
+    ],
+    "consistency_score": 0.928,
+    "top_apps": [
+      [
+        "Microsoft Word",
+        291
+      ],
+      [
+        "Microsoft Edge",
+        58
+      ]
+    ],
+    "top_routes": [
+      [
+        "#/leave-applications",
+        18
+      ],
+      [
+        "#/payroll-items",
+        7
+      ],
+      [
+        "#/onboarding",
+        3
+      ]
+    ],
+    "share_of_segments": 0.0219,
+    "share_of_time": 0.0171
+  },
+  "group_011": {
+    "member_labels": [
+      "proc_15_microsoft-edge_payroll-items"
+    ],
+    "n_members": 1,
+    "count": 3,
+    "total_duration_s": 81.0,
+    "duration_stats": {
+      "n": 3,
+      "min": 21.0,
+      "median": 22.0,
+      "mean": 27.0,
+      "p75": 22.0,
+      "p90": 22.0,
+      "max": 38.0,
+      "stdev": 7.8
+    },
+    "n_sessions": 2,
+    "sessions": [
+      "ses_20260701-171614-CHAITANYA0BCF",
+      "ses_20260701-191537-LAPTOP-76QMG9DE"
+    ],
+    "n_machines": 2,
+    "machines": [
+      "CHAITANYA0BCF",
+      "LAPTOP-76QMG9DE"
+    ],
+    "consistency_score": 0.711,
+    "top_apps": [
+      [
+        "Microsoft Edge",
+        149
+      ],
+      [
+        "Notepad",
+        12
+      ],
+      [
+        "OpenWith",
+        1
+      ]
+    ],
+    "top_routes": [
+      [
+        "#/payroll-items",
+        77
+      ],
+      [
+        "#/social-insurance",
+        32
+      ]
+    ],
+    "share_of_segments": 0.0066,
+    "share_of_time": 0.0077
+  },
+  "group_012": {
+    "member_labels": [
+      "proc_16_microsoft-edge_social-insurance"
+    ],
+    "n_members": 1,
+    "count": 2,
+    "total_duration_s": 32.0,
+    "duration_stats": {
+      "n": 2,
+      "min": 16.0,
+      "median": 16.0,
+      "mean": 16.0,
+      "p75": 16.0,
+      "p90": 16.0,
+      "max": 16.0,
+      "stdev": 0.0
+    },
+    "n_sessions": 2,
+    "sessions": [
+      "ses_20260701-171614-CHAITANYA0BCF",
+      "ses_20260701-182634-NEELA9BAF"
+    ],
+    "n_machines": 2,
+    "machines": [
+      "CHAITANYA0BCF",
+      "NEELA9BAF"
+    ],
+    "consistency_score": 1.0,
+    "top_apps": [
+      [
+        "Microsoft Edge",
+        18
+      ],
+      [
+        "Microsoft Word",
+        15
+      ],
+      [
+        "Notepad",
+        8
+      ]
+    ],
+    "top_routes": [
+      [
+        "#/social-insurance",
+        17
+      ]
+    ],
+    "share_of_segments": 0.0044,
+    "share_of_time": 0.003
+  },
+  "group_013": {
+    "member_labels": [
+      "proc_17_microsoft-edge_onboarding",
+      "proc_46_microsoft-edge_dashboard",
+      "proc_58_microsoft-edge_http-127-0-0-1-5132"
+    ],
+    "n_members": 3,
+    "count": 7,
+    "total_duration_s": 131.0,
+    "duration_stats": {
+      "n": 7,
+      "min": 15.0,
+      "median": 17.0,
+      "mean": 18.7,
+      "p75": 19.0,
+      "p90": 19.0,
+      "max": 30.0,
+      "stdev": 4.9
+    },
+    "n_sessions": 7,
+    "sessions": [
+      "ses_20260701-175258-LAPTOP-76QMG9DE",
+      "ses_20260701-181413-LAPTOP-76QMG9DE",
+      "ses_20260701-181913-SIDDHIGUPTAB00B",
+      "ses_20260701-183232-LAPTOP-76QMG9DE",
+      "ses_20260701-184201-LAPTOP-76QMG9DE",
+      "ses_20260701-190250-NEELA9BAF",
+      "ses_20260701-191537-LAPTOP-76QMG9DE"
+    ],
+    "n_machines": 3,
+    "machines": [
+      "LAPTOP-76QMG9DE",
+      "NEELA9BAF",
+      "SIDDHIGUPTAB00B"
+    ],
+    "consistency_score": 0.738,
+    "top_apps": [
+      [
+        "Microsoft Edge",
+        191
+      ],
+      [
+        "ms-teams",
+        11
+      ],
+      [
+        "Notepad",
+        6
+      ]
+    ],
+    "top_routes": [
+      [
+        "#/dashboard",
+        34
+      ],
+      [
+        "#/https:/app.slack.com/client/T016EU6KJDN/activity-inbox",
+        32
+      ],
+      [
+        "#/http:/127.0.0.1:5132",
+        32
+      ]
+    ],
+    "share_of_segments": 0.0154,
+    "share_of_time": 0.0124
+  },
+  "group_014": {
+    "member_labels": [
+      "proc_21_microsoft-edge_leave-applications",
+      "proc_74_microsoft-edge_leave-applications",
+      "proc_97_microsoft-edge_leave-applications"
+    ],
+    "n_members": 3,
+    "count": 4,
+    "total_duration_s": 94.0,
+    "duration_stats": {
+      "n": 4,
+      "min": 19.0,
+      "median": 25.0,
+      "mean": 23.5,
+      "p75": 25.0,
+      "p90": 25.0,
+      "max": 31.0,
+      "stdev": 5.0
+    },
+    "n_sessions": 3,
+    "sessions": [
+      "ses_20260701-180923-NEELA9BAF",
+      "ses_20260701-184201-LAPTOP-76QMG9DE",
+      "ses_20260701-190250-NEELA9BAF"
+    ],
+    "n_machines": 2,
+    "machines": [
+      "LAPTOP-76QMG9DE",
+      "NEELA9BAF"
+    ],
+    "consistency_score": 0.787,
+    "top_apps": [
+      [
+        "Microsoft Edge",
+        130
+      ],
+      [
+        "Microsoft Word",
+        25
+      ]
+    ],
+    "top_routes": [
+      [
+        "#/leave-applications",
+        96
+      ],
+      [
+        "#/dashboard",
+        6
+      ]
+    ],
+    "share_of_segments": 0.0088,
+    "share_of_time": 0.0089
+  },
+  "group_015": {
+    "member_labels": [
+      "proc_26_microsoft-excel_payroll-items",
+      "proc_47_microsoft-excel_social-insurance",
+      "proc_67_microsoft-excel_onboarding",
+      "proc_93_microsoft-excel_leave-applications"
+    ],
+    "n_members": 4,
+    "count": 19,
+    "total_duration_s": 383.0,
+    "duration_stats": {
+      "n": 19,
+      "min": 15.0,
+      "median": 20.0,
+      "mean": 20.2,
+      "p75": 22.0,
+      "p90": 24.0,
+      "max": 26.0,
+      "stdev": 2.9
+    },
+    "n_sessions": 7,
+    "sessions": [
+      "ses_20260701-164424-CHAITANYA0BCF",
+      "ses_20260701-171614-CHAITANYA0BCF",
+      "ses_20260701-173642-NEELA9BAF",
+      "ses_20260701-181913-SIDDHIGUPTAB00B",
+      "ses_20260701-182634-NEELA9BAF",
+      "ses_20260701-190250-NEELA9BAF",
+      "ses_20260701-192455-NEELA9BAF"
+    ],
+    "n_machines": 3,
+    "machines": [
+      "CHAITANYA0BCF",
+      "NEELA9BAF",
+      "SIDDHIGUPTAB00B"
+    ],
+    "consistency_score": 0.856,
+    "top_apps": [
+      [
+        "Microsoft Excel",
+        973
+      ],
+      [
+        "Microsoft Edge",
+        320
+      ],
+      [
+        "Microsoft Word",
+        37
+      ]
+    ],
+    "top_routes": [
+      [
+        "#/social-insurance",
+        111
+      ],
+      [
+        "#/payroll-items",
+        92
+      ],
+      [
+        "#/leave-applications",
+        22
+      ]
+    ],
+    "share_of_segments": 0.0417,
+    "share_of_time": 0.0362
+  },
+  "group_016": {
+    "member_labels": [
+      "proc_29_windowsterminal_payroll-items"
+    ],
+    "n_members": 1,
+    "count": 6,
+    "total_duration_s": 89.0,
+    "duration_stats": {
+      "n": 6,
+      "min": 3.0,
+      "median": 16.0,
+      "mean": 14.8,
+      "p75": 16.0,
+      "p90": 19.0,
+      "max": 30.0,
+      "stdev": 9.0
+    },
+    "n_sessions": 6,
+    "sessions": [
+      "ses_20260701-164424-CHAITANYA0BCF",
+      "ses_20260701-175258-LAPTOP-76QMG9DE",
+      "ses_20260701-175747-SIDDHIGUPTAB00B",
+      "ses_20260701-183232-LAPTOP-76QMG9DE",
+      "ses_20260701-184201-LAPTOP-76QMG9DE",
+      "ses_20260701-192455-NEELA9BAF"
+    ],
+    "n_machines": 4,
+    "machines": [
+      "CHAITANYA0BCF",
+      "LAPTOP-76QMG9DE",
+      "NEELA9BAF",
+      "SIDDHIGUPTAB00B"
+    ],
+    "consistency_score": 0.392,
+    "top_apps": [
+      [
+        "WindowsTerminal",
+        289
+      ],
+      [
+        "Microsoft Excel",
+        36
+      ],
+      [
+        "Microsoft Edge",
+        27
+      ]
+    ],
+    "top_routes": [
+      [
+        "#/payroll-items",
+        26
+      ]
+    ],
+    "share_of_segments": 0.0132,
+    "share_of_time": 0.0084
+  },
+  "group_017": {
+    "member_labels": [
+      "proc_33_notepad",
+      "proc_39_notepad_http-127-0-0-1-5133"
+    ],
+    "n_members": 2,
+    "count": 3,
+    "total_duration_s": 63.0,
+    "duration_stats": {
+      "n": 3,
+      "min": 19.0,
+      "median": 21.0,
+      "mean": 21.0,
+      "p75": 21.0,
+      "p90": 21.0,
+      "max": 23.0,
+      "stdev": 1.6
+    },
+    "n_sessions": 3,
+    "sessions": [
+      "ses_20260701-180923-NEELA9BAF",
+      "ses_20260701-182634-NEELA9BAF",
+      "ses_20260701-191537-LAPTOP-76QMG9DE"
+    ],
+    "n_machines": 2,
+    "machines": [
+      "LAPTOP-76QMG9DE",
+      "NEELA9BAF"
+    ],
+    "consistency_score": 0.924,
+    "top_apps": [
+      [
+        "Notepad",
+        43
+      ],
+      [
+        "Microsoft Edge",
+        3
+      ],
+      [
+        "ms-teams",
+        2
+      ]
+    ],
+    "top_routes": [
+      [
+        "#/http:/127.0.0.1:5133",
+        3
+      ],
+      [
+        "#/http:/127.0.0.1:5134",
+        3
+      ],
+      [
+        "#/http:/127.0.0.1:5132",
+        3
+      ]
+    ],
+    "share_of_segments": 0.0066,
+    "share_of_time": 0.006
+  },
+  "group_018": {
+    "member_labels": [
+      "proc_34_microsoft-edge_leave-applications",
+      "proc_45_microsoft-edge_resident-tax",
+      "proc_88_microsoft-edge_onboarding"
+    ],
+    "n_members": 3,
+    "count": 9,
+    "total_duration_s": 278.0,
+    "duration_stats": {
+      "n": 9,
+      "min": 16.0,
+      "median": 23.0,
+      "mean": 30.9,
+      "p75": 38.0,
+      "p90": 44.0,
+      "max": 60.0,
+      "stdev": 14.0
+    },
+    "n_sessions": 6,
+    "sessions": [
+      "ses_20260701-164424-CHAITANYA0BCF",
+      "ses_20260701-171614-CHAITANYA0BCF",
+      "ses_20260701-173246-SIDDHIGUPTAB00B",
+      "ses_20260701-175747-SIDDHIGUPTAB00B",
+      "ses_20260701-180923-NEELA9BAF",
+      "ses_20260701-183232-LAPTOP-76QMG9DE"
+    ],
+    "n_machines": 4,
+    "machines": [
+      "CHAITANYA0BCF",
+      "LAPTOP-76QMG9DE",
+      "NEELA9BAF",
+      "SIDDHIGUPTAB00B"
+    ],
+    "consistency_score": 0.547,
+    "top_apps": [
+      [
+        "Microsoft Edge",
+        477
+      ],
+      [
+        "Microsoft Word",
+        26
+      ],
+      [
+        "WindowsTerminal",
+        5
+      ]
+    ],
+    "top_routes": [
+      [
+        "#/resident-tax",
+        127
+      ],
+      [
+        "#/payroll-items",
+        98
+      ],
+      [
+        "#/leave-applications",
+        82
+      ]
+    ],
+    "share_of_segments": 0.0197,
+    "share_of_time": 0.0263
+  },
+  "group_019": {
+    "member_labels": [
+      "proc_35_microsoft-edge_onboarding"
+    ],
+    "n_members": 1,
+    "count": 2,
+    "total_duration_s": 53.0,
+    "duration_stats": {
+      "n": 2,
+      "min": 17.0,
+      "median": 36.0,
+      "mean": 26.5,
+      "p75": 17.0,
+      "p90": 17.0,
+      "max": 36.0,
+      "stdev": 9.5
+    },
+    "n_sessions": 2,
+    "sessions": [
+      "ses_20260701-180923-NEELA9BAF",
+      "ses_20260701-184201-LAPTOP-76QMG9DE"
+    ],
+    "n_machines": 2,
+    "machines": [
+      "LAPTOP-76QMG9DE",
+      "NEELA9BAF"
+    ],
+    "consistency_score": 0.642,
+    "top_apps": [
+      [
+        "Microsoft Edge",
+        74
+      ],
+      [
+        "Microsoft Word",
+        24
+      ],
+      [
+        "WindowsTerminal",
+        6
+      ]
+    ],
+    "top_routes": [
+      [
+        "#/onboarding",
+        56
+      ]
+    ],
+    "share_of_segments": 0.0044,
+    "share_of_time": 0.005
+  },
+  "group_020": {
+    "member_labels": [
+      "proc_36_microsoft-edge_dashboard",
+      "proc_71_microsoft-edge_dashboard",
+      "proc_73_windowsterminal_dashboard"
+    ],
+    "n_members": 3,
+    "count": 5,
+    "total_duration_s": 110.0,
+    "duration_stats": {
+      "n": 5,
+      "min": 7.0,
+      "median": 10.0,
+      "mean": 22.0,
+      "p75": 16.0,
+      "p90": 16.0,
+      "max": 67.0,
+      "stdev": 22.7
+    },
+    "n_sessions": 5,
+    "sessions": [
+      "ses_20260701-171614-CHAITANYA0BCF",
+      "ses_20260701-173246-SIDDHIGUPTAB00B",
+      "ses_20260701-173642-NEELA9BAF",
+      "ses_20260701-175258-LAPTOP-76QMG9DE",
+      "ses_20260701-181913-SIDDHIGUPTAB00B"
+    ],
+    "n_machines": 4,
+    "machines": [
+      "CHAITANYA0BCF",
+      "LAPTOP-76QMG9DE",
+      "NEELA9BAF",
+      "SIDDHIGUPTAB00B"
+    ],
+    "consistency_score": 0.0,
+    "top_apps": [
+      [
+        "Microsoft Edge",
+        29
+      ],
+      [
+        "Microsoft Word",
+        21
+      ],
+      [
+        "WindowsTerminal",
+        15
+      ]
+    ],
+    "top_routes": [
+      [
+        "#/dashboard",
+        29
+      ]
+    ],
+    "share_of_segments": 0.011,
+    "share_of_time": 0.0104
+  },
+  "group_021": {
+    "member_labels": [
+      "proc_49_microsoft-word"
+    ],
+    "n_members": 1,
+    "count": 1,
+    "total_duration_s": 9.0,
+    "duration_stats": {
+      "n": 1,
+      "min": 9.0,
+      "median": 9.0,
+      "mean": 9.0,
+      "p75": 9.0,
+      "p90": 9.0,
+      "max": 9.0,
+      "stdev": 0.0
+    },
+    "n_sessions": 1,
+    "sessions": [
+      "ses_20260701-183232-LAPTOP-76QMG9DE"
+    ],
+    "n_machines": 1,
+    "machines": [
+      "LAPTOP-76QMG9DE"
+    ],
+    "consistency_score": 1.0,
+    "top_apps": [
+      [
+        "Microsoft Word",
+        2
+      ],
+      [
+        "WindowsTerminal",
+        2
+      ],
+      [
+        "Windows Explorer",
+        2
+      ]
+    ],
+    "top_routes": [],
+    "share_of_segments": 0.0022,
+    "share_of_time": 0.0009
+  },
+  "group_022": {
+    "member_labels": [
+      "proc_50_microsoft-edge_onboarding",
+      "proc_61_microsoft-edge_onboarding"
+    ],
+    "n_members": 2,
+    "count": 4,
+    "total_duration_s": 86.0,
+    "duration_stats": {
+      "n": 4,
+      "min": 17.0,
+      "median": 21.0,
+      "mean": 21.5,
+      "p75": 21.0,
+      "p90": 21.0,
+      "max": 29.0,
+      "stdev": 4.6
+    },
+    "n_sessions": 3,
+    "sessions": [
+      "ses_20260701-173246-SIDDHIGUPTAB00B",
+      "ses_20260701-175258-LAPTOP-76QMG9DE",
+      "ses_20260701-181913-SIDDHIGUPTAB00B"
+    ],
+    "n_machines": 2,
+    "machines": [
+      "LAPTOP-76QMG9DE",
+      "SIDDHIGUPTAB00B"
+    ],
+    "consistency_score": 0.786,
+    "top_apps": [
+      [
+        "Microsoft Edge",
+        122
+      ],
+      [
+        "Microsoft Word",
+        30
+      ]
+    ],
+    "top_routes": [
+      [
+        "#/onboarding",
+        93
+      ]
+    ],
+    "share_of_segments": 0.0088,
+    "share_of_time": 0.0081
+  },
+  "group_023": {
+    "member_labels": [
+      "proc_51_openwith_payroll-items"
+    ],
+    "n_members": 1,
+    "count": 1,
+    "total_duration_s": 24.0,
+    "duration_stats": {
+      "n": 1,
+      "min": 24.0,
+      "median": 24.0,
+      "mean": 24.0,
+      "p75": 24.0,
+      "p90": 24.0,
+      "max": 24.0,
+      "stdev": 0.0
+    },
+    "n_sessions": 1,
+    "sessions": [
+      "ses_20260701-175258-LAPTOP-76QMG9DE"
+    ],
+    "n_machines": 1,
+    "machines": [
+      "LAPTOP-76QMG9DE"
+    ],
+    "consistency_score": 1.0,
+    "top_apps": [
+      [
+        "OpenWith",
+        33
+      ],
+      [
+        "Microsoft Edge",
+        17
+      ]
+    ],
+    "top_routes": [
+      [
+        "#/payroll-items",
+        14
+      ]
+    ],
+    "share_of_segments": 0.0022,
+    "share_of_time": 0.0023
+  },
+  "group_024": {
+    "member_labels": [
+      "proc_53_windows-explorer"
+    ],
+    "n_members": 1,
+    "count": 1,
+    "total_duration_s": 4.0,
+    "duration_stats": {
+      "n": 1,
+      "min": 4.0,
+      "median": 4.0,
+      "mean": 4.0,
+      "p75": 4.0,
+      "p90": 4.0,
+      "max": 4.0,
+      "stdev": 0.0
+    },
+    "n_sessions": 1,
+    "sessions": [
+      "ses_20260701-181413-LAPTOP-76QMG9DE"
+    ],
+    "n_machines": 1,
+    "machines": [
+      "LAPTOP-76QMG9DE"
+    ],
+    "consistency_score": 1.0,
+    "top_apps": [
+      [
+        "Windows Explorer",
+        4
+      ],
+      [
+        "WindowsTerminal",
+        2
+      ],
+      [
+        "procmine-desktop-agent",
+        1
+      ]
+    ],
+    "top_routes": [],
+    "share_of_segments": 0.0022,
+    "share_of_time": 0.0004
+  },
+  "group_025": {
+    "member_labels": [
+      "proc_54_microsoft-edge_dashboard"
+    ],
+    "n_members": 1,
+    "count": 1,
+    "total_duration_s": 10.0,
+    "duration_stats": {
+      "n": 1,
+      "min": 10.0,
+      "median": 10.0,
+      "mean": 10.0,
+      "p75": 10.0,
+      "p90": 10.0,
+      "max": 10.0,
+      "stdev": 0.0
+    },
+    "n_sessions": 1,
+    "sessions": [
+      "ses_20260701-191537-LAPTOP-76QMG9DE"
+    ],
+    "n_machines": 1,
+    "machines": [
+      "LAPTOP-76QMG9DE"
+    ],
+    "consistency_score": 1.0,
+    "top_apps": [
+      [
+        "Microsoft Edge",
+        5
+      ],
+      [
+        "Windows Explorer",
+        2
+      ],
+      [
+        "Notepad",
+        1
+      ]
+    ],
+    "top_routes": [
+      [
+        "#/dashboard",
+        5
+      ]
+    ],
+    "share_of_segments": 0.0022,
+    "share_of_time": 0.0009
+  },
+  "group_026": {
+    "member_labels": [
+      "proc_55_windows-explorer_onboarding"
+    ],
+    "n_members": 1,
+    "count": 1,
+    "total_duration_s": 23.0,
+    "duration_stats": {
+      "n": 1,
+      "min": 23.0,
+      "median": 23.0,
+      "mean": 23.0,
+      "p75": 23.0,
+      "p90": 23.0,
+      "max": 23.0,
+      "stdev": 0.0
+    },
+    "n_sessions": 1,
+    "sessions": [
+      "ses_20260701-175258-LAPTOP-76QMG9DE"
+    ],
+    "n_machines": 1,
+    "machines": [
+      "LAPTOP-76QMG9DE"
+    ],
+    "consistency_score": 1.0,
+    "top_apps": [
+      [
+        "Notepad",
+        10
+      ],
+      [
+        "Windows Explorer",
+        10
+      ]
+    ],
+    "top_routes": [],
+    "share_of_segments": 0.0022,
+    "share_of_time": 0.0022
+  },
+  "group_027": {
+    "member_labels": [
+      "proc_59_notepad_leave-applications",
+      "proc_84_notepad"
+    ],
+    "n_members": 2,
+    "count": 3,
+    "total_duration_s": 71.0,
+    "duration_stats": {
+      "n": 3,
+      "min": 19.0,
+      "median": 22.0,
+      "mean": 23.7,
+      "p75": 22.0,
+      "p90": 22.0,
+      "max": 30.0,
+      "stdev": 4.6
+    },
+    "n_sessions": 3,
+    "sessions": [
+      "ses_20260701-164424-CHAITANYA0BCF",
+      "ses_20260701-175747-SIDDHIGUPTAB00B",
+      "ses_20260701-183232-LAPTOP-76QMG9DE"
+    ],
+    "n_machines": 3,
+    "machines": [
+      "CHAITANYA0BCF",
+      "LAPTOP-76QMG9DE",
+      "SIDDHIGUPTAB00B"
+    ],
+    "consistency_score": 0.806,
+    "top_apps": [
+      [
+        "Notepad",
+        44
+      ]
+    ],
+    "top_routes": [],
+    "share_of_segments": 0.0066,
+    "share_of_time": 0.0067
+  },
+  "group_028": {
+    "member_labels": [
+      "proc_60_microsoft-excel_onboarding",
+      "proc_89_microsoft-excel_payroll-items"
+    ],
+    "n_members": 2,
+    "count": 2,
+    "total_duration_s": 41.0,
+    "duration_stats": {
+      "n": 2,
+      "min": 16.0,
+      "median": 25.0,
+      "mean": 20.5,
+      "p75": 16.0,
+      "p90": 16.0,
+      "max": 25.0,
+      "stdev": 4.5
+    },
+    "n_sessions": 2,
+    "sessions": [
+      "ses_20260701-171614-CHAITANYA0BCF",
+      "ses_20260701-175747-SIDDHIGUPTAB00B"
+    ],
+    "n_machines": 2,
+    "machines": [
+      "CHAITANYA0BCF",
+      "SIDDHIGUPTAB00B"
+    ],
+    "consistency_score": 0.78,
+    "top_apps": [
+      [
+        "Microsoft Excel",
+        119
+      ],
+      [
+        "Microsoft Edge",
+        18
+      ],
+      [
+        "Microsoft Word",
+        11
+      ]
+    ],
+    "top_routes": [
+      [
+        "#/onboarding",
+        9
+      ],
+      [
+        "#/social-insurance",
+        4
+      ],
+      [
+        "#/payroll-items",
+        4
+      ]
+    ],
+    "share_of_segments": 0.0044,
+    "share_of_time": 0.0039
+  },
+  "group_029": {
+    "member_labels": [
+      "proc_64_windowsterminal_http-127-0-0-1-5132"
+    ],
+    "n_members": 1,
+    "count": 2,
+    "total_duration_s": 28.0,
+    "duration_stats": {
+      "n": 2,
+      "min": 4.0,
+      "median": 24.0,
+      "mean": 14.0,
+      "p75": 4.0,
+      "p90": 4.0,
+      "max": 24.0,
+      "stdev": 10.0
+    },
+    "n_sessions": 1,
+    "sessions": [
+      "ses_20260701-180923-NEELA9BAF"
+    ],
+    "n_machines": 1,
+    "machines": [
+      "NEELA9BAF"
+    ],
+    "consistency_score": 0.286,
+    "top_apps": [
+      [
+        "WindowsTerminal",
+        39
+      ],
+      [
+        "procmine-desktop-agent",
+        1
+      ]
+    ],
+    "top_routes": [
+      [
+        "#/http:/127.0.0.1:5132",
+        3
+      ],
+      [
+        "#/http:/127.0.0.1:5134",
+        3
+      ],
+      [
+        "#/http:/127.0.0.1:5133",
+        3
+      ]
+    ],
+    "share_of_segments": 0.0044,
+    "share_of_time": 0.0026
+  },
+  "group_030": {
+    "member_labels": [
+      "proc_68_microsoft-edge_onboarding",
+      "proc_94_microsoft-edge_payroll-items"
+    ],
+    "n_members": 2,
+    "count": 2,
+    "total_duration_s": 42.0,
+    "duration_stats": {
+      "n": 2,
+      "min": 18.0,
+      "median": 24.0,
+      "mean": 21.0,
+      "p75": 18.0,
+      "p90": 18.0,
+      "max": 24.0,
+      "stdev": 3.0
+    },
+    "n_sessions": 2,
+    "sessions": [
+      "ses_20260701-181913-SIDDHIGUPTAB00B",
+      "ses_20260701-190250-NEELA9BAF"
+    ],
+    "n_machines": 2,
+    "machines": [
+      "NEELA9BAF",
+      "SIDDHIGUPTAB00B"
+    ],
+    "consistency_score": 0.857,
+    "top_apps": [
+      [
+        "Microsoft Edge",
+        75
+      ],
+      [
+        "Microsoft Word",
+        5
+      ],
+      [
+        "Microsoft Excel",
+        1
+      ]
+    ],
+    "top_routes": [
+      [
+        "#/onboarding",
+        24
+      ],
+      [
+        "#/payroll-items",
+        17
+      ],
+      [
+        "#/leave-applications",
+        15
+      ]
+    ],
+    "share_of_segments": 0.0044,
+    "share_of_time": 0.004
+  },
+  "group_031": {
+    "member_labels": [
+      "proc_70_openwith_onboarding"
+    ],
+    "n_members": 1,
+    "count": 1,
+    "total_duration_s": 15.0,
+    "duration_stats": {
+      "n": 1,
+      "min": 15.0,
+      "median": 15.0,
+      "mean": 15.0,
+      "p75": 15.0,
+      "p90": 15.0,
+      "max": 15.0,
+      "stdev": 0.0
+    },
+    "n_sessions": 1,
+    "sessions": [
+      "ses_20260701-181413-LAPTOP-76QMG9DE"
+    ],
+    "n_machines": 1,
+    "machines": [
+      "LAPTOP-76QMG9DE"
+    ],
+    "consistency_score": 1.0,
+    "top_apps": [
+      [
+        "OpenWith",
+        34
+      ],
+      [
+        "Microsoft Edge",
+        8
+      ]
+    ],
+    "top_routes": [
+      [
+        "#/onboarding",
+        6
+      ]
+    ],
+    "share_of_segments": 0.0022,
+    "share_of_time": 0.0014
+  },
+  "group_032": {
+    "member_labels": [
+      "proc_76_microsoft-edge_payroll-items",
+      "proc_90_microsoft-edge_payroll-items"
+    ],
+    "n_members": 2,
+    "count": 2,
+    "total_duration_s": 43.0,
+    "duration_stats": {
+      "n": 2,
+      "min": 18.0,
+      "median": 25.0,
+      "mean": 21.5,
+      "p75": 18.0,
+      "p90": 18.0,
+      "max": 25.0,
+      "stdev": 3.5
+    },
+    "n_sessions": 2,
+    "sessions": [
+      "ses_20260701-175747-SIDDHIGUPTAB00B",
+      "ses_20260701-191537-LAPTOP-76QMG9DE"
+    ],
+    "n_machines": 2,
+    "machines": [
+      "LAPTOP-76QMG9DE",
+      "SIDDHIGUPTAB00B"
+    ],
+    "consistency_score": 0.837,
+    "top_apps": [
+      [
+        "Microsoft Edge",
+        60
+      ],
+      [
+        "Notepad",
+        15
+      ],
+      [
+        "ms-teams",
+        6
+      ]
+    ],
+    "top_routes": [
+      [
+        "#/payroll-items",
+        48
+      ]
+    ],
+    "share_of_segments": 0.0044,
+    "share_of_time": 0.0041
+  },
+  "group_033": {
+    "member_labels": [
+      "proc_78_microsoft-word_social-insurance"
+    ],
+    "n_members": 1,
+    "count": 1,
+    "total_duration_s": 17.0,
+    "duration_stats": {
+      "n": 1,
+      "min": 17.0,
+      "median": 17.0,
+      "mean": 17.0,
+      "p75": 17.0,
+      "p90": 17.0,
+      "max": 17.0,
+      "stdev": 0.0
+    },
+    "n_sessions": 1,
+    "sessions": [
+      "ses_20260701-182634-NEELA9BAF"
+    ],
+    "n_machines": 1,
+    "machines": [
+      "NEELA9BAF"
+    ],
+    "consistency_score": 1.0,
+    "top_apps": [
+      [
+        "Microsoft Word",
+        13
+      ],
+      [
+        "prl_cc",
+        7
+      ],
+      [
+        "Microsoft Edge",
+        3
+      ]
+    ],
+    "top_routes": [
+      [
+        "#/social-insurance",
+        2
+      ]
+    ],
+    "share_of_segments": 0.0022,
+    "share_of_time": 0.0016
+  },
+  "group_034": {
+    "member_labels": [
+      "proc_79_procmine-desktop-agent"
+    ],
+    "n_members": 1,
+    "count": 1,
+    "total_duration_s": 13.0,
+    "duration_stats": {
+      "n": 1,
+      "min": 13.0,
+      "median": 13.0,
+      "mean": 13.0,
+      "p75": 13.0,
+      "p90": 13.0,
+      "max": 13.0,
+      "stdev": 0.0
+    },
+    "n_sessions": 1,
+    "sessions": [
+      "ses_20260701-164424-CHAITANYA0BCF"
+    ],
+    "n_machines": 1,
+    "machines": [
+      "CHAITANYA0BCF"
+    ],
+    "consistency_score": 1.0,
+    "top_apps": [
+      [
+        "procmine-desktop-agent",
+        182
+      ],
+      [
+        "WindowsTerminal",
+        2
+      ],
+      [
+        "Windows Explorer",
+        1
+      ]
+    ],
+    "top_routes": [],
+    "share_of_segments": 0.0022,
+    "share_of_time": 0.0012
+  },
+  "group_035": {
+    "member_labels": [
+      "proc_80_microsoft-edge_http-127-0-0-1-5133"
+    ],
+    "n_members": 1,
+    "count": 1,
+    "total_duration_s": 16.0,
+    "duration_stats": {
+      "n": 1,
+      "min": 16.0,
+      "median": 16.0,
+      "mean": 16.0,
+      "p75": 16.0,
+      "p90": 16.0,
+      "max": 16.0,
+      "stdev": 0.0
+    },
+    "n_sessions": 1,
+    "sessions": [
+      "ses_20260701-181913-SIDDHIGUPTAB00B"
+    ],
+    "n_machines": 1,
+    "machines": [
+      "SIDDHIGUPTAB00B"
+    ],
+    "consistency_score": 1.0,
+    "top_apps": [
+      [
+        "Microsoft Edge",
+        22
+      ]
+    ],
+    "top_routes": [
+      [
+        "#/http:/127.0.0.1:5133",
+        8
+      ],
+      [
+        "#/onboarding",
+        5
+      ],
+      [
+        "#/http:/127.0.0.1:5132",
+        3
+      ]
+    ],
+    "share_of_segments": 0.0022,
+    "share_of_time": 0.0015
+  },
+  "group_036": {
+    "member_labels": [
+      "proc_82_microsoft-edge_leave-applications"
+    ],
+    "n_members": 1,
+    "count": 1,
+    "total_duration_s": 20.0,
+    "duration_stats": {
+      "n": 1,
+      "min": 20.0,
+      "median": 20.0,
+      "mean": 20.0,
+      "p75": 20.0,
+      "p90": 20.0,
+      "max": 20.0,
+      "stdev": 0.0
+    },
+    "n_sessions": 1,
+    "sessions": [
+      "ses_20260701-180923-NEELA9BAF"
+    ],
+    "n_machines": 1,
+    "machines": [
+      "NEELA9BAF"
+    ],
+    "consistency_score": 1.0,
+    "top_apps": [
+      [
+        "Microsoft Edge",
+        32
+      ],
+      [
+        "Microsoft Word",
+        4
+      ]
+    ],
+    "top_routes": [
+      [
+        "#/leave-applications",
+        15
+      ],
+      [
+        "#/onboarding",
+        9
+      ]
+    ],
+    "share_of_segments": 0.0022,
+    "share_of_time": 0.0019
+  },
+  "group_037": {
+    "member_labels": [
+      "proc_87_windows-explorer"
+    ],
+    "n_members": 1,
+    "count": 1,
+    "total_duration_s": 1.0,
+    "duration_stats": {
+      "n": 1,
+      "min": 1.0,
+      "median": 1.0,
+      "mean": 1.0,
+      "p75": 1.0,
+      "p90": 1.0,
+      "max": 1.0,
+      "stdev": 0.0
+    },
+    "n_sessions": 1,
+    "sessions": [
+      "ses_20260701-175747-SIDDHIGUPTAB00B"
+    ],
+    "n_machines": 1,
+    "machines": [
+      "SIDDHIGUPTAB00B"
+    ],
+    "consistency_score": 1.0,
+    "top_apps": [
+      [
+        "Windows Explorer",
+        1
+      ],
+      [
+        "procmine-desktop-agent",
+        1
+      ]
+    ],
+    "top_routes": [],
+    "share_of_segments": 0.0022,
+    "share_of_time": 0.0001
+  },
+  "group_038": {
+    "member_labels": [
+      "proc_95_microsoft-word"
+    ],
+    "n_members": 1,
+    "count": 1,
+    "total_duration_s": 20.0,
+    "duration_stats": {
+      "n": 1,
+      "min": 20.0,
+      "median": 20.0,
+      "mean": 20.0,
+      "p75": 20.0,
+      "p90": 20.0,
+      "max": 20.0,
+      "stdev": 0.0
+    },
+    "n_sessions": 1,
+    "sessions": [
+      "ses_20260701-173246-SIDDHIGUPTAB00B"
+    ],
+    "n_machines": 1,
+    "machines": [
+      "SIDDHIGUPTAB00B"
+    ],
+    "consistency_score": 1.0,
+    "top_apps": [
+      [
+        "Microsoft Word",
+        27
+      ]
+    ],
+    "top_routes": [],
+    "share_of_segments": 0.0022,
+    "share_of_time": 0.0019
+  },
+  "group_039": {
+    "member_labels": [
+      "proc_98_ms-teams_resident-tax"
+    ],
+    "n_members": 1,
+    "count": 2,
+    "total_duration_s": 31.0,
+    "duration_stats": {
+      "n": 2,
+      "min": 15.0,
+      "median": 16.0,
+      "mean": 15.5,
+      "p75": 15.0,
+      "p90": 15.0,
+      "max": 16.0,
+      "stdev": 0.5
+    },
+    "n_sessions": 2,
+    "sessions": [
+      "ses_20260701-173642-NEELA9BAF",
+      "ses_20260701-192455-NEELA9BAF"
+    ],
+    "n_machines": 1,
+    "machines": [
+      "NEELA9BAF"
+    ],
+    "consistency_score": 0.968,
+    "top_apps": [
+      [
+        "ms-teams",
+        42
+      ],
+      [
+        "Microsoft Edge",
+        10
+      ],
+      [
+        "procmine-desktop-agent",
+        2
+      ]
+    ],
+    "top_routes": [
+      [
+        "#/http:/127.0.0.1:5134",
+        3
+      ],
+      [
+        "#/http:/127.0.0.1:5133",
+        3
+      ],
+      [
+        "#/http:/127.0.0.1:5132",
+        3
+      ]
+    ],
+    "share_of_segments": 0.0044,
+    "share_of_time": 0.0029
+  }
+}

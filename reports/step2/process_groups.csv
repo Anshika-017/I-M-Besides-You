@@ -1,0 +1,41 @@
+group_id,n_members,count,total_duration_s,median_duration_s,n_sessions,n_machines,share_of_segments,share_of_time,consistency_score,top_app,top_route,member_labels
+group_009,13,107,2687.0,21.0,15,4,0.2346,0.2541,0.578,Microsoft Edge,#/payroll-items,proc_13_microsoft-edge_payroll-items|proc_20_microsoft-edge_payroll-items|proc_23_microsoft-edge_payroll-items|proc_40_microsoft-edge_payroll-items|proc_41_microsoft-edge_payroll-items|proc_42_microsoft-edge_payroll-items|proc_43_microsoft-edge_payroll-items|proc_57_microsoft-edge_payroll-items|proc_63_microsoft-edge_payroll-items|proc_69_microsoft-edge_payroll-items|proc_77_microsoft-edge_payroll-items|proc_81_microsoft-edge_payroll-items|proc_83_microsoft-edge_payroll-items
+group_004,4,69,1449.0,20.0,10,4,0.1513,0.137,0.686,Microsoft Edge,#/onboarding,proc_04_microsoft-edge_onboarding|proc_22_microsoft-edge_onboarding|proc_24_microsoft-edge_onboarding|proc_44_microsoft-word_onboarding
+group_003,7,65,1560.0,20.0,12,4,0.1425,0.1475,0.458,Microsoft Edge,#/leave-applications,proc_03_microsoft-edge_leave-applications|proc_06_microsoft-word_leave-applications|proc_09_microsoft-edge_leave-applications|proc_18_microsoft-edge_leave-applications|proc_28_microsoft-edge_leave-applications|proc_52_microsoft-edge_leave-applications|proc_72_microsoft-edge_leave-applications
+group_002,7,34,866.0,20.0,8,4,0.0746,0.0819,0.537,Microsoft Edge,#/social-insurance,proc_02_microsoft-edge_social-insurance|proc_11_microsoft-edge_social-insurance|proc_19_microsoft-edge_social-insurance|proc_32_microsoft-edge_social-insurance|proc_65_microsoft-edge_social-insurance|proc_86_microsoft-edge_social-insurance|proc_91_microsoft-edge_social-insurance
+group_000,6,23,562.0,22.0,6,3,0.0504,0.0531,0.66,Microsoft Edge,#/resident-tax,proc_00_microsoft-edge_resident-tax|proc_10_microsoft-edge_resident-tax|proc_38_microsoft-edge_resident-tax|proc_66_microsoft-edge_resident-tax|proc_85_microsoft-edge_resident-tax|proc_92_microsoft-edge_resident-tax
+group_007,2,20,417.0,20.0,4,2,0.0439,0.0394,0.761,Microsoft Word,#/leave-applications,proc_08_microsoft-word_leave-applications|proc_27_microsoft-word_leave-applications
+group_015,4,19,383.0,20.0,7,3,0.0417,0.0362,0.856,Microsoft Excel,#/social-insurance,proc_26_microsoft-excel_payroll-items|proc_47_microsoft-excel_social-insurance|proc_67_microsoft-excel_onboarding|proc_93_microsoft-excel_leave-applications
+group_001,4,17,579.0,25.0,4,3,0.0373,0.0548,0.478,Microsoft Edge,#/http:/127.0.0.1:5132,proc_01_microsoft-edge|proc_31_microsoft-edge|proc_37_microsoft-edge_http-127-0-0-1-5132|proc_48_microsoft-edge
+group_008,3,13,273.0,20.0,3,1,0.0285,0.0258,0.724,OpenWith,#/payroll-items,proc_12_openwith_payroll-items|proc_25_openwith_payroll-items|proc_62_openwith_social-insurance
+group_010,4,10,181.0,18.0,6,4,0.0219,0.0171,0.928,Microsoft Word,#/leave-applications,proc_14_microsoft-word_payroll-items|proc_30_microsoft-word_leave-applications|proc_56_microsoft-word_payroll-items|proc_96_microsoft-word_leave-applications
+group_018,3,9,278.0,23.0,6,4,0.0197,0.0263,0.547,Microsoft Edge,#/resident-tax,proc_34_microsoft-edge_leave-applications|proc_45_microsoft-edge_resident-tax|proc_88_microsoft-edge_onboarding
+group_013,3,7,131.0,17.0,7,3,0.0154,0.0124,0.738,Microsoft Edge,#/dashboard,proc_17_microsoft-edge_onboarding|proc_46_microsoft-edge_dashboard|proc_58_microsoft-edge_http-127-0-0-1-5132
+group_005,1,6,121.0,23.0,4,1,0.0132,0.0114,0.658,Microsoft Edge,#/payroll-items,proc_05_microsoft-edge_payroll-items
+group_016,1,6,89.0,16.0,6,4,0.0132,0.0084,0.392,WindowsTerminal,#/payroll-items,proc_29_windowsterminal_payroll-items
+group_020,3,5,110.0,10.0,5,4,0.011,0.0104,0.0,Microsoft Edge,#/dashboard,proc_36_microsoft-edge_dashboard|proc_71_microsoft-edge_dashboard|proc_73_windowsterminal_dashboard
+group_014,3,4,94.0,25.0,3,2,0.0088,0.0089,0.787,Microsoft Edge,#/leave-applications,proc_21_microsoft-edge_leave-applications|proc_74_microsoft-edge_leave-applications|proc_97_microsoft-edge_leave-applications
+group_022,2,4,86.0,21.0,3,2,0.0088,0.0081,0.786,Microsoft Edge,#/onboarding,proc_50_microsoft-edge_onboarding|proc_61_microsoft-edge_onboarding
+group_006,2,3,51.0,16.0,2,1,0.0066,0.0048,0.918,Microsoft Edge,#/onboarding,proc_07_microsoft-edge_onboarding|proc_75_microsoft-edge_onboarding
+group_011,1,3,81.0,22.0,2,2,0.0066,0.0077,0.711,Microsoft Edge,#/payroll-items,proc_15_microsoft-edge_payroll-items
+group_017,2,3,63.0,21.0,3,2,0.0066,0.006,0.924,Notepad,#/http:/127.0.0.1:5133,proc_33_notepad|proc_39_notepad_http-127-0-0-1-5133
+group_027,2,3,71.0,22.0,3,3,0.0066,0.0067,0.806,Notepad,,proc_59_notepad_leave-applications|proc_84_notepad
+group_012,1,2,32.0,16.0,2,2,0.0044,0.003,1.0,Microsoft Edge,#/social-insurance,proc_16_microsoft-edge_social-insurance
+group_019,1,2,53.0,36.0,2,2,0.0044,0.005,0.642,Microsoft Edge,#/onboarding,proc_35_microsoft-edge_onboarding
+group_028,2,2,41.0,25.0,2,2,0.0044,0.0039,0.78,Microsoft Excel,#/onboarding,proc_60_microsoft-excel_onboarding|proc_89_microsoft-excel_payroll-items
+group_029,1,2,28.0,24.0,1,1,0.0044,0.0026,0.286,WindowsTerminal,#/http:/127.0.0.1:5132,proc_64_windowsterminal_http-127-0-0-1-5132
+group_030,2,2,42.0,24.0,2,2,0.0044,0.004,0.857,Microsoft Edge,#/onboarding,proc_68_microsoft-edge_onboarding|proc_94_microsoft-edge_payroll-items
+group_032,2,2,43.0,25.0,2,2,0.0044,0.0041,0.837,Microsoft Edge,#/payroll-items,proc_76_microsoft-edge_payroll-items|proc_90_microsoft-edge_payroll-items
+group_039,1,2,31.0,16.0,2,1,0.0044,0.0029,0.968,ms-teams,#/http:/127.0.0.1:5134,proc_98_ms-teams_resident-tax
+group_021,1,1,9.0,9.0,1,1,0.0022,0.0009,1.0,Microsoft Word,,proc_49_microsoft-word
+group_023,1,1,24.0,24.0,1,1,0.0022,0.0023,1.0,OpenWith,#/payroll-items,proc_51_openwith_payroll-items
+group_024,1,1,4.0,4.0,1,1,0.0022,0.0004,1.0,Windows Explorer,,proc_53_windows-explorer
+group_025,1,1,10.0,10.0,1,1,0.0022,0.0009,1.0,Microsoft Edge,#/dashboard,proc_54_microsoft-edge_dashboard
+group_026,1,1,23.0,23.0,1,1,0.0022,0.0022,1.0,Notepad,,proc_55_windows-explorer_onboarding
+group_031,1,1,15.0,15.0,1,1,0.0022,0.0014,1.0,OpenWith,#/onboarding,proc_70_openwith_onboarding
+group_033,1,1,17.0,17.0,1,1,0.0022,0.0016,1.0,Microsoft Word,#/social-insurance,proc_78_microsoft-word_social-insurance
+group_034,1,1,13.0,13.0,1,1,0.0022,0.0012,1.0,procmine-desktop-agent,,proc_79_procmine-desktop-agent
+group_035,1,1,16.0,16.0,1,1,0.0022,0.0015,1.0,Microsoft Edge,#/http:/127.0.0.1:5133,proc_80_microsoft-edge_http-127-0-0-1-5133
+group_036,1,1,20.0,20.0,1,1,0.0022,0.0019,1.0,Microsoft Edge,#/leave-applications,proc_82_microsoft-edge_leave-applications
+group_037,1,1,1.0,1.0,1,1,0.0022,0.0001,1.0,Windows Explorer,,proc_87_windows-explorer
+group_038,1,1,20.0,20.0,1,1,0.0022,0.0019,1.0,Microsoft Word,,proc_95_microsoft-word

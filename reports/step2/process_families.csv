@@ -1,0 +1,9 @@
+family,n_variant_groups,count,total_duration_s,median_duration_s,n_sessions,n_machines,share_of_segments,share_of_time,consistency_score,dominant_app,dominant_app_share,member_groups
+payroll-items,7,138,3318.0,21.0,15,4,0.3026,0.3138,0.575,Microsoft Edge,0.7523,group_005|group_008|group_009|group_011|group_016|group_023|group_032
+leave-applications,5,100,2272.0,20.0,14,4,0.2193,0.2149,0.515,Microsoft Edge,0.5829,group_003|group_007|group_010|group_014|group_036
+onboarding,7,83,1737.0,19.0,11,4,0.182,0.1643,0.694,Microsoft Edge,0.5682,group_004|group_006|group_019|group_022|group_028|group_030|group_031
+social-insurance,4,56,1298.0,20.0,11,4,0.1228,0.1228,0.578,Microsoft Edge,0.5643,group_002|group_012|group_015|group_033
+resident-tax,2,32,840.0,23.0,7,4,0.0702,0.0794,0.592,Microsoft Edge,0.9057,group_000|group_018
+http:,5,25,717.0,23.0,9,4,0.0548,0.0678,0.408,Microsoft Edge,0.7704,group_001|group_017|group_029|group_035|group_039
+dashboard,3,13,251.0,16.0,10,4,0.0285,0.0237,0.233,Microsoft Edge,0.8007,group_013|group_020|group_025
+no_route,7,9,141.0,19.0,6,3,0.0197,0.0133,0.427,procmine-desktop-agent,0.6323,group_021|group_024|group_026|group_027|group_034|group_037|group_038

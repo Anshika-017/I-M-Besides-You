@@ -713,3 +713,101 @@ other.
 
 Committed: `scripts/run_step1_dataset_b.py`, `segments.jsonl`,
 `reports/step1/dataset_b_segmentation_summary.json`, this log update.
+
+---
+
+## Day 1 (cont.) — Step 2: process mining on dataset_b's segments.jsonl
+
+**WHAT WE DID:** Built `src/procmine/analyze.py` and
+`scripts/step2_analysis.py` to profile the 456 Step 1 segments — frequency,
+duration, recurrence, headcount, variants — and produce a ranked automation
+candidate list. Report: `reports/step2/step2_report.md`. Raw artifacts:
+`reports/step2/{label_stats,process_groups,process_families,
+consolidation_groups,transitions,candidate_ranking*}.{json,csv}`.
+
+**WHY:** `segments.jsonl` and Step 1's own evaluation already told us the 99
+discovered labels over-fragment the real process count (dataset_a's oracle
+validation: 25 clusters vs. 15 true classes). Analyzing the 99 raw labels
+as if they were 99 real processes would misrepresent frequency/impact for
+ranking purposes — so before ranking anything, needed an evidence-based way
+to see which labels likely represent the same practical process.
+
+**HOW:** Read `segments.jsonl` as-is (never modified, never re-segmented —
+checked via `git diff` before writing anything). Re-extracted per-segment
+app/route/text features (same `features.py` used in Step 1) purely for
+descriptive analysis. Built a three-level view: 99 raw labels → 40 groups
+(labels whose feature centroids are close in the *same* space Step 1's
+clustering used) → 8 process families (groups sharing a top-level SPA
+route, e.g. `#/payroll-items`). Headcount came from `source.machine_id`/
+`username_hash` in the raw events (4 distinct operators, cross-checked
+against session-dir naming) — genuine log data, not the leaked
+test-harness text, which is referenced nowhere in this analysis.
+
+**WHAT WE FOUND (a failed approach worth recording):** the first
+consolidation attempt connected any pair of labels with centroid cosine
+similarity ≥ 0.5 and took connected components (union-find over a
+threshold graph = single-linkage clustering). It chained catastrophically:
+95 of 99 labels collapsed into one meaningless mega-group, because
+individually-reasonable pairwise links transitively pulled almost
+everything together. Caught this before reporting it (the result was
+obviously wrong — one "group" holding 452/456 segments). Fixed by using
+average-linkage agglomerative clustering on the centroids instead (same
+kind of algorithm Step 1 itself used, one level up), checked via a
+threshold sweep (0.30→0.60) to confirm sane behavior before trusting it
+(40 groups at 0.40, largest group 13 members, no runaway collapse until
+much higher thresholds). Added a regression test for this specific failure
+mode (`test_cluster_centroids_does_not_chain_everything_together`).
+
+**WHAT WE FOUND (substantive results):** 456 segments = 10,574.0s total,
+matching the summed session span (10,574.8s) almost exactly — confirms
+segments tile sessions with no gaps, a sanity check that had to pass before
+trusting anything downstream. Five families look like real recurring
+processes (89.7% of all segments, 89.5% of all time): **payroll-items**
+(138 segments, 31.4% of time, 15/15 sessions, 4/4 operators),
+leave-applications (100, 21.5%, 14/15), onboarding (83, 16.4%, 11/15),
+social-insurance (56, 12.3%, 11/15), resident-tax (32, 7.9%, 7/15). Three
+families (`http:`, `dashboard`, `no_route`, 10.3% combined) look like
+inter-task navigation/landing-page activity rather than distinct paperwork
+— excluded from candidacy, stated explicitly rather than silently dropped.
+
+**WHAT DECISION:** ranked candidates with a transparent weighted formula
+(frequency 0.35, time 0.25, consistency 0.20, recurrence 0.10, headcount
+0.10 — rationale in the report) — no invented dollar/hour figures, since
+the README explicitly says recorded wait times are compressed relative to
+real production use. **Recommended Step 3 candidate: payroll-items** —
+highest on every raw dimension (also #1 by frequency alone and by time
+alone, not just the weighted composite — checked this robustness
+explicitly), and notably more single-application-focused than the next two
+candidates (75% of its activity in one app vs. 56-58% for
+leave-applications/onboarding, which genuinely span browser + Word) — a
+narrower, more tractable automation surface for a 7-day prototype.
+
+**Self-audit performed before committing** (all passed): per-label,
+per-group, and per-family segment counts each independently sum to 456;
+every label/group/family's session count ≤15 and operator count ≤4;
+`segment.py`/`label.py` (the frozen Step 1 configs) show zero diff since
+their last commit — no dataset_b-informed tuning was introduced anywhere in
+Step 2; grepped the Step 2 code for any reference to the leaked
+"Theme M2"/generator text — none found except a comment explicitly stating
+it's not used.
+
+**LIMITATIONS, stated in the report, not hidden:** no ground truth exists
+for dataset_b at any level, so all of this is inference built on Step 1's
+own imperfect, already-measured output (some fraction of the 456 segments
+are very likely non-process time, per dataset_a's ~18-20% finding, with no
+current way to detect which ones on dataset_b); duration numbers are
+relative-comparison-only, not absolute time-savings claims; family labels
+are inferred from observed SPA routes, not client-confirmed process names;
+the ranking weights are a disclosed judgment call.
+
+Added `tests/test_analyze.py` (6 tests, including the union-find-failure
+regression test). All 24 project tests pass.
+
+Committed: `src/procmine/analyze.py`, `scripts/step2_analysis.py`,
+`reports/step2/` (report + all data artifacts), `tests/test_analyze.py`,
+this log update.
+
+**NEXT:** Step 3 — build the automation prototype for payroll-items. Per
+the report's §9, first need to look at the actual route/event sequence
+inside payroll-items' dominant variant group before deciding what slice of
+the workflow is realistically automatable.

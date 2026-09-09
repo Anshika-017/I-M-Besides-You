@@ -1,0 +1,672 @@
+[
+  {
+    "from": "group_015",
+    "to": "group_009",
+    "count": 10
+  },
+  {
+    "from": "group_009",
+    "to": "group_015",
+    "count": 7
+  },
+  {
+    "from": "group_009",
+    "to": "group_003",
+    "count": 7
+  },
+  {
+    "from": "group_003",
+    "to": "group_002",
+    "count": 6
+  },
+  {
+    "from": "group_000",
+    "to": "group_018",
+    "count": 5
+  },
+  {
+    "from": "group_009",
+    "to": "group_004",
+    "count": 5
+  },
+  {
+    "from": "group_009",
+    "to": "group_002",
+    "count": 5
+  },
+  {
+    "from": "group_009",
+    "to": "group_000",
+    "count": 4
+  },
+  {
+    "from": "group_010",
+    "to": "group_003",
+    "count": 4
+  },
+  {
+    "from": "group_002",
+    "to": "group_009",
+    "count": 4
+  },
+  {
+    "from": "group_004",
+    "to": "group_009",
+    "count": 4
+  },
+  {
+    "from": "group_009",
+    "to": "group_008",
+    "count": 4
+  },
+  {
+    "from": "group_008",
+    "to": "group_009",
+    "count": 4
+  },
+  {
+    "from": "group_007",
+    "to": "group_014",
+    "count": 4
+  },
+  {
+    "from": "group_016",
+    "to": "group_009",
+    "count": 3
+  },
+  {
+    "from": "group_003",
+    "to": "group_010",
+    "count": 3
+  },
+  {
+    "from": "group_003",
+    "to": "group_009",
+    "count": 3
+  },
+  {
+    "from": "group_018",
+    "to": "group_009",
+    "count": 3
+  },
+  {
+    "from": "group_018",
+    "to": "group_004",
+    "count": 3
+  },
+  {
+    "from": "group_002",
+    "to": "group_003",
+    "count": 3
+  },
+  {
+    "from": "group_022",
+    "to": "group_004",
+    "count": 3
+  },
+  {
+    "from": "group_000",
+    "to": "group_009",
+    "count": 3
+  },
+  {
+    "from": "group_004",
+    "to": "group_007",
+    "count": 3
+  },
+  {
+    "from": "group_012",
+    "to": "group_002",
+    "count": 2
+  },
+  {
+    "from": "group_009",
+    "to": "group_020",
+    "count": 2
+  },
+  {
+    "from": "group_001",
+    "to": "group_010",
+    "count": 2
+  },
+  {
+    "from": "group_010",
+    "to": "group_009",
+    "count": 2
+  },
+  {
+    "from": "group_004",
+    "to": "group_022",
+    "count": 2
+  },
+  {
+    "from": "group_004",
+    "to": "group_010",
+    "count": 2
+  },
+  {
+    "from": "group_003",
+    "to": "group_000",
+    "count": 2
+  },
+  {
+    "from": "group_004",
+    "to": "group_002",
+    "count": 2
+  },
+  {
+    "from": "group_002",
+    "to": "group_020",
+    "count": 2
+  },
+  {
+    "from": "group_005",
+    "to": "group_009",
+    "count": 2
+  },
+  {
+    "from": "group_013",
+    "to": "group_004",
+    "count": 2
+  },
+  {
+    "from": "group_006",
+    "to": "group_004",
+    "count": 2
+  },
+  {
+    "from": "group_009",
+    "to": "group_027",
+    "count": 2
+  },
+  {
+    "from": "group_019",
+    "to": "group_004",
+    "count": 2
+  },
+  {
+    "from": "group_009",
+    "to": "group_007",
+    "count": 2
+  },
+  {
+    "from": "group_014",
+    "to": "group_009",
+    "count": 2
+  },
+  {
+    "from": "group_009",
+    "to": "group_017",
+    "count": 2
+  },
+  {
+    "from": "group_004",
+    "to": "group_003",
+    "count": 2
+  },
+  {
+    "from": "group_003",
+    "to": "group_004",
+    "count": 2
+  },
+  {
+    "from": "group_003",
+    "to": "group_015",
+    "count": 2
+  },
+  {
+    "from": "group_013",
+    "to": "group_009",
+    "count": 2
+  },
+  {
+    "from": "group_008",
+    "to": "group_011",
+    "count": 2
+  },
+  {
+    "from": "group_001",
+    "to": "group_009",
+    "count": 1
+  },
+  {
+    "from": "group_009",
+    "to": "group_016",
+    "count": 1
+  },
+  {
+    "from": "group_018",
+    "to": "group_003",
+    "count": 1
+  },
+  {
+    "from": "group_002",
+    "to": "group_027",
+    "count": 1
+  },
+  {
+    "from": "group_027",
+    "to": "group_003",
+    "count": 1
+  },
+  {
+    "from": "group_000",
+    "to": "group_003",
+    "count": 1
+  },
+  {
+    "from": "group_003",
+    "to": "group_034",
+    "count": 1
+  },
+  {
+    "from": "group_001",
+    "to": "group_000",
+    "count": 1
+  },
+  {
+    "from": "group_004",
+    "to": "group_028",
+    "count": 1
+  },
+  {
+    "from": "group_028",
+    "to": "group_015",
+    "count": 1
+  },
+  {
+    "from": "group_015",
+    "to": "group_011",
+    "count": 1
+  },
+  {
+    "from": "group_011",
+    "to": "group_015",
+    "count": 1
+  },
+  {
+    "from": "group_015",
+    "to": "group_000",
+    "count": 1
+  },
+  {
+    "from": "group_018",
+    "to": "group_002",
+    "count": 1
+  },
+  {
+    "from": "group_009",
+    "to": "group_012",
+    "count": 1
+  },
+  {
+    "from": "group_002",
+    "to": "group_000",
+    "count": 1
+  },
+  {
+    "from": "group_002",
+    "to": "group_018",
+    "count": 1
+  },
+  {
+    "from": "group_000",
+    "to": "group_002",
+    "count": 1
+  },
+  {
+    "from": "group_003",
+    "to": "group_038",
+    "count": 1
+  },
+  {
+    "from": "group_038",
+    "to": "group_000",
+    "count": 1
+  },
+  {
+    "from": "group_039",
+    "to": "group_005",
+    "count": 1
+  },
+  {
+    "from": "group_015",
+    "to": "group_005",
+    "count": 1
+  },
+  {
+    "from": "group_009",
+    "to": "group_026",
+    "count": 1
+  },
+  {
+    "from": "group_026",
+    "to": "group_006",
+    "count": 1
+  },
+  {
+    "from": "group_007",
+    "to": "group_022",
+    "count": 1
+  },
+  {
+    "from": "group_009",
+    "to": "group_023",
+    "count": 1
+  },
+  {
+    "from": "group_023",
+    "to": "group_009",
+    "count": 1
+  },
+  {
+    "from": "group_020",
+    "to": "group_016",
+    "count": 1
+  },
+  {
+    "from": "group_027",
+    "to": "group_028",
+    "count": 1
+  },
+  {
+    "from": "group_028",
+    "to": "group_009",
+    "count": 1
+  },
+  {
+    "from": "group_009",
+    "to": "group_032",
+    "count": 1
+  },
+  {
+    "from": "group_032",
+    "to": "group_000",
+    "count": 1
+  },
+  {
+    "from": "group_003",
+    "to": "group_037",
+    "count": 1
+  },
+  {
+    "from": "group_029",
+    "to": "group_019",
+    "count": 1
+  },
+  {
+    "from": "group_004",
+    "to": "group_036",
+    "count": 1
+  },
+  {
+    "from": "group_036",
+    "to": "group_007",
+    "count": 1
+  },
+  {
+    "from": "group_007",
+    "to": "group_018",
+    "count": 1
+  },
+  {
+    "from": "group_007",
+    "to": "group_009",
+    "count": 1
+  },
+  {
+    "from": "group_017",
+    "to": "group_003",
+    "count": 1
+  },
+  {
+    "from": "group_009",
+    "to": "group_005",
+    "count": 1
+  },
+  {
+    "from": "group_005",
+    "to": "group_029",
+    "count": 1
+  },
+  {
+    "from": "group_013",
+    "to": "group_003",
+    "count": 1
+  },
+  {
+    "from": "group_002",
+    "to": "group_004",
+    "count": 1
+  },
+  {
+    "from": "group_004",
+    "to": "group_031",
+    "count": 1
+  },
+  {
+    "from": "group_031",
+    "to": "group_004",
+    "count": 1
+  },
+  {
+    "from": "group_004",
+    "to": "group_008",
+    "count": 1
+  },
+  {
+    "from": "group_002",
+    "to": "group_008",
+    "count": 1
+  },
+  {
+    "from": "group_009",
+    "to": "group_024",
+    "count": 1
+  },
+  {
+    "from": "group_013",
+    "to": "group_035",
+    "count": 1
+  },
+  {
+    "from": "group_035",
+    "to": "group_004",
+    "count": 1
+  },
+  {
+    "from": "group_004",
+    "to": "group_015",
+    "count": 1
+  },
+  {
+    "from": "group_015",
+    "to": "group_030",
+    "count": 1
+  },
+  {
+    "from": "group_030",
+    "to": "group_009",
+    "count": 1
+  },
+  {
+    "from": "group_009",
+    "to": "group_010",
+    "count": 1
+  },
+  {
+    "from": "group_010",
+    "to": "group_022",
+    "count": 1
+  },
+  {
+    "from": "group_022",
+    "to": "group_020",
+    "count": 1
+  },
+  {
+    "from": "group_017",
+    "to": "group_002",
+    "count": 1
+  },
+  {
+    "from": "group_002",
+    "to": "group_012",
+    "count": 1
+  },
+  {
+    "from": "group_002",
+    "to": "group_010",
+    "count": 1
+  },
+  {
+    "from": "group_010",
+    "to": "group_033",
+    "count": 1
+  },
+  {
+    "from": "group_033",
+    "to": "group_003",
+    "count": 1
+  },
+  {
+    "from": "group_002",
+    "to": "group_005",
+    "count": 1
+  },
+  {
+    "from": "group_027",
+    "to": "group_016",
+    "count": 1
+  },
+  {
+    "from": "group_003",
+    "to": "group_018",
+    "count": 1
+  },
+  {
+    "from": "group_000",
+    "to": "group_021",
+    "count": 1
+  },
+  {
+    "from": "group_002",
+    "to": "group_019",
+    "count": 1
+  },
+  {
+    "from": "group_014",
+    "to": "group_003",
+    "count": 1
+  },
+  {
+    "from": "group_004",
+    "to": "group_000",
+    "count": 1
+  },
+  {
+    "from": "group_000",
+    "to": "group_007",
+    "count": 1
+  },
+  {
+    "from": "group_014",
+    "to": "group_016",
+    "count": 1
+  },
+  {
+    "from": "group_013",
+    "to": "group_015",
+    "count": 1
+  },
+  {
+    "from": "group_004",
+    "to": "group_030",
+    "count": 1
+  },
+  {
+    "from": "group_030",
+    "to": "group_007",
+    "count": 1
+  },
+  {
+    "from": "group_007",
+    "to": "group_003",
+    "count": 1
+  },
+  {
+    "from": "group_003",
+    "to": "group_005",
+    "count": 1
+  },
+  {
+    "from": "group_017",
+    "to": "group_009",
+    "count": 1
+  },
+  {
+    "from": "group_009",
+    "to": "group_006",
+    "count": 1
+  },
+  {
+    "from": "group_011",
+    "to": "group_009",
+    "count": 1
+  },
+  {
+    "from": "group_003",
+    "to": "group_032",
+    "count": 1
+  },
+  {
+    "from": "group_032",
+    "to": "group_009",
+    "count": 1
+  },
+  {
+    "from": "group_011",
+    "to": "group_008",
+    "count": 1
+  },
+  {
+    "from": "group_008",
+    "to": "group_025",
+    "count": 1
+  },
+  {
+    "from": "group_039",
+    "to": "group_001",
+    "count": 1
+  },
+  {
+    "from": "group_010",
+    "to": "group_001",
+    "count": 1
+  },
+  {
+    "from": "group_001",
+    "to": "group_004",
+    "count": 1
+  },
+  {
+    "from": "group_004",
+    "to": "group_001",
+    "count": 1
+  },
+  {
+    "from": "group_001",
+    "to": "group_015",
+    "count": 1
+  },
+  {
+    "from": "group_009",
+    "to": "group_001",
+    "count": 1
+  },
+  {
+    "from": "group_001",
+    "to": "group_016",
+    "count": 1
+  }
+]

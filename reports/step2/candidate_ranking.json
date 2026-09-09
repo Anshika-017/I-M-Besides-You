@@ -1,0 +1,790 @@
+{
+  "weights": {
+    "frequency": 0.35,
+    "time_share": 0.25,
+    "consistency": 0.2,
+    "recurrence": 0.1,
+    "headcount": 0.1
+  },
+  "ranking": [
+    {
+      "group_id": "group_009",
+      "composite_score": 0.9156,
+      "frequency_score": 1.0,
+      "time_score": 1.0,
+      "consistency_score": 0.578,
+      "recurrence_score": 1.0,
+      "headcount_score": 1.0,
+      "count": 107,
+      "total_duration_s": 2687.0,
+      "n_sessions": 15,
+      "n_machines": 4,
+      "n_distinct_apps_used": 3,
+      "top_route": "#/payroll-items",
+      "member_labels": [
+        "proc_13_microsoft-edge_payroll-items",
+        "proc_20_microsoft-edge_payroll-items",
+        "proc_23_microsoft-edge_payroll-items",
+        "proc_40_microsoft-edge_payroll-items",
+        "proc_41_microsoft-edge_payroll-items",
+        "proc_42_microsoft-edge_payroll-items",
+        "proc_43_microsoft-edge_payroll-items",
+        "proc_57_microsoft-edge_payroll-items",
+        "proc_63_microsoft-edge_payroll-items",
+        "proc_69_microsoft-edge_payroll-items",
+        "proc_77_microsoft-edge_payroll-items",
+        "proc_81_microsoft-edge_payroll-items",
+        "proc_83_microsoft-edge_payroll-items"
+      ]
+    },
+    {
+      "group_id": "group_004",
+      "composite_score": 0.6644,
+      "frequency_score": 0.645,
+      "time_score": 0.539,
+      "consistency_score": 0.686,
+      "recurrence_score": 0.667,
+      "headcount_score": 1.0,
+      "count": 69,
+      "total_duration_s": 1449.0,
+      "n_sessions": 10,
+      "n_machines": 4,
+      "n_distinct_apps_used": 3,
+      "top_route": "#/onboarding",
+      "member_labels": [
+        "proc_04_microsoft-edge_onboarding",
+        "proc_22_microsoft-edge_onboarding",
+        "proc_24_microsoft-edge_onboarding",
+        "proc_44_microsoft-word_onboarding"
+      ]
+    },
+    {
+      "group_id": "group_003",
+      "composite_score": 0.6294,
+      "frequency_score": 0.607,
+      "time_score": 0.581,
+      "consistency_score": 0.458,
+      "recurrence_score": 0.8,
+      "headcount_score": 1.0,
+      "count": 65,
+      "total_duration_s": 1560.0,
+      "n_sessions": 12,
+      "n_machines": 4,
+      "n_distinct_apps_used": 3,
+      "top_route": "#/leave-applications",
+      "member_labels": [
+        "proc_03_microsoft-edge_leave-applications",
+        "proc_06_microsoft-word_leave-applications",
+        "proc_09_microsoft-edge_leave-applications",
+        "proc_18_microsoft-edge_leave-applications",
+        "proc_28_microsoft-edge_leave-applications",
+        "proc_52_microsoft-edge_leave-applications",
+        "proc_72_microsoft-edge_leave-applications"
+      ]
+    },
+    {
+      "group_id": "group_002",
+      "composite_score": 0.4525,
+      "frequency_score": 0.318,
+      "time_score": 0.322,
+      "consistency_score": 0.537,
+      "recurrence_score": 0.533,
+      "headcount_score": 1.0,
+      "count": 34,
+      "total_duration_s": 866.0,
+      "n_sessions": 8,
+      "n_machines": 4,
+      "n_distinct_apps_used": 3,
+      "top_route": "#/social-insurance",
+      "member_labels": [
+        "proc_02_microsoft-edge_social-insurance",
+        "proc_11_microsoft-edge_social-insurance",
+        "proc_19_microsoft-edge_social-insurance",
+        "proc_32_microsoft-edge_social-insurance",
+        "proc_65_microsoft-edge_social-insurance",
+        "proc_86_microsoft-edge_social-insurance",
+        "proc_91_microsoft-edge_social-insurance"
+      ]
+    },
+    {
+      "group_id": "group_015",
+      "composite_score": 0.3907,
+      "frequency_score": 0.178,
+      "time_score": 0.143,
+      "consistency_score": 0.856,
+      "recurrence_score": 0.467,
+      "headcount_score": 0.75,
+      "count": 19,
+      "total_duration_s": 383.0,
+      "n_sessions": 7,
+      "n_machines": 3,
+      "n_distinct_apps_used": 3,
+      "top_route": "#/social-insurance",
+      "member_labels": [
+        "proc_26_microsoft-excel_payroll-items",
+        "proc_47_microsoft-excel_social-insurance",
+        "proc_67_microsoft-excel_onboarding",
+        "proc_93_microsoft-excel_leave-applications"
+      ]
+    },
+    {
+      "group_id": "group_010",
+      "composite_score": 0.3752,
+      "frequency_score": 0.093,
+      "time_score": 0.067,
+      "consistency_score": 0.928,
+      "recurrence_score": 0.4,
+      "headcount_score": 1.0,
+      "count": 10,
+      "total_duration_s": 181.0,
+      "n_sessions": 6,
+      "n_machines": 4,
+      "n_distinct_apps_used": 2,
+      "top_route": "#/leave-applications",
+      "member_labels": [
+        "proc_14_microsoft-word_payroll-items",
+        "proc_30_microsoft-word_leave-applications",
+        "proc_56_microsoft-word_payroll-items",
+        "proc_96_microsoft-word_leave-applications"
+      ]
+    },
+    {
+      "group_id": "group_000",
+      "composite_score": 0.3745,
+      "frequency_score": 0.215,
+      "time_score": 0.209,
+      "consistency_score": 0.66,
+      "recurrence_score": 0.4,
+      "headcount_score": 0.75,
+      "count": 23,
+      "total_duration_s": 562.0,
+      "n_sessions": 6,
+      "n_machines": 3,
+      "n_distinct_apps_used": 3,
+      "top_route": "#/resident-tax",
+      "member_labels": [
+        "proc_00_microsoft-edge_resident-tax",
+        "proc_10_microsoft-edge_resident-tax",
+        "proc_38_microsoft-edge_resident-tax",
+        "proc_66_microsoft-edge_resident-tax",
+        "proc_85_microsoft-edge_resident-tax",
+        "proc_92_microsoft-edge_resident-tax"
+      ]
+    },
+    {
+      "group_id": "group_007",
+      "composite_score": 0.3331,
+      "frequency_score": 0.187,
+      "time_score": 0.155,
+      "consistency_score": 0.761,
+      "recurrence_score": 0.267,
+      "headcount_score": 0.5,
+      "count": 20,
+      "total_duration_s": 417.0,
+      "n_sessions": 4,
+      "n_machines": 2,
+      "n_distinct_apps_used": 3,
+      "top_route": "#/leave-applications",
+      "member_labels": [
+        "proc_08_microsoft-word_leave-applications",
+        "proc_27_microsoft-word_leave-applications"
+      ]
+    },
+    {
+      "group_id": "group_001",
+      "composite_score": 0.3067,
+      "frequency_score": 0.159,
+      "time_score": 0.215,
+      "consistency_score": 0.478,
+      "recurrence_score": 0.267,
+      "headcount_score": 0.75,
+      "count": 17,
+      "total_duration_s": 579.0,
+      "n_sessions": 4,
+      "n_machines": 3,
+      "n_distinct_apps_used": 3,
+      "top_route": "#/http:/127.0.0.1:5132",
+      "member_labels": [
+        "proc_01_microsoft-edge",
+        "proc_31_microsoft-edge",
+        "proc_37_microsoft-edge_http-127-0-0-1-5132",
+        "proc_48_microsoft-edge"
+      ]
+    },
+    {
+      "group_id": "group_018",
+      "composite_score": 0.3047,
+      "frequency_score": 0.084,
+      "time_score": 0.103,
+      "consistency_score": 0.547,
+      "recurrence_score": 0.4,
+      "headcount_score": 1.0,
+      "count": 9,
+      "total_duration_s": 278.0,
+      "n_sessions": 6,
+      "n_machines": 4,
+      "n_distinct_apps_used": 3,
+      "top_route": "#/resident-tax",
+      "member_labels": [
+        "proc_34_microsoft-edge_leave-applications",
+        "proc_45_microsoft-edge_resident-tax",
+        "proc_88_microsoft-edge_onboarding"
+      ]
+    },
+    {
+      "group_id": "group_013",
+      "composite_score": 0.3044,
+      "frequency_score": 0.065,
+      "time_score": 0.049,
+      "consistency_score": 0.738,
+      "recurrence_score": 0.467,
+      "headcount_score": 0.75,
+      "count": 7,
+      "total_duration_s": 131.0,
+      "n_sessions": 7,
+      "n_machines": 3,
+      "n_distinct_apps_used": 3,
+      "top_route": "#/dashboard",
+      "member_labels": [
+        "proc_17_microsoft-edge_onboarding",
+        "proc_46_microsoft-edge_dashboard",
+        "proc_58_microsoft-edge_http-127-0-0-1-5132"
+      ]
+    },
+    {
+      "group_id": "group_012",
+      "composite_score": 0.2729,
+      "frequency_score": 0.019,
+      "time_score": 0.012,
+      "consistency_score": 1.0,
+      "recurrence_score": 0.133,
+      "headcount_score": 0.5,
+      "count": 2,
+      "total_duration_s": 32.0,
+      "n_sessions": 2,
+      "n_machines": 2,
+      "n_distinct_apps_used": 3,
+      "top_route": "#/social-insurance",
+      "member_labels": [
+        "proc_16_microsoft-edge_social-insurance"
+      ]
+    },
+    {
+      "group_id": "group_027",
+      "composite_score": 0.2726,
+      "frequency_score": 0.028,
+      "time_score": 0.026,
+      "consistency_score": 0.806,
+      "recurrence_score": 0.2,
+      "headcount_score": 0.75,
+      "count": 3,
+      "total_duration_s": 71.0,
+      "n_sessions": 3,
+      "n_machines": 3,
+      "n_distinct_apps_used": 1,
+      "top_route": null,
+      "member_labels": [
+        "proc_59_notepad_leave-applications",
+        "proc_84_notepad"
+      ]
+    },
+    {
+      "group_id": "group_017",
+      "composite_score": 0.2705,
+      "frequency_score": 0.028,
+      "time_score": 0.023,
+      "consistency_score": 0.924,
+      "recurrence_score": 0.2,
+      "headcount_score": 0.5,
+      "count": 3,
+      "total_duration_s": 63.0,
+      "n_sessions": 3,
+      "n_machines": 2,
+      "n_distinct_apps_used": 3,
+      "top_route": "#/http:/127.0.0.1:5133",
+      "member_labels": [
+        "proc_33_notepad",
+        "proc_39_notepad_http-127-0-0-1-5133"
+      ]
+    },
+    {
+      "group_id": "group_008",
+      "composite_score": 0.2577,
+      "frequency_score": 0.121,
+      "time_score": 0.102,
+      "consistency_score": 0.724,
+      "recurrence_score": 0.2,
+      "headcount_score": 0.25,
+      "count": 13,
+      "total_duration_s": 273.0,
+      "n_sessions": 3,
+      "n_machines": 1,
+      "n_distinct_apps_used": 3,
+      "top_route": "#/payroll-items",
+      "member_labels": [
+        "proc_12_openwith_payroll-items",
+        "proc_25_openwith_payroll-items",
+        "proc_62_openwith_social-insurance"
+      ]
+    },
+    {
+      "group_id": "group_014",
+      "composite_score": 0.2492,
+      "frequency_score": 0.037,
+      "time_score": 0.035,
+      "consistency_score": 0.787,
+      "recurrence_score": 0.2,
+      "headcount_score": 0.5,
+      "count": 4,
+      "total_duration_s": 94.0,
+      "n_sessions": 3,
+      "n_machines": 2,
+      "n_distinct_apps_used": 2,
+      "top_route": "#/leave-applications",
+      "member_labels": [
+        "proc_21_microsoft-edge_leave-applications",
+        "proc_74_microsoft-edge_leave-applications",
+        "proc_97_microsoft-edge_leave-applications"
+      ]
+    },
+    {
+      "group_id": "group_022",
+      "composite_score": 0.2483,
+      "frequency_score": 0.037,
+      "time_score": 0.032,
+      "consistency_score": 0.786,
+      "recurrence_score": 0.2,
+      "headcount_score": 0.5,
+      "count": 4,
+      "total_duration_s": 86.0,
+      "n_sessions": 3,
+      "n_machines": 2,
+      "n_distinct_apps_used": 2,
+      "top_route": "#/onboarding",
+      "member_labels": [
+        "proc_50_microsoft-edge_onboarding",
+        "proc_61_microsoft-edge_onboarding"
+      ]
+    },
+    {
+      "group_id": "group_016",
+      "composite_score": 0.2463,
+      "frequency_score": 0.056,
+      "time_score": 0.033,
+      "consistency_score": 0.392,
+      "recurrence_score": 0.4,
+      "headcount_score": 1.0,
+      "count": 6,
+      "total_duration_s": 89.0,
+      "n_sessions": 6,
+      "n_machines": 4,
+      "n_distinct_apps_used": 3,
+      "top_route": "#/payroll-items",
+      "member_labels": [
+        "proc_29_windowsterminal_payroll-items"
+      ]
+    },
+    {
+      "group_id": "group_030",
+      "composite_score": 0.2452,
+      "frequency_score": 0.019,
+      "time_score": 0.016,
+      "consistency_score": 0.857,
+      "recurrence_score": 0.133,
+      "headcount_score": 0.5,
+      "count": 2,
+      "total_duration_s": 42.0,
+      "n_sessions": 2,
+      "n_machines": 2,
+      "n_distinct_apps_used": 3,
+      "top_route": "#/onboarding",
+      "member_labels": [
+        "proc_68_microsoft-edge_onboarding",
+        "proc_94_microsoft-edge_payroll-items"
+      ]
+    },
+    {
+      "group_id": "group_039",
+      "composite_score": 0.2414,
+      "frequency_score": 0.019,
+      "time_score": 0.012,
+      "consistency_score": 0.968,
+      "recurrence_score": 0.133,
+      "headcount_score": 0.25,
+      "count": 2,
+      "total_duration_s": 31.0,
+      "n_sessions": 2,
+      "n_machines": 1,
+      "n_distinct_apps_used": 3,
+      "top_route": "#/http:/127.0.0.1:5134",
+      "member_labels": [
+        "proc_98_ms-teams_resident-tax"
+      ]
+    },
+    {
+      "group_id": "group_032",
+      "composite_score": 0.2413,
+      "frequency_score": 0.019,
+      "time_score": 0.016,
+      "consistency_score": 0.837,
+      "recurrence_score": 0.133,
+      "headcount_score": 0.5,
+      "count": 2,
+      "total_duration_s": 43.0,
+      "n_sessions": 2,
+      "n_machines": 2,
+      "n_distinct_apps_used": 3,
+      "top_route": "#/payroll-items",
+      "member_labels": [
+        "proc_76_microsoft-edge_payroll-items",
+        "proc_90_microsoft-edge_payroll-items"
+      ]
+    },
+    {
+      "group_id": "group_023",
+      "composite_score": 0.2372,
+      "frequency_score": 0.009,
+      "time_score": 0.009,
+      "consistency_score": 1.0,
+      "recurrence_score": 0.067,
+      "headcount_score": 0.25,
+      "count": 1,
+      "total_duration_s": 24.0,
+      "n_sessions": 1,
+      "n_machines": 1,
+      "n_distinct_apps_used": 2,
+      "top_route": "#/payroll-items",
+      "member_labels": [
+        "proc_51_openwith_payroll-items"
+      ]
+    },
+    {
+      "group_id": "group_026",
+      "composite_score": 0.2371,
+      "frequency_score": 0.009,
+      "time_score": 0.009,
+      "consistency_score": 1.0,
+      "recurrence_score": 0.067,
+      "headcount_score": 0.25,
+      "count": 1,
+      "total_duration_s": 23.0,
+      "n_sessions": 1,
+      "n_machines": 1,
+      "n_distinct_apps_used": 2,
+      "top_route": null,
+      "member_labels": [
+        "proc_55_windows-explorer_onboarding"
+      ]
+    },
+    {
+      "group_id": "group_036",
+      "composite_score": 0.2368,
+      "frequency_score": 0.009,
+      "time_score": 0.007,
+      "consistency_score": 1.0,
+      "recurrence_score": 0.067,
+      "headcount_score": 0.25,
+      "count": 1,
+      "total_duration_s": 20.0,
+      "n_sessions": 1,
+      "n_machines": 1,
+      "n_distinct_apps_used": 2,
+      "top_route": "#/leave-applications",
+      "member_labels": [
+        "proc_82_microsoft-edge_leave-applications"
+      ]
+    },
+    {
+      "group_id": "group_038",
+      "composite_score": 0.2368,
+      "frequency_score": 0.009,
+      "time_score": 0.007,
+      "consistency_score": 1.0,
+      "recurrence_score": 0.067,
+      "headcount_score": 0.25,
+      "count": 1,
+      "total_duration_s": 20.0,
+      "n_sessions": 1,
+      "n_machines": 1,
+      "n_distinct_apps_used": 1,
+      "top_route": null,
+      "member_labels": [
+        "proc_95_microsoft-word"
+      ]
+    },
+    {
+      "group_id": "group_006",
+      "composite_score": 0.2365,
+      "frequency_score": 0.028,
+      "time_score": 0.019,
+      "consistency_score": 0.918,
+      "recurrence_score": 0.133,
+      "headcount_score": 0.25,
+      "count": 3,
+      "total_duration_s": 51.0,
+      "n_sessions": 2,
+      "n_machines": 1,
+      "n_distinct_apps_used": 3,
+      "top_route": "#/onboarding",
+      "member_labels": [
+        "proc_07_microsoft-edge_onboarding",
+        "proc_75_microsoft-edge_onboarding"
+      ]
+    },
+    {
+      "group_id": "group_033",
+      "composite_score": 0.2365,
+      "frequency_score": 0.009,
+      "time_score": 0.006,
+      "consistency_score": 1.0,
+      "recurrence_score": 0.067,
+      "headcount_score": 0.25,
+      "count": 1,
+      "total_duration_s": 17.0,
+      "n_sessions": 1,
+      "n_machines": 1,
+      "n_distinct_apps_used": 3,
+      "top_route": "#/social-insurance",
+      "member_labels": [
+        "proc_78_microsoft-word_social-insurance"
+      ]
+    },
+    {
+      "group_id": "group_035",
+      "composite_score": 0.2364,
+      "frequency_score": 0.009,
+      "time_score": 0.006,
+      "consistency_score": 1.0,
+      "recurrence_score": 0.067,
+      "headcount_score": 0.25,
+      "count": 1,
+      "total_duration_s": 16.0,
+      "n_sessions": 1,
+      "n_machines": 1,
+      "n_distinct_apps_used": 1,
+      "top_route": "#/http:/127.0.0.1:5133",
+      "member_labels": [
+        "proc_80_microsoft-edge_http-127-0-0-1-5133"
+      ]
+    },
+    {
+      "group_id": "group_031",
+      "composite_score": 0.2363,
+      "frequency_score": 0.009,
+      "time_score": 0.006,
+      "consistency_score": 1.0,
+      "recurrence_score": 0.067,
+      "headcount_score": 0.25,
+      "count": 1,
+      "total_duration_s": 15.0,
+      "n_sessions": 1,
+      "n_machines": 1,
+      "n_distinct_apps_used": 2,
+      "top_route": "#/onboarding",
+      "member_labels": [
+        "proc_70_openwith_onboarding"
+      ]
+    },
+    {
+      "group_id": "group_034",
+      "composite_score": 0.2361,
+      "frequency_score": 0.009,
+      "time_score": 0.005,
+      "consistency_score": 1.0,
+      "recurrence_score": 0.067,
+      "headcount_score": 0.25,
+      "count": 1,
+      "total_duration_s": 13.0,
+      "n_sessions": 1,
+      "n_machines": 1,
+      "n_distinct_apps_used": 3,
+      "top_route": null,
+      "member_labels": [
+        "proc_79_procmine-desktop-agent"
+      ]
+    },
+    {
+      "group_id": "group_025",
+      "composite_score": 0.2359,
+      "frequency_score": 0.009,
+      "time_score": 0.004,
+      "consistency_score": 1.0,
+      "recurrence_score": 0.067,
+      "headcount_score": 0.25,
+      "count": 1,
+      "total_duration_s": 10.0,
+      "n_sessions": 1,
+      "n_machines": 1,
+      "n_distinct_apps_used": 3,
+      "top_route": "#/dashboard",
+      "member_labels": [
+        "proc_54_microsoft-edge_dashboard"
+      ]
+    },
+    {
+      "group_id": "group_021",
+      "composite_score": 0.2358,
+      "frequency_score": 0.009,
+      "time_score": 0.003,
+      "consistency_score": 1.0,
+      "recurrence_score": 0.067,
+      "headcount_score": 0.25,
+      "count": 1,
+      "total_duration_s": 9.0,
+      "n_sessions": 1,
+      "n_machines": 1,
+      "n_distinct_apps_used": 3,
+      "top_route": null,
+      "member_labels": [
+        "proc_49_microsoft-word"
+      ]
+    },
+    {
+      "group_id": "group_024",
+      "composite_score": 0.2353,
+      "frequency_score": 0.009,
+      "time_score": 0.001,
+      "consistency_score": 1.0,
+      "recurrence_score": 0.067,
+      "headcount_score": 0.25,
+      "count": 1,
+      "total_duration_s": 4.0,
+      "n_sessions": 1,
+      "n_machines": 1,
+      "n_distinct_apps_used": 3,
+      "top_route": null,
+      "member_labels": [
+        "proc_53_windows-explorer"
+      ]
+    },
+    {
+      "group_id": "group_037",
+      "composite_score": 0.235,
+      "frequency_score": 0.009,
+      "time_score": 0.0,
+      "consistency_score": 1.0,
+      "recurrence_score": 0.067,
+      "headcount_score": 0.25,
+      "count": 1,
+      "total_duration_s": 1.0,
+      "n_sessions": 1,
+      "n_machines": 1,
+      "n_distinct_apps_used": 2,
+      "top_route": null,
+      "member_labels": [
+        "proc_87_windows-explorer"
+      ]
+    },
+    {
+      "group_id": "group_028",
+      "composite_score": 0.2297,
+      "frequency_score": 0.019,
+      "time_score": 0.015,
+      "consistency_score": 0.78,
+      "recurrence_score": 0.133,
+      "headcount_score": 0.5,
+      "count": 2,
+      "total_duration_s": 41.0,
+      "n_sessions": 2,
+      "n_machines": 2,
+      "n_distinct_apps_used": 3,
+      "top_route": "#/onboarding",
+      "member_labels": [
+        "proc_60_microsoft-excel_onboarding",
+        "proc_89_microsoft-excel_payroll-items"
+      ]
+    },
+    {
+      "group_id": "group_011",
+      "composite_score": 0.2229,
+      "frequency_score": 0.028,
+      "time_score": 0.03,
+      "consistency_score": 0.711,
+      "recurrence_score": 0.133,
+      "headcount_score": 0.5,
+      "count": 3,
+      "total_duration_s": 81.0,
+      "n_sessions": 2,
+      "n_machines": 2,
+      "n_distinct_apps_used": 3,
+      "top_route": "#/payroll-items",
+      "member_labels": [
+        "proc_15_microsoft-edge_payroll-items"
+      ]
+    },
+    {
+      "group_id": "group_005",
+      "composite_score": 0.2142,
+      "frequency_score": 0.056,
+      "time_score": 0.045,
+      "consistency_score": 0.658,
+      "recurrence_score": 0.267,
+      "headcount_score": 0.25,
+      "count": 6,
+      "total_duration_s": 121.0,
+      "n_sessions": 4,
+      "n_machines": 1,
+      "n_distinct_apps_used": 3,
+      "top_route": "#/payroll-items",
+      "member_labels": [
+        "proc_05_microsoft-edge_payroll-items"
+      ]
+    },
+    {
+      "group_id": "group_019",
+      "composite_score": 0.2032,
+      "frequency_score": 0.019,
+      "time_score": 0.02,
+      "consistency_score": 0.642,
+      "recurrence_score": 0.133,
+      "headcount_score": 0.5,
+      "count": 2,
+      "total_duration_s": 53.0,
+      "n_sessions": 2,
+      "n_machines": 2,
+      "n_distinct_apps_used": 3,
+      "top_route": "#/onboarding",
+      "member_labels": [
+        "proc_35_microsoft-edge_onboarding"
+      ]
+    },
+    {
+      "group_id": "group_020",
+      "composite_score": 0.1599,
+      "frequency_score": 0.047,
+      "time_score": 0.041,
+      "consistency_score": 0.0,
+      "recurrence_score": 0.333,
+      "headcount_score": 1.0,
+      "count": 5,
+      "total_duration_s": 110.0,
+      "n_sessions": 5,
+      "n_machines": 4,
+      "n_distinct_apps_used": 3,
+      "top_route": "#/dashboard",
+      "member_labels": [
+        "proc_36_microsoft-edge_dashboard",
+        "proc_71_microsoft-edge_dashboard",
+        "proc_73_windowsterminal_dashboard"
+      ]
+    },
+    {
+      "group_id": "group_029",
+      "composite_score": 0.098,
+      "frequency_score": 0.019,
+      "time_score": 0.01,
+      "consistency_score": 0.286,
+      "recurrence_score": 0.067,
+      "headcount_score": 0.25,
+      "count": 2,
+      "total_duration_s": 28.0,
+      "n_sessions": 1,
+      "n_machines": 1,
+      "n_distinct_apps_used": 2,
+      "top_route": "#/http:/127.0.0.1:5132",
+      "member_labels": [
+        "proc_64_windowsterminal_http-127-0-0-1-5132"
+      ]
+    }
+  ]
+}

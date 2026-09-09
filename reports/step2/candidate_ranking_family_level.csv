@@ -1,0 +1,9 @@
+rank,family,composite_score,frequency_score,time_score,consistency_score,recurrence_score,headcount_score,count,total_duration_s,n_sessions,n_machines,n_variant_groups
+1,payroll-items,0.915,1.0,1.0,0.575,1.0,1.0,138,3318.0,15,4,7
+2,leave-applications,0.7211,0.725,0.685,0.515,0.933,1.0,100,2272.0,14,4,5
+3,onboarding,0.6535,0.601,0.524,0.694,0.733,1.0,83,1737.0,11,4,7
+4,social-insurance,0.5288,0.406,0.391,0.578,0.733,1.0,56,1298.0,11,4,4
+5,resident-tax,0.4095,0.232,0.253,0.592,0.467,1.0,32,840.0,7,4,2
+6,http:,0.359,0.181,0.216,0.408,0.6,1.0,25,717.0,9,4,5
+7,dashboard,0.2651,0.094,0.076,0.233,0.667,1.0,13,251.0,10,4,3
+8,no_route,0.2338,0.065,0.042,0.427,0.4,0.75,9,141.0,6,3,7

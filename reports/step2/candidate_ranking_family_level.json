@@ -1,0 +1,179 @@
+{
+  "weights": {
+    "frequency": 0.35,
+    "time_share": 0.25,
+    "consistency": 0.2,
+    "recurrence": 0.1,
+    "headcount": 0.1
+  },
+  "ranking": [
+    {
+      "family": "payroll-items",
+      "composite_score": 0.915,
+      "frequency_score": 1.0,
+      "time_score": 1.0,
+      "consistency_score": 0.575,
+      "recurrence_score": 1.0,
+      "headcount_score": 1.0,
+      "count": 138,
+      "total_duration_s": 3318.0,
+      "n_sessions": 15,
+      "n_machines": 4,
+      "n_variant_groups": 7,
+      "member_groups": [
+        "group_005",
+        "group_008",
+        "group_009",
+        "group_011",
+        "group_016",
+        "group_023",
+        "group_032"
+      ]
+    },
+    {
+      "family": "leave-applications",
+      "composite_score": 0.7211,
+      "frequency_score": 0.725,
+      "time_score": 0.685,
+      "consistency_score": 0.515,
+      "recurrence_score": 0.933,
+      "headcount_score": 1.0,
+      "count": 100,
+      "total_duration_s": 2272.0,
+      "n_sessions": 14,
+      "n_machines": 4,
+      "n_variant_groups": 5,
+      "member_groups": [
+        "group_003",
+        "group_007",
+        "group_010",
+        "group_014",
+        "group_036"
+      ]
+    },
+    {
+      "family": "onboarding",
+      "composite_score": 0.6535,
+      "frequency_score": 0.601,
+      "time_score": 0.524,
+      "consistency_score": 0.694,
+      "recurrence_score": 0.733,
+      "headcount_score": 1.0,
+      "count": 83,
+      "total_duration_s": 1737.0,
+      "n_sessions": 11,
+      "n_machines": 4,
+      "n_variant_groups": 7,
+      "member_groups": [
+        "group_004",
+        "group_006",
+        "group_019",
+        "group_022",
+        "group_028",
+        "group_030",
+        "group_031"
+      ]
+    },
+    {
+      "family": "social-insurance",
+      "composite_score": 0.5288,
+      "frequency_score": 0.406,
+      "time_score": 0.391,
+      "consistency_score": 0.578,
+      "recurrence_score": 0.733,
+      "headcount_score": 1.0,
+      "count": 56,
+      "total_duration_s": 1298.0,
+      "n_sessions": 11,
+      "n_machines": 4,
+      "n_variant_groups": 4,
+      "member_groups": [
+        "group_002",
+        "group_012",
+        "group_015",
+        "group_033"
+      ]
+    },
+    {
+      "family": "resident-tax",
+      "composite_score": 0.4095,
+      "frequency_score": 0.232,
+      "time_score": 0.253,
+      "consistency_score": 0.592,
+      "recurrence_score": 0.467,
+      "headcount_score": 1.0,
+      "count": 32,
+      "total_duration_s": 840.0,
+      "n_sessions": 7,
+      "n_machines": 4,
+      "n_variant_groups": 2,
+      "member_groups": [
+        "group_000",
+        "group_018"
+      ]
+    },
+    {
+      "family": "http:",
+      "composite_score": 0.359,
+      "frequency_score": 0.181,
+      "time_score": 0.216,
+      "consistency_score": 0.408,
+      "recurrence_score": 0.6,
+      "headcount_score": 1.0,
+      "count": 25,
+      "total_duration_s": 717.0,
+      "n_sessions": 9,
+      "n_machines": 4,
+      "n_variant_groups": 5,
+      "member_groups": [
+        "group_001",
+        "group_017",
+        "group_029",
+        "group_035",
+        "group_039"
+      ]
+    },
+    {
+      "family": "dashboard",
+      "composite_score": 0.2651,
+      "frequency_score": 0.094,
+      "time_score": 0.076,
+      "consistency_score": 0.233,
+      "recurrence_score": 0.667,
+      "headcount_score": 1.0,
+      "count": 13,
+      "total_duration_s": 251.0,
+      "n_sessions": 10,
+      "n_machines": 4,
+      "n_variant_groups": 3,
+      "member_groups": [
+        "group_013",
+        "group_020",
+        "group_025"
+      ]
+    },
+    {
+      "family": "no_route",
+      "composite_score": 0.2338,
+      "frequency_score": 0.065,
+      "time_score": 0.042,
+      "consistency_score": 0.427,
+      "recurrence_score": 0.4,
+      "headcount_score": 0.75,
+      "count": 9,
+      "total_duration_s": 141.0,
+      "n_sessions": 6,
+      "n_machines": 3,
+      "n_variant_groups": 7,
+      "member_groups": [
+        "group_021",
+        "group_024",
+        "group_026",
+        "group_027",
+        "group_034",
+        "group_037",
+        "group_038"
+      ]
+    }
+  ]
+}
