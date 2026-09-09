@@ -32,7 +32,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "src"))
 
-from procmine.io import list_sessions, iter_events, load_gt_manifest  # noqa: E402
+from procmine.io import list_sessions, iter_events, load_gt_manifest, split_dev_test  # noqa: E402
 from procmine.segment import SegmentationConfig, segment_session  # noqa: E402
 from procmine.evaluate import (  # noqa: E402
     true_boundaries_from_gt_manifest, predicted_boundaries_from_segments,
@@ -65,13 +65,6 @@ CONFIGS = {
     "V4_min12s_no_idle":
         SegmentationConfig(debounce_ms=2000, min_duration_ms=12000, use_idle_fallback=False, use_freshness_filter=False),
 }
-
-
-def split_sessions(sessions: list[Path]) -> tuple[list[Path], list[Path]]:
-    dev, test = [], []
-    for i, s in enumerate(sessions):
-        (test if i % 5 == 4 else dev).append(s)
-    return dev, test
 
 
 def describe(values: list[float]) -> dict:
@@ -127,7 +120,7 @@ def evaluate_config(sessions: list[Path], config: SegmentationConfig, tolerance_
 
 def main():
     all_sessions = list_sessions(DATA_A)
-    dev, test = split_sessions(all_sessions)
+    dev, test = split_dev_test(all_sessions)
     print(f"dataset_a sessions: {len(all_sessions)} total -> {len(dev)} dev / {len(test)} held-out test\n")
 
     print("=== DEV set: comparing configurations ===")

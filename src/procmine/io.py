@@ -27,6 +27,19 @@ def list_sessions(dataset_root: Path) -> list[Path]:
     return sorted(p for p in dataset_root.iterdir() if p.is_dir() and p.name.startswith("ses_"))
 
 
+def split_dev_test(sessions: list[Path], test_every: int = 5) -> tuple[list[Path], list[Path]]:
+    """Deterministic dev/test split used throughout Step 1 evaluation
+    (segmentation and labeling both use this exact split, so results are
+    comparable across the two evaluation scripts). Every `test_every`-th
+    session (by sorted/chronological order) goes to test; the held-out
+    test sessions are only ever looked at once, after a configuration is
+    already chosen on dev."""
+    dev, test = [], []
+    for i, s in enumerate(sessions):
+        (test if i % test_every == test_every - 1 else dev).append(s)
+    return dev, test
+
+
 def load_manifest(chunk_dir: Path) -> dict:
     with open(chunk_dir / "manifest.json", encoding="utf-8") as f:
         return json.load(f)

@@ -1,4 +1,8 @@
-# Core segmentation/evaluation code (src/procmine/) uses only the Python
-# standard library, deliberately -- see WORKLOG.md. pytest is needed only
-# to run the unit tests in tests/.
+# Segmentation (src/procmine/segment.py, evaluate.py) uses only the Python
+# standard library, deliberately -- see WORKLOG.md. Labeling
+# (src/procmine/features.py, label.py) uses scikit-learn for TF-IDF text
+# vectorization and agglomerative clustering. pytest runs the unit tests.
 pytest>=7.0
+scikit-learn>=1.3
+scipy>=1.10
+numpy>=1.24

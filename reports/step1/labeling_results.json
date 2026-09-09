@@ -1,0 +1,569 @@
+{
+  "oracle_dev_sweep": {
+    "cat_only_thr0.2": {
+      "n_segments": 1424,
+      "n_true_classes": 15,
+      "n_pred_clusters": 23,
+      "ari": 0.3286,
+      "v_measure": 0.5251,
+      "homogeneity": 0.4768,
+      "completeness": 0.5843
+    },
+    "cat_only_thr0.25": {
+      "n_segments": 1424,
+      "n_true_classes": 15,
+      "n_pred_clusters": 16,
+      "ari": 0.3062,
+      "v_measure": 0.5086,
+      "homogeneity": 0.4416,
+      "completeness": 0.5995
+    },
+    "cat_only_thr0.28": {
+      "n_segments": 1424,
+      "n_true_classes": 15,
+      "n_pred_clusters": 15,
+      "ari": 0.3056,
+      "v_measure": 0.5036,
+      "homogeneity": 0.4357,
+      "completeness": 0.5966
+    },
+    "cat_only_thr0.3": {
+      "n_segments": 1424,
+      "n_true_classes": 15,
+      "n_pred_clusters": 13,
+      "ari": 0.3065,
+      "v_measure": 0.5048,
+      "homogeneity": 0.4349,
+      "completeness": 0.6013
+    },
+    "cat_only_thr0.32": {
+      "n_segments": 1424,
+      "n_true_classes": 15,
+      "n_pred_clusters": 12,
+      "ari": 0.1898,
+      "v_measure": 0.4436,
+      "homogeneity": 0.3564,
+      "completeness": 0.5874
+    },
+    "cat_only_thr0.35": {
+      "n_segments": 1424,
+      "n_true_classes": 15,
+      "n_pred_clusters": 9,
+      "ari": 0.0419,
+      "v_measure": 0.2198,
+      "homogeneity": 0.1465,
+      "completeness": 0.44
+    },
+    "cat_only_thr0.4": {
+      "n_segments": 1424,
+      "n_true_classes": 15,
+      "n_pred_clusters": 7,
+      "ari": 0.0404,
+      "v_measure": 0.2034,
+      "homogeneity": 0.1295,
+      "completeness": 0.4739
+    },
+    "cat_only_thr0.5": {
+      "n_segments": 1424,
+      "n_true_classes": 15,
+      "n_pred_clusters": 6,
+      "ari": 0.0009,
+      "v_measure": 0.0597,
+      "homogeneity": 0.033,
+      "completeness": 0.3109
+    },
+    "cat_only_thr0.7": {
+      "n_segments": 1424,
+      "n_true_classes": 15,
+      "n_pred_clusters": 3,
+      "ari": 0.0001,
+      "v_measure": 0.0169,
+      "homogeneity": 0.0088,
+      "completeness": 0.1992
+    },
+    "cat_only_thr1.0": {
+      "n_segments": 1424,
+      "n_true_classes": 15,
+      "n_pred_clusters": 1,
+      "ari": 0.0,
+      "v_measure": 0.0,
+      "homogeneity": 0.0,
+      "completeness": 1.0
+    },
+    "cat_plus_text_thr0.2": {
+      "n_segments": 1424,
+      "n_true_classes": 15,
+      "n_pred_clusters": 172,
+      "ari": 0.1513,
+      "v_measure": 0.5462,
+      "homogeneity": 0.6333,
+      "completeness": 0.4802
+    },
+    "cat_plus_text_thr0.25": {
+      "n_segments": 1424,
+      "n_true_classes": 15,
+      "n_pred_clusters": 109,
+      "ari": 0.1886,
+      "v_measure": 0.567,
+      "homogeneity": 0.6124,
+      "completeness": 0.5279
+    },
+    "cat_plus_text_thr0.28": {
+      "n_segments": 1424,
+      "n_true_classes": 15,
+      "n_pred_clusters": 86,
+      "ari": 0.2129,
+      "v_measure": 0.5687,
+      "homogeneity": 0.5972,
+      "completeness": 0.5429
+    },
+    "cat_plus_text_thr0.3": {
+      "n_segments": 1424,
+      "n_true_classes": 15,
+      "n_pred_clusters": 74,
+      "ari": 0.2083,
+      "v_measure": 0.57,
+      "homogeneity": 0.5844,
+      "completeness": 0.5563
+    },
+    "cat_plus_text_thr0.32": {
+      "n_segments": 1424,
+      "n_true_classes": 15,
+      "n_pred_clusters": 65,
+      "ari": 0.2055,
+      "v_measure": 0.5702,
+      "homogeneity": 0.5784,
+      "completeness": 0.5622
+    },
+    "cat_plus_text_thr0.35": {
+      "n_segments": 1424,
+      "n_true_classes": 15,
+      "n_pred_clusters": 48,
+      "ari": 0.1865,
+      "v_measure": 0.4998,
+      "homogeneity": 0.4688,
+      "completeness": 0.535
+    },
+    "cat_plus_text_thr0.4": {
+      "n_segments": 1424,
+      "n_true_classes": 15,
+      "n_pred_clusters": 38,
+      "ari": 0.165,
+      "v_measure": 0.4318,
+      "homogeneity": 0.3786,
+      "completeness": 0.5025
+    },
+    "cat_plus_text_thr0.5": {
+      "n_segments": 1424,
+      "n_true_classes": 15,
+      "n_pred_clusters": 20,
+      "ari": 0.0377,
+      "v_measure": 0.1663,
+      "homogeneity": 0.1183,
+      "completeness": 0.2797
+    },
+    "cat_plus_text_thr0.7": {
+      "n_segments": 1424,
+      "n_true_classes": 15,
+      "n_pred_clusters": 6,
+      "ari": -0.0001,
+      "v_measure": 0.0152,
+      "homogeneity": 0.008,
+      "completeness": 0.1604
+    },
+    "cat_plus_text_thr1.0": {
+      "n_segments": 1424,
+      "n_true_classes": 15,
+      "n_pred_clusters": 1,
+      "ari": 0.0,
+      "v_measure": 0.0,
+      "homogeneity": 0.0,
+      "completeness": 1.0
+    },
+    "text_heavy_thr0.2": {
+      "n_segments": 1424,
+      "n_true_classes": 15,
+      "n_pred_clusters": 306,
+      "ari": 0.0739,
+      "v_measure": 0.497,
+      "homogeneity": 0.6295,
+      "completeness": 0.4105
+    },
+    "text_heavy_thr0.25": {
+      "n_segments": 1424,
+      "n_true_classes": 15,
+      "n_pred_clusters": 219,
+      "ari": 0.0916,
+      "v_measure": 0.5121,
+      "homogeneity": 0.6084,
+      "completeness": 0.4422
+    },
+    "text_heavy_thr0.28": {
+      "n_segments": 1424,
+      "n_true_classes": 15,
+      "n_pred_clusters": 165,
+      "ari": 0.1195,
+      "v_measure": 0.5208,
+      "homogeneity": 0.5898,
+      "completeness": 0.4662
+    },
+    "text_heavy_thr0.3": {
+      "n_segments": 1424,
+      "n_true_classes": 15,
+      "n_pred_clusters": 142,
+      "ari": 0.1395,
+      "v_measure": 0.5291,
+      "homogeneity": 0.5841,
+      "completeness": 0.4835
+    },
+    "text_heavy_thr0.32": {
+      "n_segments": 1424,
+      "n_true_classes": 15,
+      "n_pred_clusters": 129,
+      "ari": 0.1478,
+      "v_measure": 0.5336,
+      "homogeneity": 0.5824,
+      "completeness": 0.4923
+    },
+    "text_heavy_thr0.35": {
+      "n_segments": 1424,
+      "n_true_classes": 15,
+      "n_pred_clusters": 100,
+      "ari": 0.1552,
+      "v_measure": 0.5318,
+      "homogeneity": 0.564,
+      "completeness": 0.5031
+    },
+    "text_heavy_thr0.4": {
+      "n_segments": 1424,
+      "n_true_classes": 15,
+      "n_pred_clusters": 74,
+      "ari": 0.1706,
+      "v_measure": 0.5361,
+      "homogeneity": 0.5475,
+      "completeness": 0.5251
+    },
+    "text_heavy_thr0.5": {
+      "n_segments": 1424,
+      "n_true_classes": 15,
+      "n_pred_clusters": 51,
+      "ari": 0.1764,
+      "v_measure": 0.5013,
+      "homogeneity": 0.4836,
+      "completeness": 0.5203
+    },
+    "text_heavy_thr0.7": {
+      "n_segments": 1424,
+      "n_true_classes": 15,
+      "n_pred_clusters": 25,
+      "ari": 0.0292,
+      "v_measure": 0.1133,
+      "homogeneity": 0.078,
+      "completeness": 0.2073
+    },
+    "text_heavy_thr1.0": {
+      "n_segments": 1424,
+      "n_true_classes": 15,
+      "n_pred_clusters": 1,
+      "ari": 0.0,
+      "v_measure": 0.0,
+      "homogeneity": 0.0,
+      "completeness": 1.0
+    }
+  },
+  "oracle_best_config": "cat_plus_text_thr0.32",
+  "oracle_test_score": {
+    "ari": 0.2055,
+    "v_measure": 0.6216,
+    "homogeneity": 0.5922,
+    "completeness": 0.6542,
+    "n_true_classes": 15,
+    "n_pred_clusters": 25,
+    "n_segments": 328
+  },
+  "predicted_dev_sweep_diagnostic": {
+    "cat_only_thr0.2": {
+      "n_segments": 2432,
+      "n_true_classes": 15,
+      "n_pred_clusters": 40,
+      "ari": 0.2573,
+      "v_measure": 0.4317,
+      "homogeneity": 0.4293,
+      "completeness": 0.4342
+    },
+    "cat_only_thr0.25": {
+      "n_segments": 2432,
+      "n_true_classes": 15,
+      "n_pred_clusters": 23,
+      "ari": 0.2398,
+      "v_measure": 0.4217,
+      "homogeneity": 0.3867,
+      "completeness": 0.4636
+    },
+    "cat_only_thr0.28": {
+      "n_segments": 2432,
+      "n_true_classes": 15,
+      "n_pred_clusters": 23,
+      "ari": 0.2398,
+      "v_measure": 0.4217,
+      "homogeneity": 0.3867,
+      "completeness": 0.4636
+    },
+    "cat_only_thr0.3": {
+      "n_segments": 2432,
+      "n_true_classes": 15,
+      "n_pred_clusters": 23,
+      "ari": 0.2398,
+      "v_measure": 0.4217,
+      "homogeneity": 0.3867,
+      "completeness": 0.4636
+    },
+    "cat_only_thr0.32": {
+      "n_segments": 2432,
+      "n_true_classes": 15,
+      "n_pred_clusters": 18,
+      "ari": 0.1922,
+      "v_measure": 0.3912,
+      "homogeneity": 0.3414,
+      "completeness": 0.458
+    },
+    "cat_only_thr0.35": {
+      "n_segments": 2432,
+      "n_true_classes": 15,
+      "n_pred_clusters": 15,
+      "ari": 0.0097,
+      "v_measure": 0.14,
+      "homogeneity": 0.0975,
+      "completeness": 0.2484
+    },
+    "cat_only_thr0.4": {
+      "n_segments": 2432,
+      "n_true_classes": 15,
+      "n_pred_clusters": 12,
+      "ari": 0.0094,
+      "v_measure": 0.1357,
+      "homogeneity": 0.0921,
+      "completeness": 0.2579
+    },
+    "cat_only_thr0.5": {
+      "n_segments": 2432,
+      "n_true_classes": 15,
+      "n_pred_clusters": 11,
+      "ari": 0.009,
+      "v_measure": 0.1336,
+      "homogeneity": 0.0901,
+      "completeness": 0.2579
+    },
+    "cat_only_thr0.7": {
+      "n_segments": 2432,
+      "n_true_classes": 15,
+      "n_pred_clusters": 9,
+      "ari": -0.0006,
+      "v_measure": 0.1046,
+      "homogeneity": 0.0622,
+      "completeness": 0.3292
+    },
+    "cat_only_thr1.0": {
+      "n_segments": 2432,
+      "n_true_classes": 15,
+      "n_pred_clusters": 1,
+      "ari": 0.0,
+      "v_measure": 0.0,
+      "homogeneity": 0.0,
+      "completeness": 1.0
+    },
+    "cat_plus_text_thr0.2": {
+      "n_segments": 2432,
+      "n_true_classes": 15,
+      "n_pred_clusters": 350,
+      "ari": 0.1154,
+      "v_measure": 0.4565,
+      "homogeneity": 0.5943,
+      "completeness": 0.3706
+    },
+    "cat_plus_text_thr0.25": {
+      "n_segments": 2432,
+      "n_true_classes": 15,
+      "n_pred_clusters": 228,
+      "ari": 0.1365,
+      "v_measure": 0.4477,
+      "homogeneity": 0.5462,
+      "completeness": 0.3793
+    },
+    "cat_plus_text_thr0.28": {
+      "n_segments": 2432,
+      "n_true_classes": 15,
+      "n_pred_clusters": 184,
+      "ari": 0.12,
+      "v_measure": 0.4462,
+      "homogeneity": 0.5115,
+      "completeness": 0.3957
+    },
+    "cat_plus_text_thr0.3": {
+      "n_segments": 2432,
+      "n_true_classes": 15,
+      "n_pred_clusters": 159,
+      "ari": 0.1223,
+      "v_measure": 0.4433,
+      "homogeneity": 0.502,
+      "completeness": 0.3969
+    },
+    "cat_plus_text_thr0.32": {
+      "n_segments": 2432,
+      "n_true_classes": 15,
+      "n_pred_clusters": 141,
+      "ari": 0.1224,
+      "v_measure": 0.431,
+      "homogeneity": 0.4779,
+      "completeness": 0.3924
+    },
+    "cat_plus_text_thr0.35": {
+      "n_segments": 2432,
+      "n_true_classes": 15,
+      "n_pred_clusters": 111,
+      "ari": 0.1161,
+      "v_measure": 0.3976,
+      "homogeneity": 0.4169,
+      "completeness": 0.3801
+    },
+    "cat_plus_text_thr0.4": {
+      "n_segments": 2432,
+      "n_true_classes": 15,
+      "n_pred_clusters": 71,
+      "ari": 0.1238,
+      "v_measure": 0.3584,
+      "homogeneity": 0.3469,
+      "completeness": 0.3707
+    },
+    "cat_plus_text_thr0.5": {
+      "n_segments": 2432,
+      "n_true_classes": 15,
+      "n_pred_clusters": 36,
+      "ari": 0.0239,
+      "v_measure": 0.1639,
+      "homogeneity": 0.129,
+      "completeness": 0.2247
+    },
+    "cat_plus_text_thr0.7": {
+      "n_segments": 2432,
+      "n_true_classes": 15,
+      "n_pred_clusters": 10,
+      "ari": 0.0185,
+      "v_measure": 0.1277,
+      "homogeneity": 0.0905,
+      "completeness": 0.2173
+    },
+    "cat_plus_text_thr1.0": {
+      "n_segments": 2432,
+      "n_true_classes": 15,
+      "n_pred_clusters": 1,
+      "ari": 0.0,
+      "v_measure": 0.0,
+      "homogeneity": 0.0,
+      "completeness": 1.0
+    },
+    "text_heavy_thr0.2": {
+      "n_segments": 2432,
+      "n_true_classes": 15,
+      "n_pred_clusters": 453,
+      "ari": 0.0632,
+      "v_measure": 0.4288,
+      "homogeneity": 0.5771,
+      "completeness": 0.3412
+    },
+    "text_heavy_thr0.25": {
+      "n_segments": 2432,
+      "n_true_classes": 15,
+      "n_pred_clusters": 315,
+      "ari": 0.0764,
+      "v_measure": 0.4267,
+      "homogeneity": 0.532,
+      "completeness": 0.3563
+    },
+    "text_heavy_thr0.28": {
+      "n_segments": 2432,
+      "n_true_classes": 15,
+      "n_pred_clusters": 262,
+      "ari": 0.0822,
+      "v_measure": 0.4226,
+      "homogeneity": 0.5142,
+      "completeness": 0.3587
+    },
+    "text_heavy_thr0.3": {
+      "n_segments": 2432,
+      "n_true_classes": 15,
+      "n_pred_clusters": 237,
+      "ari": 0.0861,
+      "v_measure": 0.4216,
+      "homogeneity": 0.5063,
+      "completeness": 0.3612
+    },
+    "text_heavy_thr0.32": {
+      "n_segments": 2432,
+      "n_true_classes": 15,
+      "n_pred_clusters": 207,
+      "ari": 0.0903,
+      "v_measure": 0.4183,
+      "homogeneity": 0.495,
+      "completeness": 0.3622
+    },
+    "text_heavy_thr0.35": {
+      "n_segments": 2432,
+      "n_true_classes": 15,
+      "n_pred_clusters": 163,
+      "ari": 0.0997,
+      "v_measure": 0.4093,
+      "homogeneity": 0.4666,
+      "completeness": 0.3645
+    },
+    "text_heavy_thr0.4": {
+      "n_segments": 2432,
+      "n_true_classes": 15,
+      "n_pred_clusters": 110,
+      "ari": 0.1057,
+      "v_measure": 0.3918,
+      "homogeneity": 0.4255,
+      "completeness": 0.3631
+    },
+    "text_heavy_thr0.5": {
+      "n_segments": 2432,
+      "n_true_classes": 15,
+      "n_pred_clusters": 66,
+      "ari": 0.1045,
+      "v_measure": 0.3456,
+      "homogeneity": 0.3456,
+      "completeness": 0.3456
+    },
+    "text_heavy_thr0.7": {
+      "n_segments": 2432,
+      "n_true_classes": 15,
+      "n_pred_clusters": 36,
+      "ari": 0.0152,
+      "v_measure": 0.122,
+      "homogeneity": 0.0934,
+      "completeness": 0.1757
+    },
+    "text_heavy_thr1.0": {
+      "n_segments": 2432,
+      "n_true_classes": 15,
+      "n_pred_clusters": 1,
+      "ari": 0.0,
+      "v_measure": 0.0,
+      "homogeneity": 0.0,
+      "completeness": 1.0
+    }
+  },
+  "predicted_test_score_using_oracle_config": {
+    "ari": 0.1279,
+    "v_measure": 0.5085,
+    "homogeneity": 0.5296,
+    "completeness": 0.489,
+    "n_true_classes": 15,
+    "n_pred_clusters": 53,
+    "n_segments": 555
+  },
+  "predicted_config_used": "cat_plus_text_thr0.30 (shipped default, not the raw dev argmax)",
+  "predicted_noise_fraction_dev": 0.18443997317236754,
+  "predicted_noise_fraction_test": 0.20487106017191978,
+  "note": "oracle_test_score / predicted_test_score_using_oracle_config below were recomputed with the actually-shipped LabelingConfig default (distance_threshold=0.30), not the raw argmax (0.32) reported by oracle_best_config -- 0.30 was chosen deliberately as the center of the 0.25-0.32 plateau for robustness (see WORKLOG.md and label.py docstring). The difference between 0.30 and 0.32 is negligible on dev (both ~0.570 V-measure)."
+}

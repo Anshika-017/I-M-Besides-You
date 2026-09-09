@@ -461,3 +461,167 @@ Committed: `src/procmine/segment.py`, `src/procmine/evaluate.py`,
 `scripts/evaluate_segmentation.py`, `reports/step1/{dev_comparison,
 test_result,chosen_config}.json`, `tests/`, `requirements.txt`, this log
 update.
+
+---
+
+## Day 1 (cont.) — Labeling: assigning consistent labels to segments
+
+**WHAT WE DID:** Built `src/procmine/features.py` (turns a segment into a
+description of what happened during it) and `src/procmine/label.py`
+(clusters segments by that description, so the same real process gets the
+same cluster/label across sessions), evaluated via
+`scripts/evaluate_labeling.py`, using the same dev/test session split as
+the segmentation stage (factored the split logic into
+`io.split_dev_test` so both scripts use the exact same split).
+
+**WHY clustering, not classification:** the assignment is explicit that
+dataset_b has different processes and different applications than
+dataset_a. There is no fixed set of classes to train a classifier against
+that would mean anything on dataset_b — so the labeling method has to
+discover groups from feature similarity alone, with no notion of "these
+are the 15 possible processes" baked in anywhere.
+
+**Feature design, checked before building, not assumed:** looked at how
+much of dataset_a's ground truth executions have `context.extracted_text`
+available — **99.5%**, median ~2,225 characters per execution. Far richer
+than the raw "~4% of events" figure in DATA_SCHEMA.md suggests (over a
+~30s execution with dozens of events, at least one usually catches
+screen text). That justified making text a first-class feature, not an
+afterthought. Three feature groups per segment:
+  - `app_counts` — which applications were active during the segment
+    (from `context.active_app`, present on nearly every event).
+  - `route_counts` — browser routes visited, using the SPA hash-route
+    finding from Day 1 (e.g. `#/payroll-items`), with numeric/ID-looking
+    path segments replaced by a placeholder so `#/cases/482` and
+    `#/cases/119` count as the same route rather than looking unrelated.
+  - `text` — all `extracted_text` seen during the segment, vectorized as
+    character 2-3-gram TF-IDF (word-level tokenization doesn't apply
+    cleanly to Japanese without a dedicated segmenter, and character
+    n-grams are a standard lightweight approach for CJK text that avoids
+    that dependency).
+
+**Clustering method:** `AgglomerativeClustering` with `distance_threshold`
+(not a fixed `n_clusters`) and cosine distance, average linkage.
+`distance_threshold` instead of `n_clusters` specifically because we don't
+know in advance how many distinct processes dataset_b has — a method that
+discovers the count from a similarity threshold is the only kind that can
+run on dataset_b without secretly depending on an answer we don't have.
+
+**Two-phase evaluation, why:** Phase 1 clusters the TRUE (ground-truth)
+executions — this isolates "is clustering itself any good" from "how much
+does our own segmentation noise hurt it." Phase 2 clusters what our own
+frozen boundary detector (from the previous log entry) actually produces,
+scored by giving each predicted segment a "pseudo-true" label via majority
+time-overlap with a ground-truth execution (or `NOISE` if no execution
+covers at least half of it — these are excluded from clustering-quality
+scoring, but their share is reported, since it's a real limitation the
+segmentation stage already flagged: predicted segments include noise
+time, which has no process to be labeled correctly against).
+
+**RESULT: threshold sweep found a real plateau, not a single lucky
+point.** First pass with a coarse grid (0.3/0.5/0.7/.../1.3) showed
+quality collapsing sharply somewhere between 0.3 and 0.5 down to a single
+giant cluster. A finer grid resolved what was actually happening: a
+stable plateau from 0.25 to 0.32 (V-measure 0.567-0.570 throughout,
+`cat_plus_text` feature set), then a real cliff by 0.35 (V-measure drops
+to 0.500) and total collapse by 0.7+. **Decision: ship threshold 0.30**,
+the middle of that plateau — not 0.32 (which the raw argmax picked, tied
+on dev but sitting right at the edge before the cliff) — because a value
+from the plateau's interior is more likely to still work when the
+underlying vocabulary changes (dataset_b), where the exact location of
+the cliff can't be checked in advance.
+
+**RESULT: feature-set comparison** (3 variants x thresholds, on dev):
+`cat_plus_text` (equal-weighted apps/routes + text) consistently beat both
+`cat_only` (peaks lower, ~0.53 V-measure, and its own plateau is narrower)
+and `text_heavy` (double-weighted text — peaks around the same ~0.53-0.54,
+text alone isn't enough either). **Decision: ship `cat_plus_text`
+(equal weighting)** — confirmed by measurement that neither feature group
+alone is sufficient; they're complementary, not redundant.
+
+**RESULT: held-out test set, oracle segments** (328 segments, thr=0.30):
+ARI 0.206, **V-measure 0.622** (homogeneity 0.592, completeness 0.654),
+25 discovered clusters vs. 15 true process classes. Test V-measure
+slightly exceeds dev (0.622 vs 0.570) — again the reassuring direction
+(no sign of overfitting to dev's specific sessions).
+
+**RESULT: held-out test set, our own predicted segments, same frozen
+config carried over from Phase 1 (not re-tuned — see below for why):**
+698 predicted segments, 20.5% pseudo-labeled `NOISE` and excluded; of the
+remaining 555, ARI 0.128, **V-measure 0.509** (homogeneity 0.530,
+completeness 0.489), 53 discovered clusters vs. 15 true classes. Real
+degradation from the oracle-segment number (0.622 → 0.509, about -18%
+relative), attributable to segmentation noise feeding fragmented/impure
+segments into clustering — an honest, expected cost, not a surprise.
+
+**A deliberate methodology fix worth recording:** the first version of
+Phase 2 independently re-swept thresholds on the predicted-segment data
+and picked whatever maximized V-measure there — landing on threshold
+0.20, which produced 350 clusters on dev (vs. 15 true classes): mostly
+tiny/singleton clusters, which inflates homogeneity almost by definition
+(a cluster of size 1 can't be internally impure) while completeness
+suffers. **Caught this before reporting it as a real result.** Re-tuning a
+second, different threshold specifically for the noisy predicted-segment
+case would mean tuning against exactly the kind of information we won't
+have on dataset_b — we don't get to pick a labeling threshold knowing our
+segmentation's specific error pattern there either. Fixed by carrying the
+Phase-1-chosen config over unchanged into Phase 2, using Phase 2 purely as
+a diagnostic for "how much does segmentation noise cost the config we
+already committed to" — not as a second, independent tuning pass.
+
+**Failure inspection — what's actually being confused:** pulled the
+most-confused true-label pairs (segments from two different true
+processes landing in the same cluster). Both oracle and predicted-segment
+test runs show the same pattern: confusion concentrates heavily among
+`A, C, D, E` — four of the five **HR-domain** processes (resident tax
+notification, childcare/maternity leave, social insurance correction,
+new-hire verification):
+```
+oracle test:    (D,N) (C,D) (D,E) (E,N) (C,E) (C,N) (A,C) (A,D)
+predicted test: (D,N) (C,D) (C,E) (C,N) (E,N) (C,M) (D,E) (E,M)
+```
+**WHAT IT MEANS:** processes in the same department share enough
+vocabulary and portal UI text (generic HR-portal navigation labels, common
+form fields) that character n-gram TF-IDF alone can't always tell them
+apart, even though it clearly separates *different* domains well (finance-
+vs-ops-vs-HR pairs are notably absent from the confused list). The `(D,N)`
+pair recurring at the top (D=HR social-insurance correction, N=ops
+shipment tracking — different domains) is the one cross-domain outlier
+worth flagging as unexplained rather than quietly ignored — didn't dig
+further into why, noted as an open question rather than invented an
+explanation.
+
+**LIMITATIONS, stated plainly:**
+- Labeling quality is real but well short of perfect: V-measure ~0.62
+  under ideal (oracle) segmentation, ~0.51 once realistic segmentation
+  noise is included. A meaningful fraction of same-process segments will
+  land in different clusters (or vice versa), concentrated among
+  same-domain processes.
+- The clustering over-produces clusters relative to true classes (25 vs
+  15 oracle, 53 vs 15 predicted) — some real processes are being split
+  into more than one cluster (e.g. by execution variant, or by which
+  specific apps happened to be used). Not measured separately from the
+  "wrong merges" failure mode in this pass; homogeneity/completeness
+  above capture the aggregate effect but a variant-level breakdown would
+  be the natural next diagnostic if more precision were needed.
+- No attempt yet to detect and exclude "noise" segments as their own
+  category during labeling itself (Phase 2's `NOISE` pseudo-labels are
+  only used for *evaluation*, not fed back into the pipeline) — on
+  dataset_b, non-process segments will get clustered and labeled like
+  anything else. Flagged here, not fixed, in the interest of shipping an
+  explainable baseline first per the assignment's own guidance not to
+  over-build.
+
+Added `tests/test_features_label.py` (6 tests: route normalization
+collapses IDs but keeps distinct pages distinct, feature extraction
+collects apps/routes/text correctly, empty segments don't crash the
+cosine-distance clustering, single-row input is handled). All 18 project
+tests pass. Added `scikit-learn`/`scipy` to `requirements.txt` (the only
+new dependencies — TF-IDF vectorization and agglomerative clustering
+would be a lot of code to hand-roll correctly, and both are standard,
+widely-used tools for exactly this).
+
+Committed: `src/procmine/features.py`, `src/procmine/label.py`,
+`scripts/evaluate_labeling.py`, `reports/step1/labeling_results.json`,
+`tests/test_features_label.py`, `requirements.txt`, `io.py` refactor,
+this log update.
