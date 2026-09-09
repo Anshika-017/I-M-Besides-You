@@ -811,3 +811,83 @@ this log update.
 the report's §9, first need to look at the actual route/event sequence
 inside payroll-items' dominant variant group before deciding what slice of
 the workflow is realistically automatable.
+
+---
+
+## Day 1 (cont.) — Step 3 feasibility investigation (before building anything)
+
+**WHAT WE DID:** Wrote a read-only tracing tool
+(`scripts/trace_workflow.py`) and used it to reconstruct the actual raw
+event sequence for representative executions of `group_009` (Step 2's
+dominant payroll-items variant, 107/138 segments in that family), then
+cross-checked findings against a broader sample. Wrote up findings in
+`reports/step3/payroll_items_feasibility.md`. No code touching Step 1/2
+(`segment.py`, `label.py`, `segments.jsonl`) was changed.
+
+**WHY:** the assignment explicitly warns that ideas need feasibility
+assessment before committing to a build, and that risks should be
+anticipated from evidence, not optimism. Step 2's "payroll-items" label
+was itself just a route-name artifact of Step 1's labeling — needed to
+verify what's actually happening in the raw events before promising to
+automate anything.
+
+**HOW:** Picked 5 representative segments from `group_009` across
+different sessions/machines/durations, traced their exact
+`browser_click`/`browser_form_input`/`keystroke`/`clipboard_change`
+payloads (not just event-type counts), then did a corpus-wide survey:
+classified every short (<100 char) `extracted_text` capture within
+`group_009`'s 107 segments by its opening phrase, and separately checked
+the port number embedded in each segment's `active_browser_tab.url`.
+
+**WHAT WE FOUND — a major reframing, not a confirmation:**
+"payroll-items" is not one process. It's a **generic queue-confirmation UI
+template** (`#pi-table` row click → `#pi-note` textarea paste → `#btn-pi-ok`
+click, repeat) reused **identically across at least 3 portals** (ports
+5132/5133/5134 — HR/Finance/an ops-flavored system) for **at least 9
+distinct business processes**: expense settlement (~44 notes, the largest
+single sub-flow, ~40% of everything in this family), inventory adjustment
+(20), invoice reconciliation (19, with a genuine approve/flag decision
+branch), payroll/salary change (11), IT requests (3), purchase orders (2),
+new-hire verification (2), attendance (1), contract management (1).
+Classified this by literally reading the confirmation notes' business
+content (Japanese text like "経費精算確認済み" / "在庫調整登録" /
+"請求書照合完了"), not by assuming.
+
+Also found: a genuine, on-screen fragment of a real expense-policy
+regulation document (not the leaked generator text — legitimate
+`extracted_text` capturing an actual on-screen document) confirming the
+"within regulation" check has a discoverable written rule behind it, at
+least for entertainment expenses; a second, different note template
+("経費承認（管理職）...") suggesting a management-tier escalation path for
+higher-value cases; and that 100% of 46 observed expense-settlement notes
+were approvals (zero observed rejections) — treated explicitly as "we
+haven't seen a rejection," not as "rejections don't happen."
+
+**WHAT DECISION:** Do not scope Step 3 as "automate payroll" — the evidence
+doesn't support that framing at all. Scope it to the single largest,
+best-characterized, lowest-ambiguity concrete sub-flow: **expense
+settlement confirmation** (~40% of the family, a simple bounded
+threshold-check decision, one template, no observed exceptions). Explicitly
+exclude the other 8 sub-flows and the management-escalation tier from the
+prototype, stating them as deferred future work built on the same shared
+mechanical pattern, not silently dropped. Recommended implementation form:
+**Playwright-based browser automation**, not an AI agent or a heavier RPA
+suite — the mechanical steps are 100% deterministic browser DOM
+interactions with confirmed stable selectors, and the in-scope decision is
+a bounded threshold check, not open-ended judgment an LLM's flexibility
+would actually help with (that tradeoff is revisited as a real future
+option, given the pattern's 9-domain reuse, once each domain's actual
+rules are confirmed with the client).
+
+**Compliance checked explicitly:** grepped the investigation for any use of
+the leaked "Theme M2" text — none; all quoted evidence is genuine on-screen
+`extracted_text` captured during real recorded interaction (fair use per
+`DATA_SCHEMA.md`). Confirmed via `git diff` that `segment.py`/`label.py`/
+`segments.jsonl` remain untouched.
+
+Ran the full test suite after adding `scripts/trace_workflow.py` — all 24
+tests still pass (no regressions; this script has no pure logic worth unit
+testing beyond what `analyze.py`'s existing `iso_to_dt`/timestamp tests
+already cover).
+
+**NEXT:** Build the Step 3 prototype per this scope — not started yet.
