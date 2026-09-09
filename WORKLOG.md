@@ -625,3 +625,91 @@ Committed: `src/procmine/features.py`, `src/procmine/label.py`,
 `scripts/evaluate_labeling.py`, `reports/step1/labeling_results.json`,
 `tests/test_features_label.py`, `requirements.txt`, `io.py` refactor,
 this log update.
+
+---
+
+## Day 1 (cont.) — Applying the frozen pipeline to dataset_b, producing segments.jsonl
+
+**WHAT WE DID:** Wrote `scripts/run_step1_dataset_b.py` and ran it once.
+It applies `SegmentationConfig()` and `LabelingConfig()` with their
+already-chosen defaults — no thresholds touched, nothing re-tuned — to
+all 15 dataset_b sessions, then writes `segments.jsonl` at the repo root
+in the exact format the README specifies.
+
+**Compliance notes, checked explicitly, not assumed:**
+- Dataset_b's ground truth doesn't exist, so there was nothing to peek at.
+  The one thing that COULD have been misused — the leaked test-harness
+  setup-script text found in some dataset_b events on Day 1 (see the very
+  first log entries) — is not read, parsed, or referenced anywhere in this
+  script or the pipeline it calls. It's just ordinary log content the
+  pipeline treats the same as any other `extracted_text`.
+- Clustering was run **jointly across all 15 sessions at once** (not
+  per-session), since the deliverable requires the same real process to
+  get the same label even when it recurs in a different session.
+- Verified `segments.jsonl` programmatically: 456 lines, all valid JSON,
+  each with exactly the four required keys (`session_id`, `start`, `end`,
+  `label`), all timestamps matching the `YYYY-MM-DDTHH:MM:SSZ` format from
+  the README's own example, `start < end` on every line.
+
+**RESULT:** 15 sessions -> 456 segments (24-49 per session, roughly
+tracking each session's event count) -> **99 distinct clusters/labels**.
+Cluster label strings are derived from each cluster's most common
+app + browser route (e.g. `proc_04_microsoft-edge_onboarding`) — readable
+enough to sanity-check by eye, though per the assignment the label text
+itself isn't what's evaluated.
+
+**HOW WE TURNED A CLUSTER INTO A LABEL:** the label string is not the
+process's real name (we have no way to know that without asking the
+client) — it's `proc_<cluster_id>_<dominant app>_<dominant browser
+route>`, built purely from what the pipeline itself observed. This keeps
+the label traceable back to *why* the pipeline grouped those segments
+together, which matters for the Step 2 write-up.
+
+**A visible limitation, honestly reported, not smoothed over:** several
+different cluster IDs share the same dominant route in their label —
+e.g. `proc_42`, `proc_13`, `proc_43`, `proc_83`, `proc_40`, `proc_41` are
+all `..._payroll-items`, and `proc_03`/`proc_09`/`proc_08`/`proc_06` are
+all `..._leave-applications`. That's the same over-clustering pattern
+already measured and disclosed during labeling evaluation (25 discovered
+clusters vs. 15 true classes on dataset_a's oracle test, worse — 53 vs.
+15 — once real segmentation noise was included) — now visible again on
+unfamiliar dataset_b vocabulary, where it's plausible the threshold
+transfers even less cleanly than it did within dataset_a itself. 99
+clusters for what's very likely well under 20 real recurring paperwork
+types (typical for a back-office department, and roughly matching what
+the earlier — not relied upon — incidental schedule text suggested) is a
+real, visible sign of over-fragmentation on this dataset.
+
+**DECISION: did not attempt to fix this by adjusting anything now.**
+Two reasons. First, doing so *in response to looking at dataset_b's
+specific output* is exactly the kind of dataset_b-informed tuning the
+task explicitly rules out, even if the "fix" (e.g., a generic
+same-signature cluster-merge pass) sounds dataset-agnostic in the
+abstract — the trigger for adding it right now would still be dataset_b's
+result, not evidence from dataset_a. Second, this is a pre-existing,
+already-disclosed limitation of the labeling stage, not a new discovery —
+the honest thing to do is let it show up as expected and document it, not
+patch it selectively. Any future fix (e.g., a same-app/route consolidation
+pass, or a coarser fallback threshold) would need to be designed and
+validated back on dataset_a's ground truth first, the same discipline
+used for every decision so far, before it could be trusted on dataset_b.
+
+**Also worth stating plainly for whoever reads `segments.jsonl` next:**
+per the segmentation-stage evaluation, an estimated ~18-20%-ish share of
+predicted segments don't correspond to any real business process at all
+(idle/administrative/recording-artifact time) — that finding came from
+dataset_a's ground truth and generalizes as an expectation, not a
+guarantee, to dataset_b. `segments.jsonl` does not filter these out (no
+noise classifier exists yet — flagged, not built, consistent with earlier
+decisions), so Step 2's analysis needs to treat low-frequency,
+never-recurring labels with appropriate skepticism rather than at face
+value. The `singleton_clusters` field in
+`reports/step1/dataset_b_segmentation_summary.json` (30 of 99 clusters,
+6.6% of all segments) is a *different*, weaker measurement of a related
+idea — clusters that never recur across all 15 sessions — not a direct
+stand-in for the dataset_a noise-rate estimate; the two aren't directly
+comparable and shouldn't be read as agreeing or disagreeing with each
+other.
+
+Committed: `scripts/run_step1_dataset_b.py`, `segments.jsonl`,
+`reports/step1/dataset_b_segmentation_summary.json`, this log update.
