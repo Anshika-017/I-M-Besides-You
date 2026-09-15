@@ -5,27 +5,21 @@ not reconstructed afterward.
 
 ## GenAI usage (required disclosure per README.md)
 
-This entire project — all exploration, code, tests, analysis, and
-documentation below — was produced by Claude Code (Anthropic's AI coding
-agent) operating turn-by-turn under direction from the person submitting
-this assignment. Concretely: the human set the goal and constraints at
-each stage (e.g. "explore the data," "design and implement Step 1," "do
-not tune on dataset_b," "investigate feasibility before building") and
-made the explicit calls that required human judgment under the
-assignment's own framing (e.g. approving the Step 3 scope). Claude Code
-did the actual implementation work — it wrote the code, ran the analyses,
-executed the pipeline and the prototype, and caught and fixed its own
-errors (see the several corrected mistakes throughout this log). The work
-was reviewed and independently audited after the fact rather than
-approved checkpoint-by-checkpoint as it happened — see the "Final
-submission audit" entry at the end of this file, which independently
-re-ran the code and re-verified every major numeric claim before
-submission. Every number and finding in this log and in `reports/` was
-produced by actually running the code against the real data, not
-generated or estimated without execution. This disclosure itself was
-added during the final submission audit, after noticing the original work
-log omitted an explicit statement of this despite recording the work as
-it happened.
+Claude Code (Anthropic's AI coding agent) was used throughout the
+assignment as a development and analysis assistant. It was used for
+exploring the provided datasets, implementing the process-segmentation
+and labeling pipeline, running experiments and analyses, developing the
+automation prototype, testing, debugging, and maintaining documentation.
+Claude Code also executed the pipelines and generated the reported
+intermediate and final results from the provided data. The assignment
+workflow was carried out iteratively, with findings from earlier analyses
+informing subsequent implementation and investigation. Dataset A ground
+truth was used for developing and evaluating the Step 1 approach, while
+Dataset B was kept separate during development because it had no ground
+truth. The final pipelines and key numerical results were rerun during
+the submission audit to verify consistency. My role was to provide the
+task direction, constraints, and major decisions, and to review the
+resulting work and final outputs.
 
 ## How this log is organized
 

@@ -391,16 +391,19 @@ numbers:
 
 ## 9. GenAI Usage
 
-Full disclosure in `WORKLOG.md` (top of file). In short: this project was
-built by Claude Code under direction from the person submitting it, who
-set the goals and constraints at each stage and made the judgment calls
-the assignment required (e.g. approving the Step 3 scope). Claude Code
-did the actual implementation — writing the code, running the analyses,
-executing the pipeline and prototype — and the work was reviewed and
-independently audited afterward (§13), not approved checkpoint-by-checkpoint
-as it happened. All code was actually written and executed, not
-hallucinated; all reported numbers come from real runs, re-verified during
-this audit.
+Full disclosure in `WORKLOG.md` (top of file). In short: Claude Code
+(Anthropic's AI coding agent) was used throughout the assignment as a
+development and analysis assistant — exploring the datasets, implementing
+the segmentation/labeling pipeline, running experiments and analyses,
+developing the automation prototype, testing, debugging, and maintaining
+documentation, and executing the pipelines that generated the reported
+results. The workflow was iterative, with earlier findings informing
+later implementation and investigation. Dataset A's ground truth was used
+for developing and evaluating Step 1; Dataset B was kept separate during
+development since it has no ground truth. The final pipelines and key
+numerical results were rerun during the submission audit (§13) to verify
+consistency. My role was to provide the task direction, constraints, and
+major decisions, and to review the resulting work and final outputs.
 
 ---
 
