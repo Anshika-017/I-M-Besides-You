@@ -6,28 +6,47 @@ not reconstructed afterward.
 ## GenAI usage (required disclosure per README.md)
 
 This entire project — all exploration, code, tests, analysis, and
-documentation below — was produced through an interactive session with
-Claude Code (Anthropic's AI coding agent), directed turn-by-turn by the
-person submitting this assignment. Concretely: the human set the goal and
-constraints at each stage (e.g. "explore the data," "design and implement
-Step 1," "do not tune on dataset_b," "investigate feasibility before
-building"), reviewed the AI's findings and decisions at each checkpoint
-before allowing the next stage to proceed, and made the explicit calls
-that required human judgment under the assignment's own framing (e.g.
-approving the Step 3 scope). The AI wrote the actual code, ran the actual
-analyses, caught and fixed its own errors (see the several corrected
-mistakes throughout this log), and drafted this documentation. Every
-number and finding in this log and in `reports/` was produced by actually
-running the code against the real data, not generated or estimated by the
-AI without execution — this is verified in `FINAL_REPORT.md`'s audit
-section. This disclosure itself was added during the final
-submission audit, after noticing the original work log omitted an
-explicit statement of this despite recording the work as it happened —
-see the "Final submission audit" entry at the end of this file.
+documentation below — was produced by Claude Code (Anthropic's AI coding
+agent) operating turn-by-turn under direction from the person submitting
+this assignment. Concretely: the human set the goal and constraints at
+each stage (e.g. "explore the data," "design and implement Step 1," "do
+not tune on dataset_b," "investigate feasibility before building") and
+made the explicit calls that required human judgment under the
+assignment's own framing (e.g. approving the Step 3 scope). Claude Code
+did the actual implementation work — it wrote the code, ran the analyses,
+executed the pipeline and the prototype, and caught and fixed its own
+errors (see the several corrected mistakes throughout this log). The work
+was reviewed and independently audited after the fact rather than
+approved checkpoint-by-checkpoint as it happened — see the "Final
+submission audit" entry at the end of this file, which independently
+re-ran the code and re-verified every major numeric claim before
+submission. Every number and finding in this log and in `reports/` was
+produced by actually running the code against the real data, not
+generated or estimated without execution. This disclosure itself was
+added during the final submission audit, after noticing the original work
+log omitted an explicit statement of this despite recording the work as
+it happened.
+
+## How this log is organized
+
+The entries below are grouped into 5 phases (Day 1-5), matching the
+assignment's own structure: understanding the assignment and preparing for
+Task 1, doing Task 1 (segmentation + labeling → `segments.jsonl`), Task 2
+(process mining and candidate selection), and Task 3 (feasibility
+investigation, then the working prototype and final validation). This is
+a work-allocation grouping of the tasks actually performed, not a literal
+5-calendar-day timeline. Per `git log`, the implementation itself was
+carried out in one concentrated, continuous session on 2026-09-09 (commit
+timestamps span 09:54-12:12, +0530), with the data-verification work
+described at the start of Day 1 happening on 2026-09-08, before `git
+init`. `FINAL_REPORT.md` §10 maps this same work onto the README's
+specific "7 days" duration question.
 
 ---
 
-## Day 1 — Setup and data verification
+## Day 1 — Assignment Understanding + Task 1 Preparation
+
+### Reading the assignment, and the Dataset A packaging problem
 
 **Read `README.md` and `DATA_SCHEMA.md`.** Assignment: recover business-process
 executions from raw PC-operation logs (Step 1), analyze the results to find
@@ -53,16 +72,21 @@ segmentation since screen text is already available in the log via
 `context.extracted_text`; extracting them would just be 1.65 GB of unused
 duplication.
 
-**While inspecting dataset_b's raw events, found an unplanned data leak**:
-one `app_switch` event's `extracted_text` captured the on-screen output of
-the test harness's own setup script ("Theme M2" generator), showing process
-codes (`P1..P13`), named variants (e.g. `V3_manager_entertain`), and an
-operator/department. Checked how often this recurs — found it in 9 of 20
-dataset_b chunks. Decided to treat this as a secondary sanity-check signal
-only (it's real log content, not something we searched for or requires
-lucky timing across all sessions), not as ground truth — the README is
-explicit that Dataset B has none, and I don't want to quietly rely on an
-incidental artifact for the primary evaluation.
+**While inspecting dataset_b's raw events, found an incidental data-quality
+issue**: one `app_switch` event's `extracted_text` captured the on-screen
+output of the test harness's own setup script ("Theme M2" generator),
+showing process codes (`P1..P13`), named variants (e.g.
+`V3_manager_entertain`), and an operator/department. Checked how often this
+recurs — found it in 9 of 20 dataset_b chunks. **Decision:** this incidental
+capture is excluded from ground truth, from any tuning or threshold
+selection, and from the actual pipeline (`segment.py`, `label.py`,
+`run_step1_dataset_b.py` never read or reference it anywhere) — the README
+is explicit that Dataset B has no ground truth, and this artifact doesn't
+change that. It is retained here only as a documented data-quality caveat.
+Later in this log it is occasionally used purely as interpretive color to
+help explain an already, independently measured pattern (e.g. why process
+codes never repeat back-to-back in Day 2's transition analysis) — never as
+evidence for any threshold, metric, or decision.
 
 **User located and re-downloaded the missing dataset_a parts** — 5 new zip
 files (`dataset_a-20260908T171747Z-1-001.zip` through `-1-005.zip`).
@@ -96,9 +120,7 @@ the zips and the extracted `data/` folders — datasets are regenerable via
 `scripts/extract_data.sh`, not stored in git), and an initial commit of the
 assignment spec files plus the extraction script.
 
----
-
-## Day 1 (cont.) — Exploring Dataset A for Step 1
+### Initial Dataset A exploration and data-quality findings
 
 Built `src/procmine/io.py` — a small loader module (`list_sessions`,
 `list_chunks`, `iter_events`, `load_gt`, `load_gt_manifest`) that hides the
@@ -151,37 +173,47 @@ Findings:
   these 257 executions will be excluded from strict boundary-accuracy
   scoring in Step 1 validation (there's nothing to score them against), and
   this will be stated explicitly in the report rather than silently dropped.
-- **The core question — do raw event signals predict ground-truth
-  boundaries?** Measured nearest-event and nearest-app_switch time deltas
-  at all 3,761 boundary timestamps (execution starts+ends), against a
-  random-timestamp control group from the same sessions.
-  - Boundaries sit far closer to *some* recorded event than random points
-    do (median 192ms vs 857ms).
-  - **App switches specifically: boundary median delta 204ms vs control
-    median 3,299ms — 16x tighter.** 61.3% of all boundaries fall within
-    500ms of an app_switch event.
-  - But that means ~39% of boundaries are *not* near an app switch. Checked
-    what the single nearest event actually is for every boundary:
-    `app_switch` 55.6%, `browser_navigation` 22.9%, `screenshot_smart`
-    15.0% (a byproduct of capture cadence, not a driving signal),
-    `mouse_click` 4.7%.
-  - **Decision: app_switch + browser_navigation together are the primary
-    boundary-candidate signal (~78.5% of boundaries sit right at one of
-    these two event types).** The remaining ~20% need a secondary signal —
-    most likely idle-gap detection and/or window-title changes — since
-    those cases are process transitions that stay inside the same
-    application and the same browser tab (e.g. two back-to-back executions
-    of the same process in the same portal page, or a transition between
-    two processes that both live in the same spreadsheet). This is expected
-    to be the hardest sub-case: telling apart *two consecutive executions of
-    the same process* with no app/page change between them at all.
 
-Committed: `src/procmine/`, `scripts/explore_dataset_a.py`,
-`reports/exploration/dataset_a_summary.json`, this log update.
+This gave enough of a picture of Dataset A's shape and its real data-quality
+issues to start designing Task 1's actual approach. The next question —
+whether raw event signals predict ground-truth boundaries at all — is where
+Day 2's segmentation work picks up (same script run, see below).
 
 ---
 
-## Day 1 (cont.) — Digging into the ~20-25% "hard" boundaries
+## Day 2 — Task 1: Raw Operation Logs → segments.jsonl
+
+### Dataset A boundary analysis: do raw event signals predict ground-truth boundaries?
+
+**The core question.** Measured nearest-event and nearest-app_switch time
+deltas at all 3,761 boundary timestamps (execution starts+ends), against a
+random-timestamp control group from the same sessions.
+- Boundaries sit far closer to *some* recorded event than random points
+  do (median 192ms vs 857ms).
+- **App switches specifically: boundary median delta 204ms vs control
+  median 3,299ms — 16x tighter.** 61.3% of all boundaries fall within
+  500ms of an app_switch event.
+- But that means ~39% of boundaries are *not* near an app switch. Checked
+  what the single nearest event actually is for every boundary:
+  `app_switch` 55.6%, `browser_navigation` 22.9%, `screenshot_smart`
+  15.0% (a byproduct of capture cadence, not a driving signal),
+  `mouse_click` 4.7%.
+- **Decision: app_switch + browser_navigation together are the primary
+  boundary-candidate signal (~78.5% of boundaries sit right at one of
+  these two event types).** The remaining ~20% need a secondary signal —
+  most likely idle-gap detection and/or window-title changes — since
+  those cases are process transitions that stay inside the same
+  application and the same browser tab (e.g. two back-to-back executions
+  of the same process in the same portal page, or a transition between
+  two processes that both live in the same spreadsheet). This is expected
+  to be the hardest sub-case: telling apart *two consecutive executions of
+  the same process* with no app/page change between them at all.
+
+Committed (same commit as Day 1's initial-exploration findings above — one
+script, one run, one commit): `src/procmine/`, `scripts/explore_dataset_a.py`,
+`reports/exploration/dataset_a_summary.json`, this log update.
+
+### Digging into the ~20-25% "hard" boundaries
 
 Wrote `scripts/explore_same_app_boundaries.py`. Instead of looking at
 execution starts/ends independently, this works at the **transition**
@@ -259,9 +291,7 @@ the same problem as candidate pruning/merging (not yet solved).
 Committed: `scripts/explore_same_app_boundaries.py`,
 `reports/exploration/same_app_boundaries.json`, this log update.
 
----
-
-## Day 1 (cont.) — Over-segmentation / precision investigation
+### Over-segmentation / precision investigation
 
 Wrote `scripts/explore_oversegmentation.py`. Question: now that
 app_switch/browser_navigation events are confirmed to find ~98% of
@@ -324,9 +354,7 @@ ground truth once built, and report the real number rather than assume one.
 Committed: `scripts/explore_oversegmentation.py`,
 `reports/exploration/oversegmentation.json`, this log update.
 
----
-
-## Day 1 (cont.) — Designing and implementing the Step 1 algorithm
+### Designing and implementing the segmentation algorithm
 
 **WHAT WE DID:** Turned the last three explorations into actual, evaluated
 code: `src/procmine/segment.py` (the boundary-detection algorithm),
@@ -484,9 +512,7 @@ Committed: `src/procmine/segment.py`, `src/procmine/evaluate.py`,
 test_result,chosen_config}.json`, `tests/`, `requirements.txt`, this log
 update.
 
----
-
-## Day 1 (cont.) — Labeling: assigning consistent labels to segments
+### Labeling: assigning consistent labels to segments
 
 **WHAT WE DID:** Built `src/procmine/features.py` (turns a segment into a
 description of what happened during it) and `src/procmine/label.py`
@@ -513,9 +539,9 @@ afterthought. Three feature groups per segment:
   - `app_counts` — which applications were active during the segment
     (from `context.active_app`, present on nearly every event).
   - `route_counts` — browser routes visited, using the SPA hash-route
-    finding from Day 1 (e.g. `#/payroll-items`), with numeric/ID-looking
-    path segments replaced by a placeholder so `#/cases/482` and
-    `#/cases/119` count as the same route rather than looking unrelated.
+    finding from Day 2, with numeric/ID-looking path segments replaced by
+    a placeholder so `#/cases/482` and `#/cases/119` count as the same
+    route rather than looking unrelated.
   - `text` — all `extracted_text` seen during the segment, vectorized as
     character 2-3-gram TF-IDF (word-level tokenization doesn't apply
     cleanly to Japanese without a dedicated segmenter, and character
@@ -532,7 +558,7 @@ run on dataset_b without secretly depending on an answer we don't have.
 **Two-phase evaluation, why:** Phase 1 clusters the TRUE (ground-truth)
 executions — this isolates "is clustering itself any good" from "how much
 does our own segmentation noise hurt it." Phase 2 clusters what our own
-frozen boundary detector (from the previous log entry) actually produces,
+frozen boundary detector (from the previous entry) actually produces,
 scored by giving each predicted segment a "pseudo-true" label via majority
 time-overlap with a ground-truth execution (or `NOISE` if no execution
 covers at least half of it — these are excluded from clustering-quality
@@ -648,9 +674,12 @@ Committed: `src/procmine/features.py`, `src/procmine/label.py`,
 `tests/test_features_label.py`, `requirements.txt`, `io.py` refactor,
 this log update.
 
----
+### Freezing the Step 1 configuration, applying it to Dataset B, producing segments.jsonl
 
-## Day 1 (cont.) — Applying the frozen pipeline to dataset_b, producing segments.jsonl
+With both segmentation (`SegmentationConfig` defaults) and labeling
+(`LabelingConfig` default threshold 0.30, `cat_plus_text` features)
+validated on Dataset A's held-out test split, both configs are now
+**frozen** — no further tuning against either dataset from this point on.
 
 **WHAT WE DID:** Wrote `scripts/run_step1_dataset_b.py` and ran it once.
 It applies `SegmentationConfig()` and `LabelingConfig()` with their
@@ -661,10 +690,9 @@ in the exact format the README specifies.
 **Compliance notes, checked explicitly, not assumed:**
 - Dataset_b's ground truth doesn't exist, so there was nothing to peek at.
   The one thing that COULD have been misused — the leaked test-harness
-  setup-script text found in some dataset_b events on Day 1 (see the very
-  first log entries) — is not read, parsed, or referenced anywhere in this
-  script or the pipeline it calls. It's just ordinary log content the
-  pipeline treats the same as any other `extracted_text`.
+  setup-script text found on Day 1 — is not read, parsed, or referenced
+  anywhere in this script or the pipeline it calls. It's just ordinary log
+  content the pipeline treats the same as any other `extracted_text`.
 - Clustering was run **jointly across all 15 sessions at once** (not
   per-session), since the deliverable requires the same real process to
   get the same label even when it recurs in a different session.
@@ -738,7 +766,9 @@ Committed: `scripts/run_step1_dataset_b.py`, `segments.jsonl`,
 
 ---
 
-## Day 1 (cont.) — Step 2: process mining on dataset_b's segments.jsonl
+## Day 3 — Task 2: Process Mining + Automation Candidate Selection
+
+### Process mining on dataset_b's segments.jsonl
 
 **WHAT WE DID:** Built `src/procmine/analyze.py` and
 `scripts/step2_analysis.py` to profile the 456 Step 1 segments — frequency,
@@ -836,7 +866,9 @@ the workflow is realistically automatable.
 
 ---
 
-## Day 1 (cont.) — Step 3 feasibility investigation (before building anything)
+## Day 4 — Task 3: Feasibility Investigation + Automation Scope
+
+### Feasibility investigation, before building anything
 
 **WHAT WE DID:** Wrote a read-only tracing tool
 (`scripts/trace_workflow.py`) and used it to reconstruct the actual raw
@@ -916,7 +948,9 @@ already cover).
 
 ---
 
-## Day 1 (cont.) — Step 3: building the working prototype
+## Day 5 — Task 3: Working Prototype + Final Validation/Submission
+
+### Building the working prototype
 
 **WHAT WE DID:** Built and ran a genuine, working automation prototype for
 the expense-settlement confirmation sub-flow identified in the feasibility
@@ -1010,9 +1044,7 @@ Committed: `automation/` (all files), `tests/test_step3_decision.py`,
 **NEXT:** not yet decided — final report/submission packaging, or further
 prototype hardening, per the next instruction.
 
----
-
-## Day 1 (cont.) — Final submission audit
+### Final submission audit
 
 **WHAT WE DID:** Acted as a strict evaluator against our own work, not a
 developer trying to make it look good. Re-verified every major numeric
