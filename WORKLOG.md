@@ -23,22 +23,42 @@ resulting work and final outputs.
 
 ## How this log is organized
 
-The entries below are grouped into 5 phases (Day 1-5), matching the
-assignment's own structure: understanding the assignment and preparing for
-Task 1, doing Task 1 (segmentation + labeling → `segments.jsonl`), Task 2
-(process mining and candidate selection), and Task 3 (feasibility
-investigation, then the working prototype and final validation). This is
-a work-allocation grouping of the tasks actually performed, not a literal
-5-calendar-day timeline. Per `git log`, the implementation itself was
-carried out in one concentrated, continuous session on 2026-09-09 (commit
-timestamps span 09:54-12:12, +0530), with the data-verification work
-described at the start of Day 1 happening on 2026-09-08, before `git
-init`. `FINAL_REPORT.md` §10 maps this same work onto the README's
-specific "7 days" duration question.
+The entries below follow the actual technical sequence of work: reading
+the assignment and understanding Dataset A/B, Dataset A exploration,
+boundary analysis, segmentation, labeling, applying the frozen pipeline to
+Dataset B, Task 2 process mining and candidate selection, Task 3
+feasibility investigation, the automation prototype, and final
+validation. That sequence maps onto four broad stages of actual work,
+not a literal five-calendar-day schedule:
+
+- **Initial understanding and preparation** — reading the assignment and
+  data schema, and resolving the incomplete `dataset_a` zip, on
+  2026-09-08, before `git init`.
+- **Main implementation and experimentation** — the bulk of the technical
+  build: Dataset A exploration through segmentation, labeling, applying
+  the frozen pipeline to Dataset B, Step 2's process mining, and Step 3's
+  feasibility investigation and working prototype. Per `git log`, this
+  happened in one concentrated, continuous session on 2026-09-09 (commit
+  timestamps span 09:54-12:12, +0530), including the self-verification
+  pass that closed out that session (documented below as "Final
+  submission audit").
+- **Continued review, modification, validation, and refinement** — in the
+  days following, going back over the outputs, deepening understanding of
+  the implementation, and re-checking results before treating the
+  submission as final. This didn't produce new commits (the technical
+  artifacts and their audit were already complete at the end of the main
+  session above) — it's read/review time, not additional development.
+- **Final documentation and submission audit** — revisiting the wording of
+  this log's own framing and the GenAI-usage disclosure for accuracy
+  immediately before submission, git-verified as later, separate commits.
+
+`FINAL_REPORT.md` §10 maps this same work onto the README's specific
+"7 days" duration question, and distinguishes that mapping from the actual
+execution timeline above.
 
 ---
 
-## Day 1 — Assignment Understanding + Task 1 Preparation
+## Initial Understanding and Preparation (September 8), Leading Into Implementation
 
 ### Reading the assignment, and the Dataset A packaging problem
 
@@ -79,8 +99,8 @@ is explicit that Dataset B has no ground truth, and this artifact doesn't
 change that. It is retained here only as a documented data-quality caveat.
 Later in this log it is occasionally used purely as interpretive color to
 help explain an already, independently measured pattern (e.g. why process
-codes never repeat back-to-back in Day 2's transition analysis) — never as
-evidence for any threshold, metric, or decision.
+codes never repeat back-to-back in the transition-level analysis below) —
+never as evidence for any threshold, metric, or decision.
 
 **User located and re-downloaded the missing dataset_a parts** — 5 new zip
 files (`dataset_a-20260908T171747Z-1-001.zip` through `-1-005.zip`).
@@ -171,11 +191,11 @@ Findings:
 This gave enough of a picture of Dataset A's shape and its real data-quality
 issues to start designing Task 1's actual approach. The next question —
 whether raw event signals predict ground-truth boundaries at all — is where
-Day 2's segmentation work picks up (same script run, see below).
+the segmentation work below picks up (same script run).
 
 ---
 
-## Day 2 — Task 1: Raw Operation Logs → segments.jsonl
+## Main Implementation — Task 1: Raw Operation Logs → segments.jsonl (September 9)
 
 ### Dataset A boundary analysis: do raw event signals predict ground-truth boundaries?
 
@@ -203,7 +223,7 @@ random-timestamp control group from the same sessions.
   to be the hardest sub-case: telling apart *two consecutive executions of
   the same process* with no app/page change between them at all.
 
-Committed (same commit as Day 1's initial-exploration findings above — one
+Committed (same commit as the initial-exploration findings above — one
 script, one run, one commit): `src/procmine/`, `scripts/explore_dataset_a.py`,
 `reports/exploration/dataset_a_summary.json`, this log update.
 
@@ -220,7 +240,8 @@ look at each (end of execution i → start of execution i+1) pair. Output:
 be "two back-to-back executions of the *same* process" (per the README:
 "the same process appears many times a day"). Measured it directly:
 **0 of 1,689 transitions have the same process code on both sides.**
-Checked why — the leaked test-harness schedule found on Day 1 explains it:
+Checked why — the leaked test-harness schedule found during initial
+exploration above explains it:
 the synthetic scheduler explicitly interleaves different process codes
 (`[1/16] proc=P1 ... [2/16] proc=P13 ... [3/16] proc=P12 ...`), so a given
 process type does recur many times in a session, but never twice in a row.
@@ -533,7 +554,7 @@ afterthought. Three feature groups per segment:
   - `app_counts` — which applications were active during the segment
     (from `context.active_app`, present on nearly every event).
   - `route_counts` — browser routes visited, using the SPA hash-route
-    finding from Day 2, with numeric/ID-looking path segments replaced by
+    finding from the boundary analysis above, with numeric/ID-looking path segments replaced by
     a placeholder so `#/cases/482` and `#/cases/119` count as the same
     route rather than looking unrelated.
   - `text` — all `extracted_text` seen during the segment, vectorized as
@@ -684,7 +705,7 @@ in the exact format the README specifies.
 **Compliance notes, checked explicitly, not assumed:**
 - Dataset_b's ground truth doesn't exist, so there was nothing to peek at.
   The one thing that COULD have been misused — the leaked test-harness
-  setup-script text found on Day 1 — is not read, parsed, or referenced
+  setup-script text found during initial exploration — is not read, parsed, or referenced
   anywhere in this script or the pipeline it calls. It's just ordinary log
   content the pipeline treats the same as any other `extracted_text`.
 - Clustering was run **jointly across all 15 sessions at once** (not
@@ -760,7 +781,7 @@ Committed: `scripts/run_step1_dataset_b.py`, `segments.jsonl`,
 
 ---
 
-## Day 3 — Task 2: Process Mining + Automation Candidate Selection
+## Main Implementation — Task 2: Process Mining + Automation Candidate Selection
 
 ### Process mining on dataset_b's segments.jsonl
 
@@ -860,7 +881,7 @@ the workflow is realistically automatable.
 
 ---
 
-## Day 4 — Task 3: Feasibility Investigation + Automation Scope
+## Main Implementation — Task 3: Feasibility Investigation + Automation Scope
 
 ### Feasibility investigation, before building anything
 
@@ -942,7 +963,7 @@ already cover).
 
 ---
 
-## Day 5 — Task 3: Working Prototype + Final Validation/Submission
+## Main Implementation — Task 3: Working Prototype, and the Session-Closing Audit
 
 ### Building the working prototype
 
@@ -1105,3 +1126,34 @@ that was already made and already documented elsewhere.
 Committed: `FINAL_REPORT.md`, `WORKLOG.md` (this entry + the GenAI
 disclosure), `scripts/evaluate_labeling.py` (reproducibility fix),
 `reports/step1/labeling_results.json` (regenerated by the fixed script).
+
+---
+
+## Continued Review, and Final Documentation (the days following, before submission)
+
+### Continued review, validation, and refinement
+
+After the session above closed out the technical build and its own
+self-verification pass, the work continued to be reviewed rather than
+being treated as final immediately: going back over the outputs,
+deepening understanding of the implementation, re-checking the Step 2
+ranking and Step 3 scope against the underlying evidence, and generally
+validating that the report's claims still held up on a second look. This
+period did not produce new commits — the technical artifacts
+(`segments.jsonl`, the Step 1/2/3 code, the reports, the automation
+prototype) and their audit were already complete and unchanged from the
+session above; this was reading and re-checking, not additional
+development.
+
+### Final documentation refinement
+
+Immediately before submission, the wording of two things was revisited
+for accuracy: this log's own organizational framing (originally described
+as "Day 1-5," which read as a literal five-calendar-day schedule and was
+reworded to describe the actual stages of work instead — this section),
+and the GenAI-usage disclosure above (reworded to lead with the
+submitter's role — direction, constraints, decisions, review — rather
+than opening with a framing that overstated Claude Code's share of the
+work). This is git-verified as later, separate commits from the main
+implementation session. `FINAL_REPORT.md` §10 states this same
+distinction explicitly.

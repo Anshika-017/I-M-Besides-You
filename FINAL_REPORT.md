@@ -59,8 +59,8 @@ exactly) has none.
 Before any modeling: found that the originally-provided `dataset_a` zip
 was incomplete (screenshots only, missing all `events.jsonl`/ground truth)
 and paused until the correct multi-part export was supplied — verified the
-replacement covered all 63 sessions before proceeding. See `WORKLOG.md`,
-Day 1 opening entries.
+replacement covered all 63 sessions before proceeding. See `WORKLOG.md`'s
+opening entries (initial understanding and preparation).
 
 ---
 
@@ -409,28 +409,41 @@ major decisions, and to review the resulting work and final outputs.
 
 ## 10. Time Allocation
 
-The actual execution was a compressed, continuous AI-assisted session
-(commit timestamps span 09:54-12:12 on 2026-09-09, with earlier
-data-verification work on 2026-09-08 before git was initialized — see
-`git log`), not literally paced across 7 calendar days. Mapping the actual
-proportion of effort onto a 7-day cadence, which is what the assignment's
-"how you allocated the 7 days, and why" is really asking about — the
-prioritization judgment, not a timesheet. `WORKLOG.md` groups this same
-work into 5 broader phases keyed to the assignment's 3 tasks (Day 1 =
-understanding + Task 1 prep, Day 2 = all of Task 1, Day 3 = Task 2, Day
-4-5 = Task 3); the table below spreads those same phases across the full
-7-day window the README asks about, splitting the two largest phases
-(Task 1 and Task 3) into their natural sub-stages:
+**Actual execution timeline, stated plainly:** understanding and
+preparation happened on 2026-09-08 (reading the assignment, resolving the
+incomplete `dataset_a` zip), before git was initialized. The entire
+technical build — Dataset A exploration through segmentation, labeling,
+applying the frozen pipeline to Dataset B, Step 2's process mining, and
+Step 3's feasibility investigation and working prototype, including the
+self-verification pass that closed out that session — was then carried
+out in one compressed, continuous AI-assisted session on 2026-09-09
+(commit timestamps span 09:54-12:12; see `git log`). In the days that
+followed, the work was reviewed again rather than treated as final
+immediately — going back over the outputs, deepening understanding of the
+implementation, and re-checking results — without producing new commits,
+since the technical artifacts and their audit were already complete.
+Immediately before submission, the wording of this log's own framing and
+the GenAI-usage disclosure was revisited for accuracy (git-verified as
+later, separate commits). None of this was literally paced across 7
+calendar days of development.
 
-| day | focus | why | WORKLOG.md phase |
+The README separately asks "how you allocated the 7 days, and why" —
+that's a question about prioritization judgment, not a literal timesheet,
+so the table below maps the actual work above onto that 7-day framing to
+answer it directly. **This table is that mapping, not a second, competing
+account of when things happened** — the real chronology is the paragraph
+above; splitting the two largest bodies of work (Task 1 and Task 3) into
+sub-stages here is purely to answer the "why" of each priority in order:
+
+| day (allocation framing) | focus | why | actual stage (see above) |
 |---|---|---|---|
-| 1 | Assignment understanding + Task 1 prep: read README/DATA_SCHEMA, catch and resolve the incomplete dataset_a zip, initial Dataset A exploration (corpus stats, ground-truth shape, data-quality fixes) | Understand the hardest, most uncertain part *before* committing to an algorithm design — a wrong assumption here would have wasted every later day | Day 1 |
-| 2 | Task 1 boundary analysis + segmentation design: does-it-predict-boundaries analysis, hard-boundary investigation, over-segmentation investigation, segmentation algorithm design, dev/test evaluation, config selection | Get a validated, held-out-tested boundary detector before trusting it with anything | Day 2 (part 1) |
-| 3 | Task 1 labeling + freeze + apply to Dataset B: features, clustering, two-phase evaluation, freezing the Step 1 config, applying it once to Dataset B, producing `segments.jsonl` | Same discipline applied to the second half of Step 1, then the actual Step 1 deliverable, done only after both pieces were validated | Day 2 (part 2) |
-| 4 | Step 2 process mining: frequency/duration/headcount, evidence-based consolidation, candidate ranking | Turn the raw output into an actionable, evidence-backed priority list | Day 3 |
-| 5 | Step 3 feasibility investigation *before* writing any prototype code | Directly follows the assignment's instruction to assess feasibility and anticipate risks from limited information — this is what caught the "9 processes, not 1" finding, which would have been far more costly to discover mid-build | Day 4 |
-| 6 | Step 3 prototype build, testing, documentation | Narrow, well-scoped build informed by day 5's findings | Day 5 (part 1) |
-| 7 | Final audit (this document) — independent re-verification of every number, a real reproducibility bug found and fixed, submission packaging | Judgment includes checking your own work before handing it over, not just producing it | Day 5 (part 2) |
+| 1 | Assignment understanding + Task 1 prep: read README/DATA_SCHEMA, catch and resolve the incomplete dataset_a zip, initial Dataset A exploration (corpus stats, ground-truth shape, data-quality fixes) | Understand the hardest, most uncertain part *before* committing to an algorithm design — a wrong assumption here would have wasted every later day | Initial understanding and preparation |
+| 2 | Task 1 boundary analysis + segmentation design: does-it-predict-boundaries analysis, hard-boundary investigation, over-segmentation investigation, segmentation algorithm design, dev/test evaluation, config selection | Get a validated, held-out-tested boundary detector before trusting it with anything | Main implementation |
+| 3 | Task 1 labeling + freeze + apply to Dataset B: features, clustering, two-phase evaluation, freezing the Step 1 config, applying it once to Dataset B, producing `segments.jsonl` | Same discipline applied to the second half of Step 1, then the actual Step 1 deliverable, done only after both pieces were validated | Main implementation |
+| 4 | Step 2 process mining: frequency/duration/headcount, evidence-based consolidation, candidate ranking | Turn the raw output into an actionable, evidence-backed priority list | Main implementation |
+| 5 | Step 3 feasibility investigation *before* writing any prototype code | Directly follows the assignment's instruction to assess feasibility and anticipate risks from limited information — this is what caught the "9 processes, not 1" finding, which would have been far more costly to discover mid-build | Main implementation |
+| 6 | Step 3 prototype build, testing, documentation | Narrow, well-scoped build informed by the feasibility findings above | Main implementation |
+| 7 | Final audit (this document) — independent re-verification of every number, a real reproducibility bug found and fixed, submission packaging | Judgment includes checking your own work before handing it over, not just producing it | Main implementation (audit) + continued review/final documentation |
 
 ---
 
@@ -525,7 +538,7 @@ and reading actual output files, not trusting prior prose. See
 | Implementation form + alternatives considered | ✅ | `reports/step3/step3_prototype.md` §8 (UiPath, AI agent, both rejected with reasons) | — |
 | Remaining manual work stated | ✅ | §7 above, `step3_prototype.md` §8 | — |
 | Risks + mitigations | ✅ | `step3_prototype.md` §10 | — |
-| Work log (thinking, tried, failed) | ✅ | `WORKLOG.md`, organized into 5 phases (Day 1-5) matching the assignment's 3 tasks, all 8 required corrections present (§8 above) | — |
+| Work log (thinking, tried, failed) | ✅ | `WORKLOG.md`, organized by actual work stage (initial preparation, main implementation, continued review/validation, final documentation) matching the assignment's 3 tasks, all 8 required corrections present (§8 above) | — |
 | GenAI usage recorded | ✅ (fixed this audit) | `WORKLOG.md` top section | was missing before this audit — genuine gap, now fixed |
 | Time allocation (7 days, why) | ✅ (fixed this audit) | §10 above | was missing before this audit — genuine gap, now fixed |
 | Git history, meaningful incremental commits | ✅ | `git log --oneline`: 10 commits, now 11 with this audit | no squashing/rewriting done |
