@@ -541,7 +541,7 @@ and reading actual output files, not trusting prior prose. See
 | Work log (thinking, tried, failed) | ✅ | `WORKLOG.md`, organized by actual work stage (initial preparation, main implementation, continued review/validation, final documentation) matching the assignment's 3 tasks, all 8 required corrections present (§8 above) | — |
 | GenAI usage recorded | ✅ (fixed this audit) | `WORKLOG.md` top section | was missing before this audit — genuine gap, now fixed |
 | Time allocation (7 days, why) | ✅ (fixed this audit) | §10 above | was missing before this audit — genuine gap, now fixed |
-| Git history, meaningful incremental commits | ✅ | `git log --oneline`: 10 commits, now 11 with this audit | no squashing/rewriting done |
+| Git history, meaningful incremental commits | ✅ | `git log --oneline`: 14 commits — 11 substantive development commits (2026-09-09) plus 3 later documentation-only commits (2026-09-15: GenAI-disclosure wording, Day 1-5 timeline correction) | history was rewritten during finalization — to fix an author identity picked up from machine git config on 11 commits, and to drop one exact-duplicate commit plus the merge and stray Co-Authored-By trailers it produced. Disclosed here, not hidden; no commit's file content, dates, or development/methodology substance was altered by the rewrite |
 | Reproducibility / run instructions | ✅ | §12 above, every command re-run during audit | — |
 | No Dataset B leakage into methodology | ✅ | grepped all code for leaked-text markers — none found; only doc sentences stating non-use | — |
 
